@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rent_fix/screens/get_started.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rent_fix/screens/screens.dart';
 
 void main() {
@@ -15,12 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: GoogleFonts.inter().fontFamily,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
         ),
         useMaterial3: true,
       ),
-      home: const GetStarted(),
+      home: const GetStartedScreen(),
     );
   }
 }
