@@ -5,7 +5,7 @@ class CustomSize extends StatelessWidget {
   final double? width;
   final Widget? child;
 
-  const CustomSize({super.key, this.height, this.width, this.child});
+  const CustomSize({super.key, this.height = 10, this.width = 10, this.child});
 
   @override
   Widget build(BuildContext context) {
