@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rent_fix/screens/get_started.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rent_fix/screens/screens.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class RentFixApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const GetStarted(),
+      home: const GetStartedScreen(),
     );
   }
 }
