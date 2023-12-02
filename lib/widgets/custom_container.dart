@@ -7,14 +7,14 @@ class CustomContainer extends StatelessWidget {
   final BoxDecoration? decoration;
   final Color? shapeColor;
   final bool isShape;
-  final Decoration? shapeDecoration;
+  final BoxDecoration? shapeDecoration;
   final ShapeBorder? borderShape;
   final Gradient? gradient;
   final Shadow? shadow;
   final Widget? child;
 
   const CustomContainer({
-    super.key,
+    Key? key,
     this.height,
     this.width,
     this.decoration,
@@ -26,14 +26,14 @@ class CustomContainer extends StatelessWidget {
     this.isShape = false,
     this.shapeDecoration,
     this.borderShape,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height,
       width: width,
-      decoration: shapeDecoration,
+      decoration: shapeDecoration ?? decoration,
       child: child,
     );
   }

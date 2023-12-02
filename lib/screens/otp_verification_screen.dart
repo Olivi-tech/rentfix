@@ -12,7 +12,7 @@ class OTPVerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.splashBackGround,
+        backgroundColor: AppColors.turquoiseBlue,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -68,13 +68,8 @@ class OTPVerificationScreen extends StatelessWidget {
                 radius: 15,
                 borderColor: Colors.transparent,
                 btnColor: AppColors.darkGreen,
-                child: const CustomText(
-                  label: 'Submit',
-                  textAlign: TextAlign.center,
-                  color: AppColors.white,
-                  size: FontSize.large,
-                  weight: FontWeight.w600,
-                ),
+                text: 'Submit',
+                textColor: Colors.white,
               )
             ],
           ),

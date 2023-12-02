@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rent_fix/screens/otp_verification_screen.dart';
+import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/screens/discover_screen.dart';
+import 'package:rent_fix/screens/home_screen.dart';
+import 'package:rent_fix/screens/screens.dart';
+
+import 'screens/profile_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const RentFixApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RentFixApp extends StatelessWidget {
+  const RentFixApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Rent Fix',
       theme: ThemeData(
-        fontFamily: GoogleFonts.inter().fontFamily,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
         useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.paleSkyBlue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.white,
+        ),
       ),
-      home: const OTPVerificationScreen(),
+      home: const DiscoverScreen(),
     );
   }
 }

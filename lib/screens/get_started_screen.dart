@@ -9,7 +9,7 @@ class GetStartedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.splashBackGround,
+        backgroundColor: AppColors.turquoiseBlue,
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -41,12 +41,8 @@ class GetStartedScreen extends StatelessWidget {
                       width: 161,
                       radius: 15,
                       height: 50,
-                      child: const CustomText(
-                        label: 'GET STARTED',
-                        color: AppColors.splashBackGround,
-                        size: FontSize.small,
-                        weight: FontWeight.w600,
-                      ),
+                      textColor: AppColors.turquoise,
+                      text: 'GET STARTED',
                     ),
                     const CustomSize(
                       height: 20,
