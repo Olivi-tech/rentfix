@@ -25,4 +25,5 @@ class AppColors {
   static const Color paleAqua = Color(0xFFD8F9FA);
   //list
   static const Color softAqua = Color(0xFFCCF3F5);
+  static const Color darkGreen = Color(0xff105456);
 }

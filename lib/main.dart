@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:rent_fix/screens/profile_screen.dart';
-import 'package:rent_fix/screens/settings_screen.dart';
 
 void main() {
   runApp(const RentFixApp());
