@@ -37,9 +37,7 @@ class GetStartedScreen extends StatelessWidget {
                     ),
                     CustomButton(
                       onPressed: () {},
-                      borderColor: Colors.transparent,
                       width: 161,
-                      radius: 15,
                       height: 50,
                       child: const CustomText(
                         label: 'GET STARTED',

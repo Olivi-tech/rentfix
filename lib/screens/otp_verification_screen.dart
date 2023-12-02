@@ -65,8 +65,6 @@ class OTPVerificationScreen extends StatelessWidget {
               ),
               CustomButton(
                 onPressed: () {},
-                radius: 15,
-                borderColor: Colors.transparent,
                 btnColor: AppColors.darkGreen,
                 child: const CustomText(
                   label: 'Submit',

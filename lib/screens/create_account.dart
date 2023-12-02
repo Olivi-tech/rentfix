@@ -50,17 +50,16 @@ class CreateAccountScreen extends StatelessWidget {
                         height: 5,
                       ),
                       const CustomTextField(
-                          hintText: 'Enter phone number here',
-                          fillColor: AppColors.white),
+                        hintText: 'Enter phone number here',
+                        fillColor: AppColors.white,
+                        borderColor: AppColors.black,
+                      ),
                       const CustomSize(
                         height: 30,
                       ),
                       CustomButton(
                         btnColor: AppColors.darkGreen,
                         onPressed: () {},
-                        borderColor: Colors.transparent,
-                        radius: 15,
-                        height: 56,
                         child: const CustomText(
                           label: 'Login with singpass',
                           textAlign: TextAlign.center,

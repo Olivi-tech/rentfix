@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
+import 'package:rent_fix/screens/chat_screen.dart';
+import 'package:rent_fix/screens/create_account.dart';
+import 'package:rent_fix/screens/message_screen.dart';
 import 'package:rent_fix/screens/profile_screen.dart';
+import 'package:rent_fix/screens/settings_screen.dart';
 
 void main() {
   runApp(const RentFixApp());
@@ -20,7 +24,7 @@ class RentFixApp extends StatelessWidget {
           backgroundColor: AppColors.white,
         ),
       ),
-      home: const ProfileScreen(),
+      home: const MessageScreen(),
     );
   }
 }

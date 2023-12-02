@@ -19,6 +19,8 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final FormValidator? validator;
   final bool readOnly;
+  final Color borderColor;
+  final double? borderRadius;
 
   const CustomTextField({
     super.key,
@@ -37,6 +39,8 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.validator,
     this.width,
+    this.borderColor = AppColors.black,
+    this.borderRadius = 20,
   });
 
   @override
@@ -59,7 +63,6 @@ class CustomTextField extends StatelessWidget {
           hintStyle: const TextStyle(
             color: Color(0xFFB8CBCB),
             fontSize: FontSize.small,
-            fontFamily: 'Inter',
             fontWeight: FontWeight.w500,
             height: 0.16,
           ),
@@ -69,22 +72,22 @@ class CustomTextField extends StatelessWidget {
           prefixIcon: iconData != null ? Icon(iconData) : null,
           contentPadding: const EdgeInsets.only(left: 20, top: 20, bottom: 15),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              width: 0.2,
-              color: Colors.black,
+            borderSide: BorderSide(
+              width: 1,
+              color: borderColor,
             ),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(borderRadius!),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
+            borderSide: BorderSide(
               width: 1,
-              color: Colors.black,
+              color: borderColor,
             ),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(borderRadius!),
           ),
           filled: true,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(borderRadius!),
           ),
         ),
       ),
