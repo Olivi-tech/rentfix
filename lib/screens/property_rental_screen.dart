@@ -6,8 +6,8 @@ import 'package:rent_fix/widgets/custom_container.dart';
 import 'package:rent_fix/widgets/custom_size.dart';
 import 'package:rent_fix/widgets/custom_text.dart';
 
-class RentalAgreement extends StatelessWidget {
-  const RentalAgreement({super.key});
+class PropertyRentalAgreement extends StatelessWidget {
+  const PropertyRentalAgreement({super.key});
 
   @override
   Widget build(BuildContext context) {

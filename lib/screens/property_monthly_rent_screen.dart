@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
-class MonthlyRent extends StatelessWidget {
-  const MonthlyRent({super.key});
+class PropertyMonthlyRent extends StatelessWidget {
+  const PropertyMonthlyRent({super.key});
 
   @override
   Widget build(BuildContext context) {

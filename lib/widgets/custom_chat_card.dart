@@ -93,18 +93,25 @@ class CustomCardWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: CustomText(
-                    label: time,
-                    color: AppColors.lightGrey,
-                    size: 10,
-                    weight: FontWeight.w600,
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                    ),
+                    child: CustomText(
+                      label: time,
+                      color: AppColors.lightGrey,
+                      size: 10,
+                      weight: FontWeight.w600,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           ],
         ),
