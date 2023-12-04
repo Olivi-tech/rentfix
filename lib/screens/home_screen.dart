@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/widgets/custom_navigation_bar.dart';
-import 'package:rent_fix/widgets/custom_size.dart';
-import 'package:rent_fix/widgets/custom_text.dart';
-import 'package:rent_fix/widgets/property_container.dart';
-import 'package:rent_fix/widgets/shape_container.dart';
+import 'package:rent_fix/widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.whiteTeal,
-        bottomNavigationBar: CustomNavigationBar(),
+        bottomNavigationBar: const CustomNavigationBar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(

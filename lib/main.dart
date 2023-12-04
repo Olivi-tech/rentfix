@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/screens/discover_screen.dart';
-import 'package:rent_fix/screens/home_screen.dart';
 import 'package:rent_fix/screens/screens.dart';
-
-import 'screens/profile_screen.dart';
 
 void main() {
   runApp(const RentFixApp());
@@ -26,7 +21,7 @@ class RentFixApp extends StatelessWidget {
           backgroundColor: AppColors.white,
         ),
       ),
-      home: const DiscoverScreen(),
+      home: const MakeOffer(),
     );
   }
 }

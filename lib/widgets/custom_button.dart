@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget {
   final double radius;
   final double width;
   final String? text;
+  final bool isChild;
   final Function() onPressed;
   final Color? btnColor;
   final Color borderColor;
@@ -17,14 +18,15 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.borderRadius,
+    this.isChild = false,
     this.text,
     this.textColor,
     this.borderColor = Colors.black,
     required this.onPressed,
     this.btnColor = Colors.white,
     this.child,
-    this.width = 364,
-    this.radius = 0,
+    this.width = 1000,
+    this.radius = 15,
     this.height = 56,
   });
 
@@ -41,12 +43,14 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius), // <-- Radius
         ),
       ),
-      child: CustomText(
-        label: '$text',
-        color: textColor,
-        size: FontSize.xMedium,
-        weight: FontWeight.w600,
-      ),
+      child: isChild
+          ? child
+          : CustomText(
+              label: '$text',
+              color: textColor,
+              size: FontSize.xMedium,
+              weight: FontWeight.w600,
+            ),
     );
     ;
   }
