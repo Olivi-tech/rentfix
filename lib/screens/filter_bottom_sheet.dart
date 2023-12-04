@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/widgets/custom_chat_container.dart';
 import 'package:rent_fix/widgets/custom_dropdown.dart';
-import 'package:rent_fix/widgets/custom_progressbar.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class FilterBottomSheet extends StatefulWidget {
@@ -348,6 +346,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 weight: FontWeight.w600,
               ),
             ),
+            const CustomSize(height: 35),
           ],
         ),
       ),

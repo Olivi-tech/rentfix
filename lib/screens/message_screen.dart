@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rent_fix/constants/app_colors.dart';
-import 'package:rent_fix/constants/app_images.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/custom_chat_card.dart';
 import 'package:rent_fix/widgets/widgets.dart';

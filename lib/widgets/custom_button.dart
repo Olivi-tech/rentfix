@@ -24,7 +24,6 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context).size;
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(

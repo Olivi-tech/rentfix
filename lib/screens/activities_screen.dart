@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rent_fix/constants/app_text.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
@@ -70,7 +69,7 @@ class ActivitiesScreen extends StatelessWidget {
                 ],
               ),
             ),
-            CustomSize(
+            SizedBox(
               height: screenWidth * 0.5,
               child: ListView.builder(
                 itemCount: ActivityDataConstants.activityDataList.length,
@@ -94,7 +93,7 @@ class ActivitiesScreen extends StatelessWidget {
                 weight: FontWeight.w600,
               ),
             ),
-           CustomSize(
+            SizedBox(
               height: MediaQuery.of(context).size.height,
               child: ListView.builder(
                 itemCount: ActivityDataConstants.activityReadDataList.length,
