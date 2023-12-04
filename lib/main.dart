@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
-import 'package:rent_fix/screens/chat_screen.dart';
-import 'package:rent_fix/screens/create_account.dart';
-import 'package:rent_fix/screens/message_screen.dart';
-import 'package:rent_fix/screens/profile_screen.dart';
-import 'package:rent_fix/screens/settings_screen.dart';
+import 'package:rent_fix/screens/activities_screen.dart';
+import 'package:rent_fix/screens/property_description_screen.dart';
+import 'package:rent_fix/screens/property_furnished_screen.dart';
+import 'package:rent_fix/screens/property_size_apparment_screen.dart';
+import 'package:rent_fix/screens/property_type_screen.dart';
+import 'package:rent_fix/screens/property_rental_screen.dart';
+import 'package:rent_fix/screens/screens.dart';
+import 'package:rent_fix/widgets/custom_container.dart';
+
+import 'screens/property_monthly_rent_screen.dart';
 
 void main() {
   runApp(const RentFixApp());
@@ -24,7 +29,7 @@ class RentFixApp extends StatelessWidget {
           backgroundColor: AppColors.white,
         ),
       ),
-      home: const MessageScreen(),
+      home: PropertyDescription(),
     );
   }
 }

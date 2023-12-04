@@ -12,6 +12,7 @@ class AppImages {
 
   static const cameraIcon = 'assets/svgs/camera.svg';
   static const camIcon = 'assets/svgs/cam.svg';
+  static const arrowdownIcon = 'assets/svgs/arrowdown.svg';
   static const sendIcon = 'assets/svgs/send.svg';
   static const emojiIcon = 'assets/svgs/emoji.svg';
   static const editIcon = 'assets/svgs/edit.svg';
@@ -21,4 +22,5 @@ class AppImages {
   static const thumnbsupIcon = 'assets/svgs/thumbsup.svg';
   static const editProfileIcon = 'assets/svgs/edit_profile.svg';
   static const arrowRightIcon = 'assets/svgs/arrow_right.svg';
+  static const deleteIcon = 'assets/svgs/delete.svg';
 }

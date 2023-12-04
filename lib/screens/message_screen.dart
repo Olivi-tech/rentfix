@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:rent_fix/constants/app_images.dart';
+import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/custom_chat_card.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -21,7 +22,7 @@ class MessageScreen extends StatelessWidget {
           CustomText(
             label: '32 Contacts Available',
             color: AppColors.black,
-            size: 14,
+            size: FontSize.xxMedium,
             weight: FontWeight.w600,
           ),
           CustomCardWidget(

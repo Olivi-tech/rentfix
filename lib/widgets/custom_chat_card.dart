@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
+import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class CustomCardWidget extends StatelessWidget {
@@ -81,13 +82,13 @@ class CustomCardWidget extends StatelessWidget {
                   CustomText(
                     label: name,
                     color: AppColors.black,
-                    size: 16,
+                    size: FontSize.xMedium,
                     weight: FontWeight.w600,
                   ),
                   CustomText(
                     label: description,
                     color: AppColors.black,
-                    size: 14,
+                    size: FontSize.xxMedium,
                     weight: FontWeight.w400,
                   ),
                 ],

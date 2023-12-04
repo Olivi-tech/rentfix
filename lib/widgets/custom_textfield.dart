@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
   final bool isVisibleText;
   final double height;
   final Color fillColor;
+  final Color? hintColor;
   final double? width;
   final TextStyle? hintStyle;
   final TextStyle? suffixStyle;
@@ -41,11 +42,13 @@ class CustomTextField extends StatelessWidget {
     this.width,
     this.borderColor = AppColors.black,
     this.borderRadius = 20,
+    this.hintColor = AppColors.grey,
   });
 
   @override
   build(BuildContext context) {
     return SizedBox(
+      width: width,
       height: height,
       child: TextFormField(
         cursorColor: AppColors.turquoise,
@@ -58,19 +61,23 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         obscureText: isVisibleText,
         obscuringCharacter: '*',
+        style: TextStyle(
+          color: hintColor,
+          fontSize: FontSize.small,
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: const TextStyle(
-            color: Color(0xFFB8CBCB),
+          hintStyle: TextStyle(
+            color: hintColor,
             fontSize: FontSize.small,
             fontWeight: FontWeight.w500,
-            height: 0.16,
           ),
           fillColor: fillColor,
           suffixIcon: suffixIcon,
           suffixStyle: suffixStyle,
           prefixIcon: iconData != null ? Icon(iconData) : null,
-          contentPadding: const EdgeInsets.only(left: 20, top: 20, bottom: 15),
+          contentPadding: const EdgeInsets.only(left: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,

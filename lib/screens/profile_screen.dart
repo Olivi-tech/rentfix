@@ -232,7 +232,7 @@ class ProfileScreen extends StatelessWidget {
                               padding: EdgeInsets.all(8),
                               child: Icon(
                                 Icons.add,
-                                size: 14,
+                                size: FontSize.xxMedium,
                                 color: AppColors.black,
                               ),
                             ),
@@ -284,7 +284,7 @@ class ProfileScreen extends StatelessWidget {
                               padding: EdgeInsets.all(8),
                               child: Icon(
                                 Icons.add,
-                                size: 14,
+                                size: FontSize.xxMedium,
                                 color: AppColors.black,
                               ),
                             ),

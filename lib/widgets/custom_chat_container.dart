@@ -33,7 +33,7 @@ class ChatUserContainer extends StatelessWidget {
               CustomText(
                 label: message,
                 color: AppColors.white,
-                size: 14,
+                size: FontSize.xxMedium,
                 weight: FontWeight.w500,
               ),
               const CustomSize(
@@ -102,7 +102,7 @@ class ChatContainer extends StatelessWidget {
                 CustomText(
                   label: message,
                   color: AppColors.black,
-                  size: 14,
+                  size: FontSize.xxMedium,
                   weight: FontWeight.w500,
                 ),
                 const CustomSize(

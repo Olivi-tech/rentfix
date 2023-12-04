@@ -107,10 +107,10 @@ class CustomChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                         CustomText(
                           label: titleName,
                           color: AppColors.black,
-                          size: 14,
+                          size: FontSize.xxMedium,
                           weight: FontWeight.w600,
                         ),
-                        CustomSize(
+                        const CustomSize(
                           height: 5,
                         ),
                         Container(

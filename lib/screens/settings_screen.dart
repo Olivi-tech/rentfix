@@ -122,13 +122,35 @@ class SettingsScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 5),
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
-                    color: AppColors.coralPink,
+                    color: AppColors.blue,
                   ),
                 ),
                 title: const CustomText(
                   weight: FontWeight.w500,
                   size: FontSize.xxMedium,
                   label: 'Logout',
+                  color: AppColors.blue,
+                ),
+                onTap: () async {},
+              ),
+              const CustomSize(
+                height: 10,
+              ),
+              CustomListTile(
+                leading: SvgPicture.asset(
+                  AppImages.deleteIcon,
+                ),
+                trailing: const Padding(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: Icon(
+                    Icons.keyboard_arrow_right_outlined,
+                    color: AppColors.coralPink,
+                  ),
+                ),
+                title: const CustomText(
+                  weight: FontWeight.w500,
+                  size: FontSize.xxMedium,
+                  label: 'Delete Acount',
                   color: AppColors.coralPink,
                 ),
                 onTap: () async {},
