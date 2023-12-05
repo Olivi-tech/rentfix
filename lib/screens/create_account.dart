@@ -47,7 +47,7 @@ class CreateAccountScreen extends StatelessWidget {
                         weight: FontWeight.w500,
                       ),
                       const CustomSize(
-                        height: 5,
+                        height: 10,
                       ),
                       const CustomTextField(
                         hintText: 'Enter phone number here',
@@ -59,6 +59,7 @@ class CreateAccountScreen extends StatelessWidget {
                       ),
                       CustomButton(
                         width: MediaQuery.of(context).size.width,
+                        height: 56,
                         btnColor: AppColors.darkGreen,
                         onPressed: () {
                           Navigator.of(context).pushNamed(AppRoutes.otpVerify);

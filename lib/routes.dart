@@ -21,14 +21,8 @@ class Routers {
         return const Home();
       case AppRoutes.listDetails:
         return const ListingDetails();
-      case AppRoutes.offerOne:
-        return const MakeOffer();
-      case AppRoutes.offerTwo:
-        return const ProfileScreen();
-      case AppRoutes.offerThree:
-        return const ProfileScreen();
-      case AppRoutes.offerFour:
-        return const FourthOfferScreen();
+      case AppRoutes.offer:
+        return const OfferScreen();
       case AppRoutes.discover:
         return const DiscoverScreen();
       case AppRoutes.chat:

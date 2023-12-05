@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/app_colors.dart';
@@ -9,7 +8,6 @@ import 'package:rent_fix/widgets/widgets.dart';
 
 void main() => runApp(
       DevicePreview(
-        enabled: !kReleaseMode,
         builder: (context) => const RentFixApp(),
       ),
     );
