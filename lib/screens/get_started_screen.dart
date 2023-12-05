@@ -7,6 +7,7 @@ class GetStartedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.turquoiseBlue,
@@ -35,13 +36,21 @@ class GetStartedScreen extends StatelessWidget {
                       size: FontSize.exLarge,
                       weight: FontWeight.w900,
                     ),
+                    const CustomSize(
+                      height: 10,
+                    ),
                     CustomButton(
-                      onPressed: () {},
+                      width: mq.width * 0.45,
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(AppRoutes.createAccount);
+                      },
                       textColor: AppColors.turquoise,
+                      borderColor: Colors.transparent,
                       text: 'GET STARTED',
                     ),
                     const CustomSize(
-                      height: 20,
+                      height: 10,
                     ),
                     const Text.rich(
                       TextSpan(

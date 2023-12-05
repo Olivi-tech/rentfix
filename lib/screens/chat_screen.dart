@@ -3,8 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
-import '../widgets/custom_chat_container.dart';
-
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 

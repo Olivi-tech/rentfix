@@ -19,3 +19,4 @@ export 'discover_screen.dart';
 export 'home_screen.dart';
 export 'make _offer_first.dart';
 export 'fourth_offer_screen.dart';
+export 'home.dart';

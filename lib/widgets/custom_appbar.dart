@@ -79,6 +79,8 @@ class CustomChatAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Padding(
           padding: const EdgeInsets.only(top: 8),
           child: AppBar(
+            surfaceTintColor: Colors.transparent,
+            elevation: 0,
             titleSpacing: 6,
             leading: GestureDetector(
               onTap: () {

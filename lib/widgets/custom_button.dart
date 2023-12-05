@@ -7,7 +7,7 @@ class CustomButton extends StatelessWidget {
   final Widget? child;
   final double height;
   final double radius;
-  final double? width;
+  final double width;
   final String? text;
   final bool isChild;
   final Function() onPressed;
@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.btnColor = Colors.white,
     this.child,
-    this.width,
+    required this.width,
     this.radius = 15,
     this.height = 56,
   });
@@ -35,8 +35,9 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(MediaQuery.of(context).size.width, height),
+        fixedSize: Size(width, height),
         backgroundColor: btnColor,
+        elevation: 0,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(radius), // <-- Radius

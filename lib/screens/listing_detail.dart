@@ -8,7 +8,6 @@ class ListingDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const CustomNavigationBar(),
       appBar: const CustomAppBar(
         title: 'Listing Details',
       ),
@@ -203,6 +202,7 @@ class ListingDetails extends StatelessWidget {
                 height: 10,
               ),
               CustomButton(
+                width: MediaQuery.of(context).size.width,
                 isChild: true,
                 borderColor: Colors.transparent,
                 btnColor: AppColors.paleAqua,
@@ -408,11 +408,14 @@ class ListingDetails extends StatelessWidget {
                 height: 20,
               ),
               CustomButton(
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.transparent,
                 text: 'Make Offer',
                 textColor: Colors.white,
                 btnColor: AppColors.turquoise,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.offerOne);
+                },
               ),
               const SizedBox(
                 height: 20,

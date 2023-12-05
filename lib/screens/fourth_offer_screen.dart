@@ -37,6 +37,7 @@ class FourthOfferScreen extends StatelessWidget {
               height: 20,
             ),
             CustomButton(
+              width: MediaQuery.of(context).size.width,
               borderColor: Colors.transparent,
               btnColor: AppColors.turquoise,
               text: 'Submit',

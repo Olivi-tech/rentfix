@@ -179,6 +179,7 @@ class PropertyAddress extends StatelessWidget {
               ),
             ),
             CustomButton(
+              width: MediaQuery.of(context).size.width,
               onPressed: () {},
               btnColor: AppColors.turquoise,
               borderColor: Colors.transparent,

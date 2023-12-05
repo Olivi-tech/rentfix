@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:rent_fix/screens/property_address_screen.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/providers/bottom_navigation_provider.dart';
+import 'package:rent_fix/widgets/widgets.dart';
 
 void main() => runApp(
       DevicePreview(
@@ -14,20 +16,25 @@ void main() => runApp(
 
 class RentFixApp extends StatelessWidget {
   const RentFixApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: AppColors.paleSkyBlue,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.white,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<BottomNavigationProvider>(
+          create: (context) => BottomNavigationProvider(),
         ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          scaffoldBackgroundColor: AppColors.paleSkyBlue,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: AppColors.white,
+          ),
+        ),
+        onGenerateRoute: Routers.generateRoute,
       ),
-      home: const PropertyAddress(),
     );
   }
 }

@@ -298,15 +298,12 @@ class ProfileScreen extends StatelessWidget {
                   height: 40,
                 ),
                 CustomButton(
+                  width: MediaQuery.of(context).size.width,
                   onPressed: () {},
+                  text: 'save',
+                  textColor: AppColors.white,
                   btnColor: AppColors.turquoise,
                   borderColor: Colors.transparent,
-                  child: const CustomText(
-                    label: 'save',
-                    color: AppColors.white,
-                    size: FontSize.xMedium,
-                    weight: FontWeight.w600,
-                  ),
                 ),
                 const CustomSize(
                   height: 40,

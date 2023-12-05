@@ -336,15 +336,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               },
             ),
             CustomButton(
+              width: MediaQuery.of(context).size.width,
               onPressed: () {},
               btnColor: AppColors.turquoise,
               borderColor: Colors.transparent,
-              child: const CustomText(
-                label: 'Apply Filters',
-                color: AppColors.white,
-                size: FontSize.xMedium,
-                weight: FontWeight.w600,
-              ),
+              text: 'Apply Filters',
+              textColor: AppColors.white,
             ),
             const CustomSize(height: 35),
           ],

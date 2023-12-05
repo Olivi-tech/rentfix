@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/widgets/custom_chat_card.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class MessageScreen extends StatelessWidget {
@@ -8,16 +7,16 @@ class MessageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(
+    return Scaffold(
+      appBar: const CustomAppBar(
         title: 'Messages',
         showSearchIcon: true,
       ),
       body: SingleChildScrollView(
           child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CustomText(
+          const CustomText(
             label: '32 Contacts Available',
             color: AppColors.black,
             size: FontSize.xxMedium,
@@ -30,6 +29,9 @@ class MessageScreen extends StatelessWidget {
                 'Lorem ipsum dolor sit amet,\nconse ctetur adipiscing...',
             showGreenCircle: true,
             time: '5 mins',
+            ontap: () {
+              Navigator.of(context).pushNamed(AppRoutes.chat);
+            },
           ),
           CustomCardWidget(
             imagePath: AppImages.characterImage,
@@ -38,6 +40,9 @@ class MessageScreen extends StatelessWidget {
                 'Lorem ipsum dolor sit amet,\nconse ctetur adipiscing...',
             showGreenCircle: false,
             time: '5 mins',
+            ontap: () {
+              Navigator.of(context).pushNamed(AppRoutes.chat);
+            },
           ),
           CustomCardWidget(
             imagePath: AppImages.characterImage,
@@ -46,6 +51,9 @@ class MessageScreen extends StatelessWidget {
                 'Lorem ipsum dolor sit amet,\nconse ctetur adipiscing...',
             showGreenCircle: true,
             time: '5 mins',
+            ontap: () {
+              Navigator.of(context).pushNamed(AppRoutes.chat);
+            },
           ),
           CustomCardWidget(
             imagePath: AppImages.characterImage,
@@ -54,6 +62,9 @@ class MessageScreen extends StatelessWidget {
                 'Lorem ipsum dolor sit amet,\nconse ctetur adipiscing...',
             showGreenCircle: false,
             time: '5 mins',
+            ontap: () {
+              Navigator.of(context).pushNamed(AppRoutes.chat);
+            },
           ),
           CustomCardWidget(
             imagePath: AppImages.characterImage,
@@ -62,6 +73,9 @@ class MessageScreen extends StatelessWidget {
                 'Lorem ipsum dolor sit amet,\nconse ctetur adipiscing...',
             showGreenCircle: false,
             time: '5 mins',
+            ontap: () {
+              Navigator.of(context).pushNamed(AppRoutes.chat);
+            },
           ),
           CustomCardWidget(
             imagePath: AppImages.characterImage,
@@ -70,6 +84,9 @@ class MessageScreen extends StatelessWidget {
                 'Lorem ipsum dolor sit amet,\nconse ctetur adipiscing...',
             showGreenCircle: true,
             time: '5 mins',
+            ontap: () {
+              Navigator.of(context).pushNamed(AppRoutes.chat);
+            },
           ),
         ]),
       )),

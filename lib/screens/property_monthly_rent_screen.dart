@@ -45,6 +45,7 @@ class PropertyMonthlyRent extends StatelessWidget {
             height: 10,
           ),
           CustomButton(
+            width: MediaQuery.of(context).size.width,
             onPressed: () {},
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,

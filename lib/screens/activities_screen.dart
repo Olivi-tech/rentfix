@@ -27,42 +27,23 @@ class ActivitiesScreen extends StatelessWidget {
                     size: FontSize.xxMedium,
                     weight: FontWeight.w600,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (BuildContext context) {
-                          return ClipRRect(
-                            borderRadius: const BorderRadius.vertical(
-                                top: Radius.circular(30.0)),
-                            child: Container(
-                              color: AppColors.paleSkyBlue,
-                              height: MediaQuery.of(context).size.height * 0.85,
-                              child: const FilterBottomSheet(),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                    child: Container(
-                      width: screenWidth * 0.28,
-                      height: screenWidth * 0.06,
-                      decoration: ShapeDecoration(
-                        color: AppColors.paleBlue,
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                              width: 1, color: AppColors.turquoiseBlue),
-                          borderRadius: BorderRadius.circular(6),
-                        ),
+                  Container(
+                    width: screenWidth * 0.28,
+                    height: screenWidth * 0.06,
+                    decoration: ShapeDecoration(
+                      color: AppColors.paleBlue,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 1, color: AppColors.turquoiseBlue),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: const Center(
-                        child: CustomText(
-                          label: 'Mark all as read',
-                          color: AppColors.darkTeal,
-                          size: 10,
-                          weight: FontWeight.w500,
-                        ),
+                    ),
+                    child: const Center(
+                      child: CustomText(
+                        label: 'Mark all as read',
+                        color: AppColors.darkTeal,
+                        size: 10,
+                        weight: FontWeight.w500,
                       ),
                     ),
                   ),

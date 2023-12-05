@@ -48,6 +48,7 @@ class PropertyDescription extends StatelessWidget {
             height: 50,
           ),
           CustomButton(
+            width: MediaQuery.of(context).size.width,
             onPressed: () {},
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,

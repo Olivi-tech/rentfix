@@ -58,8 +58,11 @@ class CreateAccountScreen extends StatelessWidget {
                         height: 30,
                       ),
                       CustomButton(
+                        width: MediaQuery.of(context).size.width,
                         btnColor: AppColors.darkGreen,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(AppRoutes.otpVerify);
+                        },
                         borderColor: Colors.transparent,
                         textColor: Colors.white,
                         text: 'Submit',

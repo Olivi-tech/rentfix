@@ -97,6 +97,7 @@ class MakeOffer extends StatelessWidget {
                 height: 20,
               ),
               CustomButton(
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.transparent,
                 btnColor: AppColors.turquoise,
                 text: 'Next',
@@ -140,6 +141,7 @@ class MakeOffer extends StatelessWidget {
           height: 20,
         ),
         CustomButton(
+          width: 350,
           borderColor: Colors.transparent,
           btnColor: AppColors.turquoise,
           textColor: Colors.white,
@@ -180,6 +182,7 @@ class MakeOffer extends StatelessWidget {
           height: 20,
         ),
         CustomButton(
+          width: 350,
           borderColor: Colors.transparent,
           btnColor: AppColors.turquoise,
           textColor: Colors.white,
