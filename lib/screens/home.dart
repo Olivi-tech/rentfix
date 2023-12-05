@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/screens/screens.dart';
-import 'package:rent_fix/widgets/custom_settingdropdown.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 import '../providers/bottom_navigation_provider.dart';

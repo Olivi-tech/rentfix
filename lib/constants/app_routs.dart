@@ -9,8 +9,5 @@ class AppRoutes {
   static const settings = '/settings';
   static const listDetails = '/listDestails';
   static const chat = '/chat';
-  static const offerOne = '/offerOne';
-  static const offerTwo = '/offerTwo';
-  static const offerThree = '/offerThree';
-  static const offerFour = '/offerFour';
+  static const offer = '/offer';
 }

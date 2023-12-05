@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class ActivitiesScreen extends StatelessWidget {
