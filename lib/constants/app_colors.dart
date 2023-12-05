@@ -38,6 +38,7 @@ class AppColors {
   //for containers
   //icon container & message container
   static const Color paleBlue = Color(0xFFB8F2F3);
+  static const skyBlue = Color(0x4CB8F2F3);
 
   //list container
   static const Color paleAqua = Color(0xFFD8F9FA);

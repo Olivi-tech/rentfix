@@ -255,3 +255,74 @@ class PropertyContainer extends StatelessWidget {
     );
   }
 }
+
+class SummaryContainer extends StatelessWidget {
+  final String headingText;
+  final String detailText;
+
+  const SummaryContainer(
+      {super.key, required this.headingText, required this.detailText});
+
+  @override
+  Widget build(BuildContext context) {
+    return ShapeContainer(
+      height: 82,
+      decoration: ShapeDecoration(
+        color: AppColors.paleAqua,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, top: 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomText(
+                      label: headingText,
+                      color: AppColors.darkGreen,
+                      size: FontSize.xxMedium,
+                      weight: FontWeight.w600,
+                    ),
+                    const CustomSize(
+                      height: 3,
+                    ),
+                    CustomText(
+                      label: detailText,
+                      color: AppColors.darkGreen,
+                      size: FontSize.xxMedium,
+                      weight: FontWeight.w300,
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ShapeContainer(
+                      width: 32,
+                      height: 32,
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Image.asset(AppImages.pen),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -4,7 +4,8 @@ import 'package:rent_fix/constants/app_colors.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/bottom_navigation_provider.dart';
-import 'package:rent_fix/widgets/widgets.dart';
+import 'package:rent_fix/screens/property_add_photo.dart';
+import 'package:rent_fix/screens/screens.dart';
 
 void main() => runApp(
       DevicePreview(
@@ -31,7 +32,8 @@ class RentFixApp extends StatelessWidget {
             backgroundColor: AppColors.white,
           ),
         ),
-        onGenerateRoute: Routers.generateRoute,
+        home: const ActivitiesScreen(),
+        // onGenerateRoute: Routers.generateRoute,
       ),
     );
   }

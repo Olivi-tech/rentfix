@@ -27,8 +27,8 @@ class ActivitiesScreen extends StatelessWidget {
                     weight: FontWeight.w600,
                   ),
                   Container(
-                    width: screenWidth * 0.28,
-                    height: screenWidth * 0.06,
+                    width: screenWidth * 0.25,
+                    height: screenWidth * 0.07,
                     decoration: ShapeDecoration(
                       color: AppColors.paleBlue,
                       shape: RoundedRectangleBorder(
@@ -38,11 +38,14 @@ class ActivitiesScreen extends StatelessWidget {
                       ),
                     ),
                     child: const Center(
-                      child: CustomText(
-                        label: 'Mark all as read',
-                        color: AppColors.darkTeal,
-                        size: 10,
-                        weight: FontWeight.w500,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 5, right: 5),
+                        child: CustomText(
+                          label: 'Mark all as read',
+                          color: AppColors.darkTeal,
+                          size: 10,
+                          weight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),

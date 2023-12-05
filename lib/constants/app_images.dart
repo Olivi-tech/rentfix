@@ -29,6 +29,7 @@ class AppImages {
 
   static const oldMen = 'assets/images/old_man.png';
   static const cameraIcon = 'assets/svgs/camera.svg';
+  static const galleryIcon = 'assets/svgs/gallery.svg';
   static const camIcon = 'assets/svgs/cam.svg';
   static const arrowdownIcon = 'assets/svgs/arrowdown.svg';
   static const sendIcon = 'assets/svgs/send.svg';
