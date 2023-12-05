@@ -2,12 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:rent_fix/screens/property_address_screen.dart';
 import 'package:rent_fix/screens/screens.dart';
 
 void main() => runApp(
       DevicePreview(
         enabled: !kReleaseMode,
-        builder: (context) => const RentFixApp(), // Wrap your app
+        builder: (context) => const RentFixApp(),
       ),
     );
 
@@ -25,7 +26,7 @@ class RentFixApp extends StatelessWidget {
           backgroundColor: AppColors.white,
         ),
       ),
-      home: const PropertyType(),
+      home: const PropertyAddress(),
     );
   }
 }
