@@ -1,9 +1,14 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/screens/screens.dart';
 
 void main() {
-  runApp(const RentFixApp());
+  runApp(DevicePreview(
+    builder: (context) {
+      return const RentFixApp();
+    },
+  ));
 }
 
 class RentFixApp extends StatelessWidget {
@@ -13,6 +18,8 @@ class RentFixApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -21,7 +28,7 @@ class RentFixApp extends StatelessWidget {
           backgroundColor: AppColors.white,
         ),
       ),
-      home: const MakeOffer(),
+      home: const GetStartedScreen(),
     );
   }
 }

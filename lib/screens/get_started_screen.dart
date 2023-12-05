@@ -12,6 +12,7 @@ class GetStartedScreen extends StatelessWidget {
         backgroundColor: AppColors.turquoiseBlue,
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Padding(

@@ -39,6 +39,7 @@ dependencies:
   pinput: ^3.0.1
   flutter_svg: ^2.0.9
   syncfusion_flutter_datepicker: ^23.2.6
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:

@@ -29,9 +29,12 @@ class ListingDetails extends StatelessWidget {
                           height: 220,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              AppImages.sofaSet,
-                              fit: BoxFit.fitHeight,
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Image.asset(
+                                AppImages.sofaSet,
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ))),
                   Padding(
@@ -321,6 +324,7 @@ class ListingDetails extends StatelessWidget {
               ),
               Container(
                 height: 160,
+                width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(20),
@@ -334,7 +338,7 @@ class ListingDetails extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                width: 380,
+                width: double.infinity,
                 height: 88,
                 decoration: ShapeDecoration(
                   color: AppColors.paleAqua,

@@ -7,5 +7,4 @@ export 'profile_screen.dart';
 export 'discover_screen.dart';
 export 'home_screen.dart';
 export 'settings_screen.dart';
-export 'make _offer_first.dart';
-export 'fourth_offer_screen.dart';
+export 'offer_screen.dart';
