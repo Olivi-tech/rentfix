@@ -28,7 +28,7 @@ class RentFixApp extends StatelessWidget {
           backgroundColor: AppColors.white,
         ),
       ),
-      home: const GetStartedScreen(),
+      home: const OfferScreen(),
     );
   }
 }
