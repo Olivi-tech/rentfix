@@ -31,23 +31,50 @@ class _HomeState extends State<Home> {
           child: _widgetOptions.elementAt(indexValue.selectedIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Image.asset(AppImages.home),
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 10.0, top: 12),
+                child: Image.asset(
+                  AppImages.home,
+                  color: indexValue.selectedIndex == 0
+                      ? AppColors.darkGreen
+                      : AppColors.pastelblue,
+                ),
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Image.asset(AppImages.search),
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 10.0, top: 12),
+                child: Image.asset(
+                  AppImages.search,
+                  color: indexValue.selectedIndex == 1
+                      ? AppColors.darkGreen
+                      : AppColors.pastelblue,
+                ),
+              ),
               label: "Discover",
             ),
             const BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: 10.0, top: 12),
+                child: Icon(Icons.notifications),
+              ),
               label: "Activities",
             ),
             BottomNavigationBarItem(
-              icon: Image.asset(AppImages.chat),
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 10.0, top: 12),
+                child: Image.asset(
+                  AppImages.chat,
+                  color: indexValue.selectedIndex == 3
+                      ? AppColors.darkGreen
+                      : AppColors.pastelblue,
+                ),
+              ),
               label: "Chat",
             ),
             BottomNavigationBarItem(
@@ -127,7 +154,6 @@ class _HomeState extends State<Home> {
     DiscoverScreen(),
     ActivitiesScreen(),
     MessageScreen(),
-    // SettingsScreen(),
   ];
 
   void _onItemTapped(int index) {

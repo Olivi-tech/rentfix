@@ -24,8 +24,8 @@ class ProfileScreen extends StatelessWidget {
                   height: 20,
                 ),
                 CustomContainer(
-                  width: mq.width * 0.38,
-                  height: mq.height * 0.18,
+                  width: mq.width * 0.35,
+                  height: mq.height * 0.16,
                   shapeDecoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -313,7 +313,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           Positioned(
             top: 130,
-            left: 225,
+            left: 255,
             child: CustomContainer(
               width: mq.width * 0.11,
               height: mq.height * 0.05,

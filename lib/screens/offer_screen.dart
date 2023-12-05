@@ -238,7 +238,9 @@ class _OfferScreenState extends State<OfferScreen> {
         text: 'Submit',
         width: MediaQuery.of(context).size.width,
         textColor: AppColors.white,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
       )
     ]);
   }
