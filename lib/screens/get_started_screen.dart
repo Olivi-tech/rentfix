@@ -9,7 +9,7 @@ class GetStartedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.turquoise,
+        backgroundColor: AppColors.turquoiseBlue,
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,14 +37,8 @@ class GetStartedScreen extends StatelessWidget {
                     ),
                     CustomButton(
                       onPressed: () {},
-                      width: 161,
-                      height: 50,
-                      child: const CustomText(
-                        label: 'GET STARTED',
-                        color: AppColors.turquoise,
-                        size: FontSize.small,
-                        weight: FontWeight.w600,
-                      ),
+                      textColor: AppColors.turquoise,
+                      text: 'GET STARTED',
                     ),
                     const CustomSize(
                       height: 20,

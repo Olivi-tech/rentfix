@@ -14,3 +14,8 @@ export 'property_furnished_screen.dart';
 export 'property_size_apparment_screen.dart';
 export 'property_monthly_rent_screen.dart';
 export 'property_description_screen.dart';
+export 'listing_detail.dart';
+export 'discover_screen.dart';
+export 'home_screen.dart';
+export 'make _offer_first.dart';
+export 'fourth_offer_screen.dart';

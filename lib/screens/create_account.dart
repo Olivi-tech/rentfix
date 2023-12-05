@@ -9,7 +9,7 @@ class CreateAccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.turquoise,
+        backgroundColor: AppColors.turquoiseBlue,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -60,13 +60,9 @@ class CreateAccountScreen extends StatelessWidget {
                       CustomButton(
                         btnColor: AppColors.darkGreen,
                         onPressed: () {},
-                        child: const CustomText(
-                          label: 'Login with singpass',
-                          textAlign: TextAlign.center,
-                          color: AppColors.white,
-                          size: FontSize.small,
-                          weight: FontWeight.w600,
-                        ),
+                        borderColor: Colors.transparent,
+                        textColor: Colors.white,
+                        text: 'Submit',
                       ),
                       const CustomSize(
                         height: 20,

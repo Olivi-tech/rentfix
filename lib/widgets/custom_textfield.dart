@@ -6,6 +6,7 @@ import 'package:rent_fix/utils/utils.dart';
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController? controller;
+  final bool isBorder;
   final Widget? suffixIcon;
   final List<TextInputFormatter>? textInputFormatter;
   final bool isVisibleText;
@@ -26,6 +27,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.iconData,
+    this.isBorder = false,
     this.controller,
     this.height = 56,
     this.textInputFormatter,
@@ -51,7 +53,7 @@ class CustomTextField extends StatelessWidget {
       width: width,
       height: height,
       child: TextFormField(
-        cursorColor: AppColors.turquoise,
+        cursorColor: AppColors.turquoiseBlue,
         inputFormatters: textInputFormatter,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: validator,
@@ -76,8 +78,10 @@ class CustomTextField extends StatelessWidget {
           fillColor: fillColor,
           suffixIcon: suffixIcon,
           suffixStyle: suffixStyle,
+          prefixIconColor: AppColors.teal,
           prefixIcon: iconData != null ? Icon(iconData) : null,
-          contentPadding: const EdgeInsets.only(left: 10),
+          // contentPadding: const EdgeInsets.only(left: 10),
+          contentPadding: const EdgeInsets.only(left: 10, top: 20, bottom: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,

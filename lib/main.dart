@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:rent_fix/screens/property_address_screen.dart';
-import 'package:rent_fix/screens/screens.dart';
+import 'package:rent_fix/constants/constants.dart';
 
 void main() => runApp(
       DevicePreview(
@@ -15,6 +15,7 @@ void main() => runApp(
 class RentFixApp extends StatelessWidget {
   const RentFixApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
