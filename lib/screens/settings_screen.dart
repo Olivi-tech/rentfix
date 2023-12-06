@@ -163,7 +163,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: mq.height * 0.165,
+          top: mq.height * 0.17,
           left: mq.width * 0.6,
           child: CustomContainer(
             width: mq.width * 0.11,

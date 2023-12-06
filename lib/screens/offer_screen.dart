@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
@@ -142,7 +143,7 @@ class _OfferScreenState extends State<OfferScreen> {
         ),
         const CustomTextField(
             isBorder: true,
-            hintColor: Colors.black,
+            borderColor: AppColors.pastelblue,
             hintText: 'Enter the number of months',
             fillColor: Colors.white),
         const CustomSize(
@@ -187,6 +188,7 @@ class _OfferScreenState extends State<OfferScreen> {
         ),
         const CustomTextField(
             isBorder: true,
+            borderColor: AppColors.pastelblue,
             hintText: 'Enter Amount in S\$',
             fillColor: Colors.white),
         const CustomSize(
@@ -257,7 +259,7 @@ class _OfferScreenState extends State<OfferScreen> {
       ),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -268,7 +270,10 @@ class _OfferScreenState extends State<OfferScreen> {
                       TextSpan(
                           text: firstTitle,
                           style: const TextStyle(
-                              color: AppColors.darkGreen, fontSize: 14)),
+                            color: AppColors.darkGreen,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          )),
                       TextSpan(
                         text: secondTitle,
                         style: const TextStyle(
@@ -281,16 +286,26 @@ class _OfferScreenState extends State<OfferScreen> {
                   ),
                 ),
               ),
-              ShapeContainer(
-                width: 32,
-                height: 32,
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: ShapeContainer(
+                  width: 32,
+                  height: 32,
+                  decoration: ShapeDecoration(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: SvgPicture.asset(
+                      AppImages.editIcon,
+                      width: 14,
+                      height: 14,
+                    ),
                   ),
                 ),
-                child: Image.asset(AppImages.pen),
               )
             ],
           ),

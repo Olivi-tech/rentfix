@@ -14,7 +14,7 @@ class DiscoverScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -31,55 +31,39 @@ class DiscoverScreen extends StatelessWidget {
                     ),
                   ),
                   const Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text.rich(
-                          TextSpan(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 15, bottom: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
                             children: [
-                              WidgetSpan(
-                                  child: CustomSize(
-                                width: 10,
-                              )),
-                              TextSpan(
-                                text: 'Hi',
-                                style: TextStyle(
-                                  color: Color(0xFF35D5DA),
-                                  fontSize: 16,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                ),
+                              CustomText(
+                                label: 'Hi',
+                                color: AppColors.turquoise,
+                                size: FontSize.xMedium,
+                                weight: FontWeight.w500,
                               ),
-                              TextSpan(
-                                text: ',\n',
-                                style: TextStyle(
-                                  color: Color(0xFFCDD9FF),
-                                  fontSize: 16,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                ),
-                              ),
-                              WidgetSpan(
-                                  child: CustomSize(
-                                height: 25,
-                              )),
-                              TextSpan(
-                                text: 'Jacob Jones',
-                                style: TextStyle(
-                                  color: Color(0xFF242528),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                              CustomText(
+                                label: ',',
+                                color: Color(0xFFCDD9FF),
+                                size: FontSize.xMedium,
+                                weight: FontWeight.w500,
+                                height: 0.10,
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          CustomText(
+                            label: 'Jacob Jones',
+                            color: AppColors.black,
+                            size: FontSize.medium,
+                            weight: FontWeight.w700,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   CustomSize(
@@ -105,49 +89,30 @@ class DiscoverScreen extends StatelessWidget {
               const CustomSize(
                 height: 10,
               ),
+              const CustomText(
+                label: 'Find',
+                color: AppColors.black,
+                size: 30,
+                weight: FontWeight.w500,
+              ),
               Row(
                 children: [
-                  const Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Find\n',
-                          style: TextStyle(
-                            color: Color(0xFF242528),
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'best place',
-                          style: TextStyle(
-                            color: Color(0xFF242528),
-                            fontSize: 27,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                        WidgetSpan(
-                            child: SizedBox(
-                          width: 8,
-                        )),
-                        TextSpan(
-                          text: 'nearby',
-                          style: TextStyle(
-                            color: Color(0xFF35D5DA),
-                            fontSize: 27,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
+                  const CustomText(
+                    label: 'best place',
+                    color: AppColors.black,
+                    size: 27,
+                    weight: FontWeight.w300,
+                  ),
+                  const CustomText(
+                    label: ' nearby',
+                    color: AppColors.turquoise,
+                    size: 27,
+                    weight: FontWeight.w700,
                   ),
                   const CustomSize(
                     width: 10,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: height * 0.06),
-                    child: Image.asset(AppImages.cute),
-                  )
+                  Image.asset(AppImages.cute)
                 ],
               ),
               const CustomSize(
@@ -158,8 +123,10 @@ class DiscoverScreen extends StatelessWidget {
                   const Expanded(
                     flex: 5,
                     child: CustomTextField(
+                        height: 48,
                         iconData: Icons.search,
                         isBorder: true,
+                        borderRadius: 15,
                         borderColor: AppColors.teal,
                         hintText: 'Search here',
                         fillColor: Colors.white),
@@ -188,20 +155,17 @@ class DiscoverScreen extends StatelessWidget {
                           },
                         );
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: ShapeContainer(
-                            height: 46,
-                            decoration: ShapeDecoration(
-                              color: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                                side: const BorderSide(
-                                    width: 1, color: AppColors.teal),
-                              ),
+                      child: ShapeContainer(
+                          height: 46,
+                          decoration: ShapeDecoration(
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              side: const BorderSide(
+                                  width: 1, color: AppColors.teal),
                             ),
-                            child: Image.asset(AppImages.eatingList)),
-                      ),
+                          ),
+                          child: Image.asset(AppImages.eatingList)),
                     ),
                   )
                 ],
@@ -240,15 +204,45 @@ class DiscoverScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    height: 180,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        AppImages.sofaSet,
-                                        fit: BoxFit.fitHeight,
+                                      child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                          bottomLeft: Radius.circular(5),
+                                          bottomRight: Radius.circular(5),
+                                        ),
+                                        child: Image.asset(
+                                          AppImages.sofaSet,
+                                          fit: BoxFit.fitHeight,
+                                        ),
                                       ),
-                                    ),
-                                  ),
+                                      Positioned(
+                                        top: 10,
+                                        right: 10,
+                                        child: Container(
+                                          width: 68,
+                                          height: 20,
+                                          decoration: ShapeDecoration(
+                                            color: AppColors.softAqua,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                          ),
+                                          child: const Center(
+                                            child: CustomText(
+                                              label: 'Entire unit',
+                                              color: AppColors.darkGreen,
+                                              size: FontSize.xsmall,
+                                              weight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 10),
@@ -317,96 +311,115 @@ class DiscoverScreen extends StatelessWidget {
                                         const CustomSize(
                                           height: 10,
                                         ),
-                                        Row(
-                                          children: [
-                                            SvgPicture.asset(
-                                              AppImages.svBed,
-                                              color: AppColors.turquoise,
-                                              height: 12,
-                                              width: 12,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '3',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svSofa,
-                                              color: AppColors.turquoise,
-                                              height: 12,
-                                              width: 12,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '1',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svTrash,
-                                              color: AppColors.turquoise,
-                                              height: 15,
-                                              width: 15,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '2',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svTv,
-                                              color: AppColors.turquoise,
-                                              height: 15,
-                                              width: 15,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '1',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svArea,
-                                              color: AppColors.turquoise,
-                                              height: 15,
-                                              width: 15,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '3120 sqft',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            )
-                                          ],
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 5, bottom: 8),
+                                          child: Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                AppImages.svBed,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 12,
+                                                width: 12,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '3',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svSofa,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 12,
+                                                width: 12,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '1',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svTrash,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 15,
+                                                width: 15,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '2',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svTv,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 15,
+                                                width: 15,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '1',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svArea,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 15,
+                                                width: 15,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '3120 sqft',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),

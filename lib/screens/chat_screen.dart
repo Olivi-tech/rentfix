@@ -16,7 +16,7 @@ class ChatScreenState extends State<ChatScreen> {
     final mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const CustomChatAppBar(
-        characterImage: AppImages.profileImage,
+        characterImage: AppImages.characterImage,
         titleName: 'Brooklyn Simmons',
         status: 'Online',
       ),
@@ -72,17 +72,17 @@ class ChatScreenState extends State<ChatScreen> {
                   const CustomSize(
                     width: 10,
                   ),
-                  Expanded(
-                    child: CustomTextField(
-                      hintText: 'Type a message',
-                      fillColor: AppColors.white,
-                      borderColor: AppColors.pastelblue,
-                      borderRadius: 12,
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: SvgPicture.asset(
-                          AppImages.emojiIcon,
-                        ),
+                  CustomTextField(
+                    height: 45,
+                    width: mq.width * 0.69,
+                    hintText: 'Type a message',
+                    fillColor: AppColors.white,
+                    borderColor: AppColors.pastelblue,
+                    borderRadius: 12,
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: SvgPicture.asset(
+                        AppImages.emojiIcon,
                       ),
                     ),
                   ),

@@ -38,7 +38,7 @@ class CreateAccountScreen extends StatelessWidget {
                         weight: FontWeight.w900,
                       ),
                       const CustomSize(
-                        height: 20,
+                        height: 30,
                       ),
                       const CustomText(
                         label: 'Phone Number',
@@ -47,7 +47,7 @@ class CreateAccountScreen extends StatelessWidget {
                         weight: FontWeight.w500,
                       ),
                       const CustomSize(
-                        height: 10,
+                        height: 5,
                       ),
                       const CustomTextField(
                         hintText: 'Enter phone number here',

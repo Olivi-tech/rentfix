@@ -50,7 +50,7 @@ class CustomCardWidget extends StatelessWidget {
                     width: 64,
                     height: 64,
                     decoration: const BoxDecoration(
-                      color: Color(0xFFE6F3FF),
+                      color: AppColors.lightCayn,
                       shape: BoxShape.circle,
                     ),
                     child: Center(

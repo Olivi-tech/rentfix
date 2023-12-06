@@ -171,7 +171,8 @@ class ListingDetails extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     AppImages.svBed,
-                    color: AppColors.darkGreen,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.darkGreen, BlendMode.srcIn),
                   ),
                   const CustomSize(
                     width: 10,
@@ -187,7 +188,8 @@ class ListingDetails extends StatelessWidget {
                   ),
                   SvgPicture.asset(
                     AppImages.svSofa,
-                    color: AppColors.darkGreen,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.darkGreen, BlendMode.srcIn),
                   ),
                   const CustomSize(
                     width: 8,
@@ -203,7 +205,8 @@ class ListingDetails extends StatelessWidget {
                   ),
                   SvgPicture.asset(
                     AppImages.svTrash,
-                    color: AppColors.darkGreen,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.darkGreen, BlendMode.srcIn),
                   ),
                   const CustomSize(
                     width: 8,
@@ -219,7 +222,8 @@ class ListingDetails extends StatelessWidget {
                   ),
                   SvgPicture.asset(
                     AppImages.svTv,
-                    color: AppColors.darkGreen,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.darkGreen, BlendMode.srcIn),
                   ),
                   const CustomSize(
                     width: 8,
@@ -235,7 +239,8 @@ class ListingDetails extends StatelessWidget {
                   ),
                   SvgPicture.asset(
                     AppImages.svArea,
-                    color: AppColors.darkGreen,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.darkGreen, BlendMode.srcIn),
                   ),
                   const CustomSize(
                     width: 8,
@@ -295,25 +300,30 @@ class ListingDetails extends StatelessWidget {
                 height: 10,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _columnWidget('Area', '3120 sqft'),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 30),
-                    child: _columnWidget('Condition', 'Fully Furnished'),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _columnWidget('Area', '3120 sqft'),
+                      const CustomSize(
+                        height: 15,
+                      ),
+                      _columnWidget('PropertyType', 'condo'),
+                    ],
                   ),
-                ],
-              ),
-              const CustomSize(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _columnWidget('PropertyType', 'condo'),
+                  const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 30),
-                    child: _columnWidget('RentalType', 'Room'),
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _columnWidget('Condition', 'Fully Furnished'),
+                        const CustomSize(
+                          height: 15,
+                        ),
+                        _columnWidget('RentalType', 'Room'),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -408,31 +418,23 @@ class ListingDetails extends StatelessWidget {
                         backgroundImage: AssetImage(AppImages.youngMen),
                         radius: 30,
                       ),
-                      const Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Shakil Awan\n',
-                              style: TextStyle(
-                                color: Color(0xFF242528),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            WidgetSpan(
-                                child: CustomSize(
-                              height: 5,
-                            )),
-                            TextSpan(
-                              text: 'Owner',
-                              style: TextStyle(
-                                color: Color(0xFF90A0B3),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomText(
+                            label: 'Shakil Awan',
+                            color: AppColors.black,
+                            size: FontSize.medium,
+                            weight: FontWeight.w700,
+                          ),
+                          CustomText(
+                            label: 'Owner',
+                            size: FontSize.xMedium,
+                            color: AppColors.lightGrey,
+                            weight: FontWeight.w500,
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         width: 15,
@@ -441,13 +443,13 @@ class ListingDetails extends StatelessWidget {
                         width: 48,
                         height: 48,
                         decoration: ShapeDecoration(
-                          color: const Color(0xFF7C9BFF),
+                          color: AppColors.blueshade,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(45),
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(10),
                           child: SvgPicture.asset(
                             AppImages.svChat,
                             fit: BoxFit.cover,
@@ -458,13 +460,13 @@ class ListingDetails extends StatelessWidget {
                         width: 48,
                         height: 48,
                         decoration: ShapeDecoration(
-                          color: const Color(0xFF2CC86E),
+                          color: AppColors.greens,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(45),
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(10),
                           child: SvgPicture.asset(
                             AppImages.svLine,
                           ),

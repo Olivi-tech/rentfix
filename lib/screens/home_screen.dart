@@ -8,10 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    final double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -41,8 +38,8 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               WidgetSpan(
                                   child: CustomSize(
-                                    width: 10,
-                                  )),
+                                width: 10,
+                              )),
                               TextSpan(
                                 text: 'Hi',
                                 style: TextStyle(
@@ -65,8 +62,8 @@ class HomeScreen extends StatelessWidget {
                               ),
                               WidgetSpan(
                                   child: CustomSize(
-                                    height: 25,
-                                  )),
+                                height: 25,
+                              )),
                               TextSpan(
                                 text: 'Jacob Jones',
                                 style: TextStyle(
@@ -116,7 +113,7 @@ class HomeScreen extends StatelessWidget {
               PropertyContainer(
                 //height: 164,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -154,35 +151,64 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
+                        padding: const EdgeInsets.only(bottom: 18),
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context)
                                 .pushNamed(AppRoutes.listDetails);
                           },
                           child: PropertyContainer(
-                            //height: 310,
                             child: Padding(
                               padding: const EdgeInsets.all(2.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    height: 180,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        AppImages.sofaSet,
-                                        fit: BoxFit.fitHeight,
+                                      child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                          bottomLeft: Radius.circular(5),
+                                          bottomRight: Radius.circular(5),
+                                        ),
+                                        child: Image.asset(
+                                          AppImages.sofaSet,
+                                          fit: BoxFit.fitHeight,
+                                        ),
                                       ),
-                                    ),
-                                  ),
+                                      Positioned(
+                                        top: 10,
+                                        right: 10,
+                                        child: Container(
+                                          width: 68,
+                                          height: 20,
+                                          decoration: ShapeDecoration(
+                                            color: AppColors.softAqua,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                          ),
+                                          child: const Center(
+                                            child: CustomText(
+                                              label: 'Entire unit',
+                                              color: AppColors.darkGreen,
+                                              size: FontSize.xsmall,
+                                              weight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 10),
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         const CustomSize(
                                           height: 10,
@@ -198,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                         const Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text.rich(
                                               TextSpan(
@@ -209,7 +235,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: Color(0xFF35D5DA),
                                                       fontSize: 24,
                                                       fontWeight:
-                                                      FontWeight.w700,
+                                                          FontWeight.w700,
                                                     ),
                                                   ),
                                                   TextSpan(
@@ -218,7 +244,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: Color(0xFFB8CBCB),
                                                       fontSize: 16,
                                                       fontWeight:
-                                                      FontWeight.w500,
+                                                          FontWeight.w500,
                                                       height: 0,
                                                     ),
                                                   ),
@@ -228,7 +254,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: Color(0xFF35D5DA),
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.w500,
+                                                          FontWeight.w500,
                                                     ),
                                                   ),
                                                 ],
@@ -245,96 +271,115 @@ class HomeScreen extends StatelessWidget {
                                         const CustomSize(
                                           height: 8,
                                         ),
-                                        Row(
-                                          children: [
-                                            SvgPicture.asset(
-                                              AppImages.svBed,
-                                              color: AppColors.turquoise,
-                                              height: 12,
-                                              width: 12,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '3',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svSofa,
-                                              color: AppColors.turquoise,
-                                              height: 12,
-                                              width: 12,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '1',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svTrash,
-                                              color: AppColors.turquoise,
-                                              height: 15,
-                                              width: 15,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '2',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svTv,
-                                              color: AppColors.turquoise,
-                                              height: 15,
-                                              width: 15,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '1',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            ),
-                                            const CustomSize(
-                                              width: 16,
-                                            ),
-                                            SvgPicture.asset(
-                                              AppImages.svArea,
-                                              color: AppColors.turquoise,
-                                              height: 15,
-                                              width: 15,
-                                            ),
-                                            const CustomSize(
-                                              width: 8,
-                                            ),
-                                            const CustomText(
-                                              label: '3120 sqft',
-                                              color: AppColors.turquoise,
-                                              size: FontSize.small,
-                                              weight: FontWeight.w500,
-                                            )
-                                          ],
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 5, bottom: 8),
+                                          child: Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                AppImages.svBed,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 12,
+                                                width: 12,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '3',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svSofa,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 12,
+                                                width: 12,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '1',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svTrash,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 15,
+                                                width: 15,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '2',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svTv,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 15,
+                                                width: 15,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '1',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              ),
+                                              const CustomSize(
+                                                width: 16,
+                                              ),
+                                              SvgPicture.asset(
+                                                AppImages.svArea,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                        AppColors.turquoise,
+                                                        BlendMode.srcIn),
+                                                height: 15,
+                                                width: 15,
+                                              ),
+                                              const CustomSize(
+                                                width: 8,
+                                              ),
+                                              const CustomText(
+                                                label: '3120 sqft',
+                                                color: AppColors.turquoise,
+                                                size: FontSize.small,
+                                                weight: FontWeight.w500,
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),

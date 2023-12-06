@@ -15,7 +15,7 @@ class AppColors {
 
   //for appbar border
   static const Color paleCayn = Color(0xFFC0F2F4);
-
+  static const Color lightCayn = Color(0xFFE6F3FF);
   //for appbarindicator & text controller border
   static const Color pastelblue = Color(0xFF9AEAEC);
 
@@ -29,9 +29,11 @@ class AppColors {
   static const Color coralPink = Color(0xFFFF4B61);
   static const Color yellow = Color(0xFFF3C13F);
   static const Color green = Color(0xFF36E37B);
+  static const Color greens = Color(0xFF2CC86E);
   static const Color lightGrey = Color(0xFF8FA0B3);
   static const Color grey = Color(0xFFB8CBCB);
   static const Color blue = Color(0xFF2F6CE3);
+  static const Color blueshade = Color(0xFF7C9BFF);
 
   static const Color greyishBlue = Color(0xFF8FA0B3);
 

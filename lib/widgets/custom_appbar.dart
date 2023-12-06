@@ -96,9 +96,21 @@ class CustomChatAppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
-                      radius: 24,
-                      backgroundImage: AssetImage(characterImage),
+                    Container(
+                      width: 54,
+                      height: 54,
+                      decoration: const BoxDecoration(
+                        color: AppColors.lightCayn,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          characterImage,
+                          width: 40,
+                          height: 38,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     const CustomSize(
                       width: 10,

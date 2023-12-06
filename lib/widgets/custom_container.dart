@@ -242,7 +242,7 @@ class PropertyContainer extends StatelessWidget {
       children: [
         Container(
           width: mq.width,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(color: AppColors.turquoise),

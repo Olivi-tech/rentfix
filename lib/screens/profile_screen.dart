@@ -100,13 +100,13 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           CustomContainer(
                             width: mq.width * 0.11,
-                            height: mq.height * 0.045,
+                            height: mq.height * 0.049,
                             shapeDecoration: BoxDecoration(
                               color: AppColors.paleBlue,
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(10),
                               child: SvgPicture.asset(
                                 AppImages.editIcon,
                                 width: 14,
@@ -150,13 +150,13 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           CustomContainer(
                             width: mq.width * 0.11,
-                            height: mq.height * 0.045,
+                            height: mq.height * 0.049,
                             shapeDecoration: BoxDecoration(
                               color: AppColors.paleBlue,
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(10),
                               child: SvgPicture.asset(
                                 AppImages.editIcon,
                                 width: 14,
@@ -223,7 +223,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           CustomContainer(
                             width: mq.width * 0.11,
-                            height: mq.height * 0.05,
+                            height: mq.height * 0.049,
                             shapeDecoration: BoxDecoration(
                               color: AppColors.paleBlue,
                               borderRadius: BorderRadius.circular(10),
@@ -275,7 +275,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           CustomContainer(
                             width: mq.width * 0.11,
-                            height: mq.height * 0.05,
+                            height: mq.height * 0.049,
                             shapeDecoration: BoxDecoration(
                               color: AppColors.paleBlue,
                               borderRadius: BorderRadius.circular(10),

@@ -63,11 +63,6 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         obscureText: isVisibleText,
         obscuringCharacter: '*',
-        style: TextStyle(
-          color: hintColor,
-          fontSize: FontSize.small,
-          fontWeight: FontWeight.w500,
-        ),
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(
@@ -80,9 +75,7 @@ class CustomTextField extends StatelessWidget {
           suffixStyle: suffixStyle,
           prefixIconColor: AppColors.teal,
           prefixIcon: iconData != null ? Icon(iconData) : null,
-          // contentPadding: const EdgeInsets.only(left: 10),
-          contentPadding: const EdgeInsets.only(left: 10, top: 20, bottom: 10),
-
+          contentPadding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,

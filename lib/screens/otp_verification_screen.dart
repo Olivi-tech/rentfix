@@ -50,6 +50,9 @@ class OTPVerificationScreen extends StatelessWidget {
                 size: FontSize.small,
                 weight: FontWeight.w500,
               ),
+              const CustomSize(
+                height: 5,
+              ),
               Pinput(
                 length: 6,
                 defaultPinTheme: PinTheme(
