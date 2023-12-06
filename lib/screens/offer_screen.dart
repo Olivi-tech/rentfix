@@ -109,6 +109,7 @@ class _OfferScreenState extends State<OfferScreen> {
           text: 'Next',
           textColor: Colors.white,
           onPressed: () {},
+          width: MediaQuery.of(context).size.width,
         )
       ],
     );
@@ -141,6 +142,7 @@ class _OfferScreenState extends State<OfferScreen> {
         ),
         const CustomTextField(
             isBorder: true,
+            hintColor: Colors.black,
             hintText: 'Enter the number of months',
             fillColor: Colors.white),
         const CustomSize(
@@ -151,6 +153,7 @@ class _OfferScreenState extends State<OfferScreen> {
           btnColor: AppColors.turquoise,
           textColor: Colors.white,
           text: 'Next',
+          width: MediaQuery.of(context).size.width,
           onPressed: () {},
         )
       ],
@@ -194,6 +197,7 @@ class _OfferScreenState extends State<OfferScreen> {
           btnColor: AppColors.turquoise,
           textColor: Colors.white,
           text: 'Next',
+          width: MediaQuery.of(context).size.width,
           onPressed: () {},
         )
       ],
@@ -233,8 +237,11 @@ class _OfferScreenState extends State<OfferScreen> {
         borderColor: Colors.transparent,
         btnColor: AppColors.turquoise,
         text: 'Submit',
+        width: MediaQuery.of(context).size.width,
         textColor: AppColors.white,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
       )
     ]);
   }

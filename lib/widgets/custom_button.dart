@@ -25,21 +25,21 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.btnColor = Colors.white,
     this.child,
-    this.width = 10000,
+    required this.width,
     this.radius = 15,
     this.height = 56,
   });
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context).size;
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         fixedSize: Size(width, height),
         backgroundColor: btnColor,
+        elevation: 0,
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: borderColor!),
+          side: BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(radius), // <-- Radius
         ),
       ),
@@ -52,6 +52,5 @@ class CustomButton extends StatelessWidget {
               weight: FontWeight.w600,
             ),
     );
-    ;
   }
 }

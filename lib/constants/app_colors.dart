@@ -25,10 +25,15 @@ class AppColors {
   //for text
   static const Color darkTeal = Color(0xFF105456);
 
-  static const Color greyishBlue = Color(0xFF8FA0B3);
-
   //for logout
   static const Color coralPink = Color(0xFFFF4B61);
+  static const Color yellow = Color(0xFFF3C13F);
+  static const Color green = Color(0xFF36E37B);
+  static const Color lightGrey = Color(0xFF8FA0B3);
+  static const Color grey = Color(0xFFB8CBCB);
+  static const Color blue = Color(0xFF2F6CE3);
+
+  static const Color greyishBlue = Color(0xFF8FA0B3);
 
   //for containers
   //icon container & message container
@@ -39,4 +44,7 @@ class AppColors {
 
   //list
   static const Color softAqua = Color(0xFFCCF3F5);
+
+  //for shadow
+  static const Color lightWhite = Color(0x19515BD4);
 }

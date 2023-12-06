@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
   final bool isVisibleText;
   final double height;
   final Color fillColor;
+  final Color? hintColor;
   final double? width;
   final TextStyle? hintStyle;
   final TextStyle? suffixStyle;
@@ -20,6 +21,8 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final FormValidator? validator;
   final bool readOnly;
+  final Color borderColor;
+  final double? borderRadius;
 
   const CustomTextField({
     super.key,
@@ -39,11 +42,15 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.validator,
     this.width,
+    this.borderColor = AppColors.black,
+    this.borderRadius = 20,
+    this.hintColor = AppColors.grey,
   });
 
   @override
   build(BuildContext context) {
     return SizedBox(
+      width: width,
       height: height,
       child: TextFormField(
         cursorColor: AppColors.turquoiseBlue,
@@ -56,38 +63,42 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         obscureText: isVisibleText,
         obscuringCharacter: '*',
+        style: TextStyle(
+          color: hintColor,
+          fontSize: FontSize.small,
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: const TextStyle(
-            color: Color(0xFFB8CBCB),
+          hintStyle: TextStyle(
+            color: hintColor,
             fontSize: FontSize.small,
-            fontFamily: 'Inter',
             fontWeight: FontWeight.w500,
-            height: 0.16,
           ),
           fillColor: fillColor,
           suffixIcon: suffixIcon,
           suffixStyle: suffixStyle,
           prefixIconColor: AppColors.teal,
           prefixIcon: iconData != null ? Icon(iconData) : null,
+          // contentPadding: const EdgeInsets.only(left: 10),
           contentPadding: const EdgeInsets.only(left: 10, top: 20, bottom: 10),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              width: 0.2,
-              color: Colors.black,
-            ),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
-              color: isBorder ? AppColors.teal : Colors.black,
+              color: borderColor,
             ),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(borderRadius!),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              width: 1,
+              color: AppColors.turquoise,
+            ),
+            borderRadius: BorderRadius.circular(borderRadius!),
           ),
           filled: true,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(borderRadius!),
           ),
         ),
       ),

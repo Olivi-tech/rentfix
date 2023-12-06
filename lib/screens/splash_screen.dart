@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:rent_fix/constants/app_colors.dart';
-import 'package:rent_fix/constants/app_images.dart';
+import 'package:rent_fix/constants/constants.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.of(context).pushNamed(AppRoutes.getStarted);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

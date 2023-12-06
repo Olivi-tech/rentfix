@@ -14,7 +14,7 @@ class CreateAccountScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-              flex: 6,
+              flex: 8,
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -47,33 +47,31 @@ class CreateAccountScreen extends StatelessWidget {
                         weight: FontWeight.w500,
                       ),
                       const CustomSize(
-                        height: 5,
+                        height: 10,
                       ),
                       const CustomTextField(
-                          hintText: 'Enter phone number here',
-                          fillColor: AppColors.white),
+                        hintText: 'Enter phone number here',
+                        fillColor: AppColors.white,
+                        borderColor: AppColors.black,
+                      ),
                       const CustomSize(
                         height: 30,
                       ),
                       CustomButton(
-                        btnColor: AppColors.darkGreen,
-                        onPressed: () {},
-                        borderColor: Colors.transparent,
-                        radius: 15,
-                        textColor: Colors.white,
+                        width: MediaQuery.of(context).size.width,
                         height: 56,
+                        btnColor: AppColors.darkGreen,
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(AppRoutes.otpVerify);
+                        },
+                        borderColor: Colors.transparent,
+                        textColor: Colors.white,
                         text: 'Submit',
-                      ),
-                      const CustomSize(
-                        height: 20,
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
-            const CustomSize(
-              height: 20,
             ),
             Expanded(
                 flex: 4,

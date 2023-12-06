@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
 
-class PropertyContainer extends StatelessWidget {
+class PropertyContainers extends StatelessWidget {
   final Color color;
   final double radius;
   final Color borderColor;
@@ -9,7 +9,7 @@ class PropertyContainer extends StatelessWidget {
   final double? height;
   final double? width;
 
-  const PropertyContainer(
+  const PropertyContainers(
       {super.key,
       this.color = Colors.white,
       this.height,

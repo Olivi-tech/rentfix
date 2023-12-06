@@ -8,11 +8,13 @@ class CustomText extends StatelessWidget {
   final double? size;
   final String fonFamily;
   final TextDecoration? decoration;
+  final double? height;
 
   const CustomText(
       {super.key,
       required this.label,
       this.decoration,
+      this.height,
       this.textAlign,
       this.fonFamily = 'Inter',
       this.weight,
@@ -24,6 +26,7 @@ class CustomText extends StatelessWidget {
     return Text(
       label,
       style: TextStyle(
+          height: height,
           color: color,
           fontWeight: weight,
           fontFamily: fonFamily,

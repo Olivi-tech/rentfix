@@ -64,9 +64,10 @@ class OTPVerificationScreen extends StatelessWidget {
                 height: 30,
               ),
               CustomButton(
-                onPressed: () {},
-                radius: 15,
-                borderColor: Colors.transparent,
+                width: MediaQuery.of(context).size.width,
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.home);
+                },
                 btnColor: AppColors.darkGreen,
                 text: 'Submit',
                 textColor: Colors.white,

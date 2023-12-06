@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -8,7 +9,6 @@ class ListingDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const CustomNavigationBar(),
       appBar: const CustomAppBar(
         title: 'Listing Details',
       ),
@@ -133,10 +133,44 @@ class ListingDetails extends StatelessWidget {
               const CustomSize(
                 height: 5,
               ),
+              const Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: '\$350',
+                      style: TextStyle(
+                        color: Color(0xFF35D5DA),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' ',
+                      style: TextStyle(
+                        color: Color(0xFFB8CBCB),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        height: 0,
+                      ),
+                    ),
+                    TextSpan(
+                      text: '/month',
+                      style: TextStyle(
+                        color: Color(0xFF35D5DA),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const CustomSize(
+                height: 5,
+              ),
               Row(
                 children: [
-                  Image.asset(
-                    AppImages.bed,
+                  SvgPicture.asset(
+                    AppImages.svBed,
                     color: AppColors.darkGreen,
                   ),
                   const CustomSize(
@@ -151,7 +185,10 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 20,
                   ),
-                  Image.asset(AppImages.sofa, color: AppColors.darkGreen),
+                  SvgPicture.asset(
+                    AppImages.svSofa,
+                    color: AppColors.darkGreen,
+                  ),
                   const CustomSize(
                     width: 8,
                   ),
@@ -164,7 +201,10 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 20,
                   ),
-                  Image.asset(AppImages.bath, color: AppColors.darkGreen),
+                  SvgPicture.asset(
+                    AppImages.svTrash,
+                    color: AppColors.darkGreen,
+                  ),
                   const CustomSize(
                     width: 8,
                   ),
@@ -177,7 +217,10 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 20,
                   ),
-                  Image.asset(AppImages.tv, color: AppColors.darkGreen),
+                  SvgPicture.asset(
+                    AppImages.svTv,
+                    color: AppColors.darkGreen,
+                  ),
                   const CustomSize(
                     width: 8,
                   ),
@@ -190,7 +233,10 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 20,
                   ),
-                  Image.asset(AppImages.area, color: AppColors.darkGreen),
+                  SvgPicture.asset(
+                    AppImages.svArea,
+                    color: AppColors.darkGreen,
+                  ),
                   const CustomSize(
                     width: 8,
                   ),
@@ -206,9 +252,8 @@ class ListingDetails extends StatelessWidget {
                 height: 10,
               ),
               CustomButton(
+                width: MediaQuery.of(context).size.width,
                 isChild: true,
-                height: 40,
-                radius: 10,
                 borderColor: Colors.transparent,
                 btnColor: AppColors.paleAqua,
                 onPressed: () {},
@@ -218,6 +263,9 @@ class ListingDetails extends StatelessWidget {
                     Icon(
                       Icons.calendar_month_outlined,
                       color: AppColors.darkGreen,
+                    ),
+                    CustomSize(
+                      width: 10,
                     ),
                     CustomText(
                       label: 'Available by: 28/11/2023',
@@ -328,10 +376,15 @@ class ListingDetails extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: AppColors.turquoise)),
-                child: Image.asset(
-                  AppImages.map,
-                  fit: BoxFit.fill,
+                    border: Border.all(
+                      color: AppColors.turquoise,
+                    )),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(18),
+                  child: Image.asset(
+                    AppImages.map,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -351,7 +404,10 @@ class ListingDetails extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(AppImages.youngMen),
+                      const CircleAvatar(
+                        backgroundImage: AssetImage(AppImages.youngMen),
+                        radius: 30,
+                      ),
                       const Text.rich(
                         TextSpan(
                           children: [
@@ -390,9 +446,12 @@ class ListingDetails extends StatelessWidget {
                             borderRadius: BorderRadius.circular(45),
                           ),
                         ),
-                        child: Image.asset(
-                          AppImages.chat,
-                          color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SvgPicture.asset(
+                            AppImages.svChat,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Container(
@@ -404,7 +463,12 @@ class ListingDetails extends StatelessWidget {
                             borderRadius: BorderRadius.circular(45),
                           ),
                         ),
-                        child: Image.asset(AppImages.line),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SvgPicture.asset(
+                            AppImages.svLine,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -414,12 +478,14 @@ class ListingDetails extends StatelessWidget {
                 height: 20,
               ),
               CustomButton(
+                width: MediaQuery.of(context).size.width,
                 borderColor: Colors.transparent,
-                radius: 15,
                 text: 'Make Offer',
                 textColor: Colors.white,
                 btnColor: AppColors.turquoise,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.offer);
+                },
               ),
               const SizedBox(
                 height: 20,
