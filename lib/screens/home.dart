@@ -80,6 +80,14 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: PopupMenuButton(
                 icon: const Icon(Icons.menu),
+                offset: const Offset(50, 0),
+                color: AppColors.paleSkyBlue,
+                shape: TooltipShape(),
+                constraints: const BoxConstraints(
+                  minWidth: 4.0 * 46.0,
+                  maxWidth: 7.0 * 66.0,
+                ),
+                position: PopupMenuPosition.over,
                 itemBuilder: (_) => <PopupMenuItem<String>>[
                   PopupMenuItem<String>(
                       value: 'My Profile',
@@ -159,4 +167,57 @@ class _HomeState extends State<Home> {
   void _onItemTapped(int index) {
     _bottomNavigationProvider.selectedIndex = index;
   }
+}
+
+class TooltipShape extends ShapeBorder {
+  TooltipShape();
+
+  final BorderSide _side = BorderSide.none;
+  final BorderRadiusGeometry _borderRadius = BorderRadius.circular(26);
+
+  @override
+  EdgeInsetsGeometry get dimensions => EdgeInsets.all(_side.width);
+
+  @override
+  Path getInnerPath(
+    Rect rect, {
+    TextDirection? textDirection,
+  }) {
+    final Path path = Path();
+
+    path.addRRect(
+      _borderRadius.resolve(textDirection).toRRect(rect).deflate(_side.width),
+    );
+
+    return path;
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+    final Path path = Path();
+    final RRect rrect = _borderRadius.resolve(textDirection).toRRect(rect);
+
+    path.moveTo(0, rrect.height - 10);
+    path.quadraticBezierTo(0, rrect.height, 10, rrect.height);
+    path.lineTo(rrect.width - 30, rrect.height);
+    path.lineTo(rrect.width - 20, rrect.height + 10);
+    path.lineTo(rrect.width - 10, rrect.height);
+    path.quadraticBezierTo(
+        rrect.width, rrect.height, rrect.width, rrect.height - 10);
+    path.lineTo(rrect.width, 10);
+    path.quadraticBezierTo(rrect.width, 0, rrect.width - 10, 0);
+    path.lineTo(10, 0);
+    path.quadraticBezierTo(0, 0, 0, 10);
+
+    return path;
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {}
+
+  @override
+  ShapeBorder scale(double t) => RoundedRectangleBorder(
+        side: _side.scale(t),
+        borderRadius: _borderRadius * t,
+      );
 }

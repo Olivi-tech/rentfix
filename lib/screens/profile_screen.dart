@@ -312,8 +312,8 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 130,
-            left: 255,
+            top: 113,
+            left: 215,
             child: CustomContainer(
               width: mq.width * 0.11,
               height: mq.height * 0.05,

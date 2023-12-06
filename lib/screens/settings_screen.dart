@@ -56,6 +56,7 @@ class SettingsScreen extends StatelessWidget {
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
                     color: AppColors.darkTeal,
+                    size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
@@ -78,6 +79,7 @@ class SettingsScreen extends StatelessWidget {
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
                     color: AppColors.darkTeal,
+                    size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
@@ -100,6 +102,7 @@ class SettingsScreen extends StatelessWidget {
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
                     color: AppColors.darkTeal,
+                    size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
@@ -122,6 +125,7 @@ class SettingsScreen extends StatelessWidget {
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
                     color: AppColors.blue,
+                    size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
@@ -144,6 +148,7 @@ class SettingsScreen extends StatelessWidget {
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
                     color: AppColors.coralPink,
+                    size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
