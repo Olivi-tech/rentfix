@@ -165,7 +165,9 @@ class _HomeState extends State<Home> {
   ];
 
   void _onItemTapped(int index) {
-    _bottomNavigationProvider.selectedIndex = index;
+    if (index != 4) {
+      _bottomNavigationProvider.selectedIndex = index;
+    }
   }
 }
 

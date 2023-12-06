@@ -45,6 +45,7 @@ class ActivityContainer extends StatelessWidget {
   final Color status;
   final String time;
   final String title;
+
   const ActivityContainer(
       {super.key,
       required this.status,
@@ -110,6 +111,7 @@ class ContainerView extends StatefulWidget {
   final Color? containercolor;
   final Color? textColor;
   final double? widthcontainer;
+
   const ContainerView({
     Key? key,
     required this.text,
@@ -174,6 +176,7 @@ class ContainerViewState extends State<ContainerView> {
 class CheckboxContainer extends StatelessWidget {
   final String text;
   final bool value;
+
   const CheckboxContainer({super.key, required this.text, required this.value});
 
   @override
@@ -240,14 +243,13 @@ class PropertyContainer extends StatelessWidget {
         Container(
           width: mq.width,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          decoration: ShapeDecoration(
-            color: AppColors.softAqua,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: AppColors.turquoise),
+              borderRadius: BorderRadius.circular(25)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [child],
           ),
         ),

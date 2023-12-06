@@ -45,6 +45,7 @@ class AppColors {
 
   //list
   static const Color softAqua = Color(0xFFCCF3F5);
+
   //for shadow
   static const Color lightWhite = Color(0x19515BD4);
 }

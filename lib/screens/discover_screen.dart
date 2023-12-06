@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/screens/filter_bottom_screen.dart';
 import 'package:rent_fix/widgets/widgets.dart';
@@ -168,7 +169,7 @@ class DiscoverScreen extends StatelessWidget {
                   ),
                   Expanded(
                     flex: 1,
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         showModalBottomSheet(
                           context: context,
@@ -187,17 +188,20 @@ class DiscoverScreen extends StatelessWidget {
                           },
                         );
                       },
-                      child: ShapeContainer(
-                          height: 48,
-                          decoration: ShapeDecoration(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                              side: const BorderSide(
-                                  width: 1, color: AppColors.teal),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: ShapeContainer(
+                            height: 46,
+                            decoration: ShapeDecoration(
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                side: const BorderSide(
+                                    width: 1, color: AppColors.teal),
+                              ),
                             ),
-                          ),
-                          child: Image.asset(AppImages.eatingList)),
+                            child: Image.asset(AppImages.eatingList)),
+                      ),
                     ),
                   )
                 ],
@@ -315,9 +319,14 @@ class DiscoverScreen extends StatelessWidget {
                                         ),
                                         Row(
                                           children: [
-                                            Image.asset(AppImages.bed),
+                                            SvgPicture.asset(
+                                              AppImages.svBed,
+                                              color: AppColors.turquoise,
+                                              height: 12,
+                                              width: 12,
+                                            ),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '3',
@@ -326,11 +335,16 @@ class DiscoverScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
-                                              width: 15,
+                                              width: 16,
                                             ),
-                                            Image.asset(AppImages.sofa),
+                                            SvgPicture.asset(
+                                              AppImages.svSofa,
+                                              color: AppColors.turquoise,
+                                              height: 12,
+                                              width: 12,
+                                            ),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '1',
@@ -339,11 +353,16 @@ class DiscoverScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
+                                              width: 16,
+                                            ),
+                                            SvgPicture.asset(
+                                              AppImages.svTrash,
+                                              color: AppColors.turquoise,
+                                              height: 15,
                                               width: 15,
                                             ),
-                                            Image.asset(AppImages.bath),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '2',
@@ -352,11 +371,16 @@ class DiscoverScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
+                                              width: 16,
+                                            ),
+                                            SvgPicture.asset(
+                                              AppImages.svTv,
+                                              color: AppColors.turquoise,
+                                              height: 15,
                                               width: 15,
                                             ),
-                                            Image.asset(AppImages.tv),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '1',
@@ -365,11 +389,16 @@ class DiscoverScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
+                                              width: 16,
+                                            ),
+                                            SvgPicture.asset(
+                                              AppImages.svArea,
+                                              color: AppColors.turquoise,
+                                              height: 15,
                                               width: 15,
                                             ),
-                                            Image.asset(AppImages.area),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '3120 sqft',

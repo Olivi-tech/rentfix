@@ -41,7 +41,7 @@ dependencies:
   provider: ^6.0.5
   device_preview: ^1.1.0
   syncfusion_flutter_datepicker: ^23.2.6
- 
+
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +68,7 @@ flutter:
   assets:
     - assets/svgs/
     - assets/images/
+
 
 
 

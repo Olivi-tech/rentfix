@@ -142,6 +142,7 @@ class _OfferScreenState extends State<OfferScreen> {
         ),
         const CustomTextField(
             isBorder: true,
+            hintColor: Colors.black,
             hintText: 'Enter the number of months',
             fillColor: Colors.white),
         const CustomSize(

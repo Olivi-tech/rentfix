@@ -14,7 +14,7 @@ class CreateAccountScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-              flex: 6,
+              flex: 8,
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -68,16 +68,10 @@ class CreateAccountScreen extends StatelessWidget {
                         textColor: Colors.white,
                         text: 'Submit',
                       ),
-                      const CustomSize(
-                        height: 20,
-                      ),
                     ],
                   ),
                 ),
               ),
-            ),
-            const CustomSize(
-              height: 20,
             ),
             Expanded(
                 flex: 4,

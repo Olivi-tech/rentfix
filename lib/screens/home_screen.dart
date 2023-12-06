@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -7,11 +8,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery
+        .of(context)
+        .size
+        .width;
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,8 +41,8 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               WidgetSpan(
                                   child: CustomSize(
-                                width: 10,
-                              )),
+                                    width: 10,
+                                  )),
                               TextSpan(
                                 text: 'Hi',
                                 style: TextStyle(
@@ -61,8 +65,8 @@ class HomeScreen extends StatelessWidget {
                               ),
                               WidgetSpan(
                                   child: CustomSize(
-                                height: 25,
-                              )),
+                                    height: 25,
+                                  )),
                               TextSpan(
                                 text: 'Jacob Jones',
                                 style: TextStyle(
@@ -159,7 +163,7 @@ class HomeScreen extends StatelessWidget {
                           child: PropertyContainer(
                             //height: 310,
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(2.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -178,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                                         horizontal: 10),
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         const CustomSize(
                                           height: 10,
@@ -194,7 +198,7 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                         const Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text.rich(
                                               TextSpan(
@@ -205,7 +209,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: Color(0xFF35D5DA),
                                                       fontSize: 24,
                                                       fontWeight:
-                                                          FontWeight.w700,
+                                                      FontWeight.w700,
                                                     ),
                                                   ),
                                                   TextSpan(
@@ -214,7 +218,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: Color(0xFFB8CBCB),
                                                       fontSize: 16,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                       height: 0,
                                                     ),
                                                   ),
@@ -224,7 +228,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: Color(0xFF35D5DA),
                                                       fontSize: 12,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                     ),
                                                   ),
                                                 ],
@@ -239,13 +243,18 @@ class HomeScreen extends StatelessWidget {
                                           ],
                                         ),
                                         const CustomSize(
-                                          height: 10,
+                                          height: 8,
                                         ),
                                         Row(
                                           children: [
-                                            Image.asset(AppImages.bed),
+                                            SvgPicture.asset(
+                                              AppImages.svBed,
+                                              color: AppColors.turquoise,
+                                              height: 12,
+                                              width: 12,
+                                            ),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '3',
@@ -254,11 +263,16 @@ class HomeScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
-                                              width: 15,
+                                              width: 16,
                                             ),
-                                            Image.asset(AppImages.sofa),
+                                            SvgPicture.asset(
+                                              AppImages.svSofa,
+                                              color: AppColors.turquoise,
+                                              height: 12,
+                                              width: 12,
+                                            ),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '1',
@@ -267,11 +281,16 @@ class HomeScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
+                                              width: 16,
+                                            ),
+                                            SvgPicture.asset(
+                                              AppImages.svTrash,
+                                              color: AppColors.turquoise,
+                                              height: 15,
                                               width: 15,
                                             ),
-                                            Image.asset(AppImages.bath),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '2',
@@ -280,11 +299,16 @@ class HomeScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
+                                              width: 16,
+                                            ),
+                                            SvgPicture.asset(
+                                              AppImages.svTv,
+                                              color: AppColors.turquoise,
+                                              height: 15,
                                               width: 15,
                                             ),
-                                            Image.asset(AppImages.tv),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '1',
@@ -293,11 +317,16 @@ class HomeScreen extends StatelessWidget {
                                               weight: FontWeight.w500,
                                             ),
                                             const CustomSize(
+                                              width: 16,
+                                            ),
+                                            SvgPicture.asset(
+                                              AppImages.svArea,
+                                              color: AppColors.turquoise,
+                                              height: 15,
                                               width: 15,
                                             ),
-                                            Image.asset(AppImages.area),
                                             const CustomSize(
-                                              width: 5,
+                                              width: 8,
                                             ),
                                             const CustomText(
                                               label: '3120 sqft',

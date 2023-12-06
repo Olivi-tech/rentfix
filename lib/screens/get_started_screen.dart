@@ -11,14 +11,16 @@ class GetStartedScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.turquoiseBlue,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Flexible(
+                flex: 6,
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CustomSize(
@@ -32,9 +34,10 @@ class GetStartedScreen extends StatelessWidget {
                       height: 10,
                     ),
                     const CustomText(
-                      label: 'Find Your \nPerfect Place',
+                      label: 'Find Your\nPerfect Place',
                       color: AppColors.white,
                       size: FontSize.exLarge,
+                      height: 1,
                       weight: FontWeight.w900,
                     ),
                     const CustomSize(
@@ -103,25 +106,21 @@ class GetStartedScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                children: [
-                  const CustomSize(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Image.asset(
-                        AppImages.layerHouse,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+            ),
+            const CustomSize(
+              height: 10,
+            ),
+            Flexible(
+              flex: 4,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Image.asset(
+                  AppImages.layerHouse,
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
