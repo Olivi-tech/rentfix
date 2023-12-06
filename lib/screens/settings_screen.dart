@@ -23,8 +23,8 @@ class SettingsScreen extends StatelessWidget {
                 height: 40,
               ),
               CustomContainer(
-                width: mq.width * 0.38,
-                height: mq.height * 0.18,
+                width: mq.width * 0.35,
+                height: mq.height * 0.16,
                 shapeDecoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -163,10 +163,10 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 150,
-          left: 225,
+          top: mq.height * 0.165,
+          left: mq.width * 0.6,
           child: CustomContainer(
-            width: mq.width * 0.12,
+            width: mq.width * 0.11,
             height: mq.height * 0.05,
             shapeDecoration: BoxDecoration(
               color: AppColors.white,
