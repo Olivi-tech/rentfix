@@ -1,17 +1,23 @@
-import 'package:device_preview/device_preview.dart';
+//import 'package:device_preview/device_preview.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/firebase_options.dart';
+import 'package:rent_fix/providers/border_provider.dart';
 import 'package:rent_fix/providers/bottom_navigation_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
-void main() => runApp(
-      DevicePreview(
-        builder: (context) => const RentFixApp(),
-      ),
-    );
+// DevicePreview(  builder: (context) => const RentFixApp(), ),
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const RentFixApp());
+}
 
 class RentFixApp extends StatelessWidget {
   const RentFixApp({Key? key}) : super(key: key);
@@ -22,6 +28,9 @@ class RentFixApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<BottomNavigationProvider>(
           create: (context) => BottomNavigationProvider(),
+        ),
+        ChangeNotifierProvider<PropertyTypeProvider>(
+          create: (context) => PropertyTypeProvider(),
         ),
       ],
       child: MaterialApp(

@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
               icon: PopupMenuButton(
                 icon: const Icon(Icons.menu),
                 offset: const Offset(50, 0),
-                color: AppColors.paleSkyBlue,
+                color: AppColors.white,
                 shape: TooltipShape(),
                 constraints: const BoxConstraints(
                   minWidth: 4.0 * 46.0,

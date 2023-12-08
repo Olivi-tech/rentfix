@@ -45,7 +45,9 @@ class PropertyApparmentSize extends StatelessWidget {
           ),
           CustomButton(
             width: MediaQuery.of(context).size.width,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
+            },
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,
             textColor: AppColors.white,

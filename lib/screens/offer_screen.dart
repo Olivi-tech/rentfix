@@ -12,6 +12,7 @@ class OfferScreen extends StatefulWidget {
 }
 
 class _OfferScreenState extends State<OfferScreen> {
+  final PageController _pageController = PageController(initialPage: 0);
   ValueNotifier<int> pageNotifier = ValueNotifier(0);
 
   @override
@@ -42,6 +43,7 @@ class _OfferScreenState extends State<OfferScreen> {
             Flexible(
               flex: 9,
               child: PageView(
+                controller: _pageController,
                 onPageChanged: (index) {
                   pageNotifier.value = index;
                 },
@@ -109,7 +111,9 @@ class _OfferScreenState extends State<OfferScreen> {
           btnColor: AppColors.turquoise,
           text: 'Next',
           textColor: Colors.white,
-          onPressed: () {},
+          onPressed: () {
+            _pageController.jumpToPage(1);
+          },
           width: MediaQuery.of(context).size.width,
         )
       ],
@@ -155,7 +159,9 @@ class _OfferScreenState extends State<OfferScreen> {
           textColor: Colors.white,
           text: 'Next',
           width: MediaQuery.of(context).size.width,
-          onPressed: () {},
+          onPressed: () {
+            _pageController.jumpToPage(2);
+          },
         )
       ],
     );
@@ -200,7 +206,9 @@ class _OfferScreenState extends State<OfferScreen> {
           textColor: Colors.white,
           text: 'Next',
           width: MediaQuery.of(context).size.width,
-          onPressed: () {},
+          onPressed: () {
+            _pageController.jumpToPage(4);
+          },
         )
       ],
     );

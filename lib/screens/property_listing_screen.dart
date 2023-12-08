@@ -25,80 +25,100 @@ class PropertyListingDetails extends StatelessWidget {
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyAddress);
+              },
               headingText: 'Address',
               detailText: '18 Serangoon Garden Way,\nThailand, 54000',
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
+              },
               headingText: 'Bedroom',
               detailText: '3',
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
-              headingText: 'Bedroom',
-              detailText: '3',
-            ),
-            const CustomSize(
-              height: 10,
-            ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'Bathroom',
               detailText: '3',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyBathrooms);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'Size',
               detailText: '3000 sqft',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertySize);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'Property type',
               detailText: 'HDB',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyType);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'What are you renting',
               detailText: 'Room',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyRent);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'Furnishing',
               detailText: 'Semi Furnished',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyfurnished);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'Amount',
               detailText: 'S\$300',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyRent);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const SummaryContainer(
+            SummaryContainer(
               headingText: 'Available for rent',
               detailText: 'Available now',
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+              },
             ),
             const CustomSize(
               height: 10,
             ),
-            const CustomSize(
-              height: 10,
-            ),
-            const SummaryContainer(
+            SummaryContainer(
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyDescription);
+              },
               headingText: 'Property description',
               detailText:
                   'Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed do eiusmod tempor...',
@@ -106,80 +126,85 @@ class PropertyListingDetails extends StatelessWidget {
             const CustomSize(
               height: 10,
             ),
-            ShapeContainer(
-              height: 122,
-              decoration: ShapeDecoration(
-                color: AppColors.paleAqua,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed(AppRoutes.propertyPhotos);
+              },
+              child: ShapeContainer(
+                height: 122,
+                decoration: ShapeDecoration(
+                  color: AppColors.paleAqua,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
-              ),
-              child: Center(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const CustomText(
-                              label: 'Property Images',
-                              color: AppColors.darkGreen,
-                              size: FontSize.xxMedium,
-                              weight: FontWeight.w600,
-                            ),
-                            const CustomSize(
-                              height: 3,
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  AppImages.roomImage,
-                                  width: 64,
-                                  height: 64,
-                                ),
-                                const CustomSize(
-                                  width: 5,
-                                ),
-                                Image.asset(
-                                  AppImages.roomImage,
-                                  width: 64,
-                                  height: 64,
-                                ),
-                                const CustomSize(
-                                  width: 5,
-                                ),
-                                Image.asset(
-                                  AppImages.roomImage,
-                                  width: 64,
-                                  height: 64,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ShapeContainer(
-                              width: 32,
-                              height: 32,
-                              decoration: ShapeDecoration(
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const CustomText(
+                                label: 'Property Images',
+                                color: AppColors.darkGreen,
+                                size: FontSize.xxMedium,
+                                weight: FontWeight.w600,
                               ),
-                              child: Image.asset(AppImages.pen),
-                            ),
-                          ],
-                        )
-                      ],
+                              const CustomSize(
+                                height: 3,
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    AppImages.roomImage,
+                                    width: 64,
+                                    height: 64,
+                                  ),
+                                  const CustomSize(
+                                    width: 5,
+                                  ),
+                                  Image.asset(
+                                    AppImages.roomImage,
+                                    width: 64,
+                                    height: 64,
+                                  ),
+                                  const CustomSize(
+                                    width: 5,
+                                  ),
+                                  Image.asset(
+                                    AppImages.roomImage,
+                                    width: 64,
+                                    height: 64,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ShapeContainer(
+                                width: 32,
+                                height: 32,
+                                decoration: ShapeDecoration(
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Image.asset(AppImages.pen),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

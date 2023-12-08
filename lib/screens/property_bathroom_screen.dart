@@ -91,7 +91,9 @@ class PropertyBathroom extends StatelessWidget {
           ),
           CustomButton(
             width: mq.width,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.propertyfurnished);
+            },
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,
             textColor: AppColors.white,

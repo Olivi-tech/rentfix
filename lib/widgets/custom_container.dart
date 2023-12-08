@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/providers/border_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -227,6 +229,45 @@ class CheckboxContainer extends StatelessWidget {
   }
 }
 
+class CustomPropertyContainer extends StatelessWidget {
+  final Widget child;
+  final VoidCallback? onTap;
+  final Color borderColor;
+
+  const CustomPropertyContainer({
+    super.key,
+    required this.child,
+    this.onTap,
+    required this.borderColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: mq.width,
+            height: 56,
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            decoration: BoxDecoration(
+                color: const Color(0xFFCCF3F5),
+                border: Border.all(color: borderColor),
+                borderRadius: BorderRadius.circular(8)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [child],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class PropertyContainer extends StatelessWidget {
   final Widget child;
 
@@ -262,65 +303,72 @@ class SummaryContainer extends StatelessWidget {
   final String headingText;
   final String detailText;
 
+  final VoidCallback? onTap;
   const SummaryContainer(
-      {super.key, required this.headingText, required this.detailText});
+      {super.key,
+      required this.headingText,
+      required this.detailText,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return ShapeContainer(
-      height: 82,
-      decoration: ShapeDecoration(
-        color: AppColors.paleAqua,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+    return GestureDetector(
+      onTap: onTap,
+      child: ShapeContainer(
+        height: 82,
+        decoration: ShapeDecoration(
+          color: AppColors.paleAqua,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
         ),
-      ),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(left: 10, top: 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomText(
-                      label: headingText,
-                      color: AppColors.darkGreen,
-                      size: FontSize.xxMedium,
-                      weight: FontWeight.w600,
-                    ),
-                    const CustomSize(
-                      height: 3,
-                    ),
-                    CustomText(
-                      label: detailText,
-                      color: AppColors.darkGreen,
-                      size: FontSize.xxMedium,
-                      weight: FontWeight.w300,
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ShapeContainer(
-                      width: 32,
-                      height: 32,
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, top: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomText(
+                        label: headingText,
+                        color: AppColors.darkGreen,
+                        size: FontSize.xxMedium,
+                        weight: FontWeight.w600,
                       ),
-                      child: Image.asset(AppImages.pen),
-                    ),
-                  ],
-                )
-              ],
+                      const CustomSize(
+                        height: 3,
+                      ),
+                      CustomText(
+                        label: detailText,
+                        color: AppColors.darkGreen,
+                        size: FontSize.xxMedium,
+                        weight: FontWeight.w300,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ShapeContainer(
+                        width: 32,
+                        height: 32,
+                        decoration: ShapeDecoration(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Image.asset(AppImages.pen),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

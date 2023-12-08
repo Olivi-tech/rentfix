@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-class PropertyMonthlyRent extends StatelessWidget {
-  const PropertyMonthlyRent({super.key});
+class PropertyDate extends StatelessWidget {
+  const PropertyDate({super.key});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController sizeController = TextEditingController();
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -17,37 +18,33 @@ class PropertyMonthlyRent extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const CustomText(
-            label:
-                'How much should the price per month be for this unit? The final price can be adjusted in the contract.',
+            label: 'When will the property be ready to rent?',
             size: FontSize.xMedium,
             weight: FontWeight.w600,
           ),
           const CustomSize(
-            height: 10,
-          ),
-          const CustomText(
-            label: 'Monthly Rent',
-            color: AppColors.darkGreen,
-            size: FontSize.xxMedium,
-            weight: FontWeight.w500,
+            height: 20,
           ),
           const CustomSize(
-            height: 10,
+            height: 20,
           ),
-          CustomTextField(
-            borderRadius: 15,
-            hintText: 'Enter amount in S\$',
-            borderColor: AppColors.pastelblue,
-            controller: sizeController,
-            fillColor: AppColors.white,
-          ),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: AppColors.turquoise)),
+              height: 250,
+              child: SfDateRangePicker(
+                showNavigationArrow: true,
+                monthViewSettings: const DateRangePickerMonthViewSettings(),
+                selectionColor: AppColors.turquoise,
+              )),
           const CustomSize(
-            height: 10,
+            height: 20,
           ),
           CustomButton(
-            width: MediaQuery.of(context).size.width,
+            width: mq.width,
             onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.propertyPhotos);
+              Navigator.of(context).pushNamed(AppRoutes.propertyDescription);
             },
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,

@@ -486,7 +486,8 @@ class ListingDetails extends StatelessWidget {
                 textColor: Colors.white,
                 btnColor: AppColors.turquoise,
                 onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoutes.offer);
+                  // Navigator.of(context).pushNamed(AppRoutes.offer);
+                  Navigator.of(context).pushNamed(AppRoutes.propertyType);
                 },
               ),
               const SizedBox(

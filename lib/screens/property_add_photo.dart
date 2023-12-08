@@ -84,6 +84,19 @@ class PropertyPhotos extends StatelessWidget {
               )
             ]),
           ),
+          const CustomSize(
+            height: 20,
+          ),
+          CustomButton(
+            width: MediaQuery.of(context).size.width,
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+            },
+            btnColor: AppColors.turquoise,
+            borderColor: Colors.transparent,
+            textColor: AppColors.white,
+            text: 'Next',
+          ),
         ]),
       ),
     );

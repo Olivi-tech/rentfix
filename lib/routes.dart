@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/screens/property_add_photo.dart';
+import 'package:rent_fix/screens/property_address_screen.dart';
+import 'package:rent_fix/screens/property_bathroom_screen.dart';
 import 'package:rent_fix/screens/screens.dart';
 
 class Routers {
@@ -31,6 +34,30 @@ class Routers {
         return const ProfileScreen();
       case AppRoutes.settings:
         return const SettingsScreen();
+      case AppRoutes.propertyType:
+        return const PropertyType();
+      case AppRoutes.propertyAgreement:
+        return const PropertyRentalAgreement();
+      case AppRoutes.propertyRent:
+        return const PropertyMonthlyRent();
+      case AppRoutes.propertyfurnished:
+        return const PropertyFurnished();
+      case AppRoutes.propertyAddress:
+        return const PropertyAddress();
+      case AppRoutes.propertySize:
+        return const PropertyApparmentSize();
+      case AppRoutes.propertyBedrooms:
+        return const PropertyBedroom();
+      case AppRoutes.propertyBathrooms:
+        return const PropertyBathroom();
+      case AppRoutes.propertyPhotos:
+        return const PropertyPhotos();
+      case AppRoutes.propertyDate:
+        return const PropertyDate();
+      case AppRoutes.propertyList:
+        return const PropertyListingDetails();
+      case AppRoutes.propertyDescription:
+        return const PropertyDescription();
 
       default:
         AppRoutes.splash;

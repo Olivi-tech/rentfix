@@ -10,4 +10,17 @@ class AppRoutes {
   static const listDetails = '/listDestails';
   static const chat = '/chat';
   static const offer = '/offer';
+  static const propertyType = '/propertType';
+  static const propertyAgreement = '/propertyAgreement';
+  static const propertyAddress = '/propertyAddress';
+  static const propertySize = '/propertySize';
+  static const propertyBedrooms = '/propertyBedrooms';
+  static const propertyBathrooms = '/propertyBathrooms';
+  static const propertyfurnished = '/propertyfurnished';
+  static const propertyRent = '/propertyRent';
+  static const propertyPhotos = '/propertyPhotos';
+  static const propertyDate = '/propertyDate';
+  static const propertyDescription = '/propertyDescription';
+  static const propertyList = '/propertyList';
+  static const secondOffer = '/secondOffer';
 }

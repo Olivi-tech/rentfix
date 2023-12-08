@@ -91,7 +91,9 @@ class PropertyBedroom extends StatelessWidget {
           ),
           CustomButton(
             width: mq.width,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.propertyBathrooms);
+            },
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,
             textColor: AppColors.white,
