@@ -51,7 +51,6 @@ class CustomTextField extends StatelessWidget {
   build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: height,
       child: TextFormField(
         cursorColor: AppColors.turquoiseBlue,
         inputFormatters: textInputFormatter,
@@ -75,6 +74,7 @@ class CustomTextField extends StatelessWidget {
           suffixStyle: suffixStyle,
           prefixIconColor: AppColors.teal,
           prefixIcon: iconData != null ? Icon(iconData) : null,
+          // isDense: true,
           contentPadding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -103,4 +103,14 @@ class CustomTextField extends StatelessWidget {
 bool isValidEmail(String input) {
   final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
   return emailRegex.hasMatch(input);
+}
+
+bool isValidInput(String input) {
+  final inputRegex = RegExp(r'^[0-9-]+$');
+  return inputRegex.hasMatch(input);
+}
+
+bool isValidAddress(String input) {
+  final addressRegex = RegExp(r'^[a-zA-Z0-9\s\-#,./]+$');
+  return addressRegex.hasMatch(input);
 }

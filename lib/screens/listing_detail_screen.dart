@@ -456,7 +456,7 @@ class ListingDetails extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
+                      /* Container(
                         width: 48,
                         height: 48,
                         decoration: ShapeDecoration(
@@ -471,7 +471,7 @@ class ListingDetails extends StatelessWidget {
                             AppImages.svLine,
                           ),
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),

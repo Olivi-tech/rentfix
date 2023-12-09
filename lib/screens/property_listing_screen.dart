@@ -1,12 +1,23 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/model/property_model.dart';
 import 'package:rent_fix/widgets/widgets.dart';
+import '../providers/image_picker_provider.dart';
 
-class PropertyListingDetails extends StatelessWidget {
+class PropertyListingDetails extends StatefulWidget {
   const PropertyListingDetails({super.key});
 
   @override
+  State<PropertyListingDetails> createState() => _PropertyListingDetailsState();
+}
+
+class _PropertyListingDetailsState extends State<PropertyListingDetails> {
+  late Property imagePickerProvider;
+  @override
   Widget build(BuildContext context) {
+    // final mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -25,103 +36,145 @@ class PropertyListingDetails extends StatelessWidget {
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyAddress);
-              },
-              headingText: 'Address',
-              detailText: '18 Serangoon Garden Way,\nThailand, 54000',
-            ),
-            const CustomSize(
-              height: 10,
-            ),
-            SummaryContainer(
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
-              },
-              headingText: 'Bedroom',
-              detailText: '3',
-            ),
-            const CustomSize(
-              height: 10,
-            ),
-            SummaryContainer(
-              headingText: 'Bathroom',
-              detailText: '3',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyBathrooms);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyAddress);
+                  },
+                  headingText: 'Address',
+                  detailText: property.getAddress,
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              headingText: 'Size',
-              detailText: '3000 sqft',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertySize);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
+                  },
+                  headingText: 'Bedroom',
+                  detailText: property.getBedroom,
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              headingText: 'Property type',
-              detailText: 'HDB',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyType);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'Bathroom',
+                  detailText: property.getBathroom,
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(AppRoutes.propertyBathrooms);
+                  },
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              headingText: 'What are you renting',
-              detailText: 'Room',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyRent);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'Size',
+                  detailText: property.getAppartmentSize,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.propertySize);
+                  },
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              headingText: 'Furnishing',
-              detailText: 'Semi Furnished',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyfurnished);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'Property type',
+                  detailText: property.getPropertyType,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyType);
+                  },
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              headingText: 'Amount',
-              detailText: 'S\$300',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyRent);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'What are you renting',
+                  detailText: property.getAgreement,
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(AppRoutes.propertyAgreement);
+                  },
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              headingText: 'Available for rent',
-              detailText: 'Available now',
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'Furnishing',
+                  detailText: property.getFurnishing,
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(AppRoutes.propertyfurnished);
+                  },
+                );
               },
             ),
             const CustomSize(
               height: 10,
             ),
-            SummaryContainer(
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyDescription);
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'Amount',
+                  detailText: property.getRent,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyRent);
+                  },
+                );
               },
-              headingText: 'Property description',
-              detailText:
-                  'Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed do eiusmod tempor...',
+            ),
+            const CustomSize(
+              height: 10,
+            ),
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  headingText: 'Available for rent',
+                  detailText: property.getAvaliableDate,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+                  },
+                );
+              },
+            ),
+            const CustomSize(
+              height: 10,
+            ),
+            Consumer<Property>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(AppRoutes.propertyDescription);
+                    },
+                    headingText: 'Property description',
+                    detailText: property.description);
+              },
             ),
             const CustomSize(
               height: 10,
@@ -160,31 +213,29 @@ class PropertyListingDetails extends StatelessWidget {
                               const CustomSize(
                                 height: 3,
                               ),
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    AppImages.roomImage,
-                                    width: 64,
-                                    height: 64,
-                                  ),
-                                  const CustomSize(
-                                    width: 5,
-                                  ),
-                                  Image.asset(
-                                    AppImages.roomImage,
-                                    width: 64,
-                                    height: 64,
-                                  ),
-                                  const CustomSize(
-                                    width: 5,
-                                  ),
-                                  Image.asset(
-                                    AppImages.roomImage,
-                                    width: 64,
-                                    height: 64,
-                                  ),
-                                ],
-                              )
+                              Consumer<ImagePickerProvider>(
+                                builder: (context, imagePick, child) {
+                                  if (imagePick.paths.isEmpty) {
+                                    return Container();
+                                  } else {
+                                    return SizedBox(
+                                        width: 240,
+                                        height: 64,
+                                        child: ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: imagePick.paths.length,
+                                          itemBuilder: (context, index) {
+                                            return Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 5),
+                                              child: _buildImagePreview(
+                                                  imagePick.paths[index]),
+                                            );
+                                          },
+                                        ));
+                                  }
+                                },
+                              ),
                             ],
                           ),
                           Column(
@@ -227,6 +278,21 @@ class PropertyListingDetails extends StatelessWidget {
           ]),
         ),
       ),
+    );
+  }
+
+  Widget _buildImagePreview(String imagePath) {
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Image.file(
+            File(imagePath),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ],
     );
   }
 }

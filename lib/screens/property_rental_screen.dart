@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/model/property_model.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -9,9 +10,8 @@ class PropertyRentalAgreement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context).size;
-
-    final propertyTypeProvider = Provider.of<PropertyTypeProvider>(context);
+    final borderProvider = Provider.of<SelectedBorderProvider>(context);
+    final propertyProvider = Provider.of<Property>(context);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -30,9 +30,10 @@ class PropertyRentalAgreement extends StatelessWidget {
           ),
           CustomPropertyContainer(
               onTap: () {
-                propertyTypeProvider.updateContainer4Color(context);
+                borderProvider.updateContainer4Color(context);
+                propertyProvider.setAgreement = 'Entire Unit';
               },
-              borderColor: propertyTypeProvider.container4Color,
+              borderColor: borderProvider.container4Color,
               child: const Column(
                 children: [
                   CustomText(
@@ -54,9 +55,10 @@ class PropertyRentalAgreement extends StatelessWidget {
           ),
           CustomPropertyContainer(
               onTap: () {
-                propertyTypeProvider.updateContainer5Color(context);
+                borderProvider.updateContainer5Color(context);
+                propertyProvider.setAgreement = 'Room';
               },
-              borderColor: propertyTypeProvider.container5Color,
+              borderColor: borderProvider.container5Color,
               child: const Column(
                 children: [
                   CustomText(
@@ -78,9 +80,10 @@ class PropertyRentalAgreement extends StatelessWidget {
           ),
           CustomPropertyContainer(
               onTap: () {
-                propertyTypeProvider.updateContainer6Color(context);
+                borderProvider.updateContainer6Color(context);
+                propertyProvider.setAgreement = 'Ensuite';
               },
-              borderColor: propertyTypeProvider.container6Color,
+              borderColor: borderProvider.container6Color,
               child: const Column(
                 children: [
                   CustomText(
@@ -102,9 +105,10 @@ class PropertyRentalAgreement extends StatelessWidget {
           ),
           CustomPropertyContainer(
               onTap: () {
-                propertyTypeProvider.updateContainer7Color(context);
+                borderProvider.updateContainer7Color(context);
+                propertyProvider.setAgreement = 'Studio';
               },
-              borderColor: propertyTypeProvider.container7Color,
+              borderColor: borderProvider.container7Color,
               child: const Column(
                 children: [
                   CustomText(

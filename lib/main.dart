@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/firebase_options.dart';
-import 'package:rent_fix/providers/border_provider.dart';
-import 'package:rent_fix/providers/bottom_navigation_provider.dart';
+import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 // DevicePreview(  builder: (context) => const RentFixApp(), ),
@@ -29,8 +29,20 @@ class RentFixApp extends StatelessWidget {
         ChangeNotifierProvider<BottomNavigationProvider>(
           create: (context) => BottomNavigationProvider(),
         ),
-        ChangeNotifierProvider<PropertyTypeProvider>(
-          create: (context) => PropertyTypeProvider(),
+        ChangeNotifierProvider<SelectedBorderProvider>(
+          create: (context) => SelectedBorderProvider(),
+        ),
+        ChangeNotifierProvider<Property>(
+          create: (context) => Property(),
+        ),
+        ChangeNotifierProvider<BedroomProvider>(
+          create: (context) => BedroomProvider(),
+        ),
+        ChangeNotifierProvider<BathroomProvider>(
+          create: (context) => BathroomProvider(),
+        ),
+        ChangeNotifierProvider<ImagePickerProvider>(
+          create: (context) => ImagePickerProvider(),
         ),
       ],
       child: MaterialApp(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyBedroom extends StatelessWidget {
@@ -8,6 +11,9 @@ class PropertyBedroom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
+    final bedroomProvider = Provider.of<BedroomProvider>(context);
+    final propertyProvider = Provider.of<Property>(context);
+
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -44,45 +50,55 @@ class PropertyBedroom extends StatelessWidget {
               ),
             ),
             child: Row(children: [
-              Container(
-                width: 72,
-                height: 56,
-                decoration: ShapeDecoration(
-                  color: AppColors.skyBlue,
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1, color: AppColors.teal),
-                    borderRadius: BorderRadius.circular(20),
+              GestureDetector(
+                onTap: () {
+                  bedroomProvider.decrementBedroom();
+                },
+                child: Container(
+                  width: 72,
+                  height: 56,
+                  decoration: ShapeDecoration(
+                    color: AppColors.skyBlue,
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 1, color: AppColors.teal),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
+                  child: const Center(
+                      child: Icon(
+                    Icons.remove,
+                    color: AppColors.darkGreen,
+                  )),
                 ),
-                child: const Center(
-                    child: Icon(
-                  Icons.remove,
-                  color: AppColors.darkGreen,
-                )),
               ),
               const Spacer(),
-              const CustomText(
-                label: '5',
+              CustomText(
+                label: '${bedroomProvider.bedroomCount}',
                 color: AppColors.darkGreen,
                 size: FontSize.xMedium,
                 weight: FontWeight.w500,
               ),
               const Spacer(),
-              Container(
-                width: 72,
-                height: 56,
-                decoration: ShapeDecoration(
-                  color: AppColors.skyBlue,
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1, color: AppColors.teal),
-                    borderRadius: BorderRadius.circular(20),
+              GestureDetector(
+                onTap: () {
+                  bedroomProvider.incrementBedroom();
+                },
+                child: Container(
+                  width: 72,
+                  height: 56,
+                  decoration: ShapeDecoration(
+                    color: AppColors.skyBlue,
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 1, color: AppColors.teal),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
+                  child: const Center(
+                      child: Icon(
+                    Icons.add,
+                    color: AppColors.darkGreen,
+                  )),
                 ),
-                child: const Center(
-                    child: Icon(
-                  Icons.add,
-                  color: AppColors.darkGreen,
-                )),
               ),
             ]),
           ),
@@ -93,6 +109,7 @@ class PropertyBedroom extends StatelessWidget {
             width: mq.width,
             onPressed: () {
               Navigator.of(context).pushNamed(AppRoutes.propertyBathrooms);
+              propertyProvider.setBedroom = '${bedroomProvider.bedroomCount}';
             },
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,

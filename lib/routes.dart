@@ -39,7 +39,7 @@ class Routers {
       case AppRoutes.propertyAgreement:
         return const PropertyRentalAgreement();
       case AppRoutes.propertyRent:
-        return const PropertyMonthlyRent();
+        return const PropertyMonthlyRent(isOpenFromSummary: ,);
       case AppRoutes.propertyfurnished:
         return const PropertyFurnished();
       case AppRoutes.propertyAddress:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/border_provider.dart';
@@ -363,7 +364,12 @@ class SummaryContainer extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        child: Image.asset(AppImages.pen),
+                        child: Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: SvgPicture.asset(
+                            AppImages.editIcon,
+                          ),
+                        ),
                       ),
                     ],
                   )

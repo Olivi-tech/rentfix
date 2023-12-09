@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/model/property_model.dart';
 import 'package:rent_fix/providers/border_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -9,7 +10,8 @@ class PropertyFurnished extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context).size;
+    final borderProvider = Provider.of<SelectedBorderProvider>(context);
+    final propertyProvider = Provider.of<Property>(context);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -26,9 +28,13 @@ class PropertyFurnished extends StatelessWidget {
           const CustomSize(
             height: 10,
           ),
-          const CustomPropertyContainer(
-              borderColor: AppColors.turquoise,
-              child: CustomText(
+          CustomPropertyContainer(
+              onTap: () {
+                borderProvider.updateContainer10Color(context);
+                propertyProvider.setFurnishing = 'Unfurnished';
+              },
+              borderColor: Colors.transparent,
+              child: const CustomText(
                 label: 'Unfurnished',
                 size: FontSize.xMedium,
                 color: AppColors.darkGreen,
@@ -37,9 +43,13 @@ class PropertyFurnished extends StatelessWidget {
           const CustomSize(
             height: 10,
           ),
-          const CustomPropertyContainer(
-              borderColor: AppColors.turquoise,
-              child: CustomText(
+          CustomPropertyContainer(
+              onTap: () {
+                borderProvider.updateContainer10Color(context);
+                propertyProvider.setFurnishing = 'Partially Furnished';
+              },
+              borderColor: Colors.transparent,
+              child: const CustomText(
                 label: 'Partially Furnished',
                 color: AppColors.darkGreen,
                 size: FontSize.xMedium,
@@ -49,8 +59,12 @@ class PropertyFurnished extends StatelessWidget {
             height: 10,
           ),
           CustomPropertyContainer(
-            borderColor: AppColors.turquoise,
-            child: CustomText(
+            onTap: () {
+              borderProvider.updateContainer10Color(context);
+              propertyProvider.setFurnishing = 'Fully Furnished';
+            },
+            borderColor: Colors.transparent,
+            child: const CustomText(
               label: 'Fully Furnished',
               color: AppColors.darkGreen,
               size: FontSize.xMedium,
@@ -59,16 +73,6 @@ class PropertyFurnished extends StatelessWidget {
           ),
           const CustomSize(
             height: 10,
-          ),
-          CustomButton(
-            width: mq.width,
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.propertyRent);
-            },
-            btnColor: AppColors.turquoise,
-            borderColor: Colors.transparent,
-            textColor: AppColors.white,
-            text: 'Next',
           ),
         ]),
       ),
