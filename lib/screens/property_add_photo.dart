@@ -5,11 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/image_picker_provider.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyPhotos extends StatefulWidget {
-  const PropertyPhotos({super.key});
+  final bool isOpenFromSummary;
+  const PropertyPhotos({super.key, required this.isOpenFromSummary});
 
   @override
   State<PropertyPhotos> createState() => _PropertyPhotosState();
@@ -33,6 +35,7 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
+    final propertyProvider = Provider.of<PropertyProvider>(context);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -153,7 +156,21 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
             CustomButton(
               width: MediaQuery.of(context).size.width,
               onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+                if (imagePickerProvider.paths.length < 5) {
+                  CustomSnackBar.show(
+                    context: context,
+                    text: 'You must upload at least 5 photos.',
+                    backgroundColor: Colors.red,
+                  );
+                } else {
+                  propertyProvider.setListPhotos = imagePickerProvider.paths;
+
+                  if (widget.isOpenFromSummary) {
+                    Navigator.pop(context);
+                  } else {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+                  }
+                }
               },
               btnColor: AppColors.turquoise,
               borderColor: Colors.transparent,

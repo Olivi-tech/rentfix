@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/firebase_options.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -32,8 +32,8 @@ class RentFixApp extends StatelessWidget {
         ChangeNotifierProvider<SelectedBorderProvider>(
           create: (context) => SelectedBorderProvider(),
         ),
-        ChangeNotifierProvider<Property>(
-          create: (context) => Property(),
+        ChangeNotifierProvider<PropertyProvider>(
+          create: (context) => PropertyProvider(),
         ),
         ChangeNotifierProvider<BedroomProvider>(
           create: (context) => BedroomProvider(),
@@ -43,6 +43,9 @@ class RentFixApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ImagePickerProvider>(
           create: (context) => ImagePickerProvider(),
+        ),
+        ChangeNotifierProvider<OfferModelProvider>(
+          create: (context) => OfferModelProvider(),
         ),
       ],
       child: MaterialApp(

@@ -32,7 +32,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreen(context);
   }
 
   void updateContainer2Color(BuildContext context) {
@@ -40,7 +39,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreen(context);
   }
 
   void updateContainer3Color(BuildContext context) {
@@ -48,7 +46,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreen(context);
   }
 
   void updateContainer4Color(BuildContext context) {
@@ -56,7 +53,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreens(context);
   }
 
   void updateContainer5Color(BuildContext context) {
@@ -64,7 +60,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreens(context);
   }
 
   void updateContainer6Color(BuildContext context) {
@@ -72,7 +67,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreens(context);
   }
 
   void updateContainer7Color(BuildContext context) {
@@ -80,7 +74,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextScreens(context);
   }
 
   void updateContainer8Color(BuildContext context) {
@@ -88,7 +81,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextsScreens(context);
   }
 
   void updateContainer9Color(BuildContext context) {
@@ -96,7 +88,6 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextsScreens(context);
   }
 
   void updateContainer10Color(BuildContext context) {
@@ -104,20 +95,5 @@ class SelectedBorderProvider with ChangeNotifier {
         ? AppColors.turquoise
         : Colors.transparent;
     notifyListeners();
-    navigateToNextsScreens(context);
-  }
-
-  void navigateToNextScreen(BuildContext context) {
-    Navigator.of(context).pushNamed(
-      AppRoutes.propertyAgreement,
-    );
-  }
-
-  void navigateToNextScreens(BuildContext context) {
-    Navigator.of(context).pushNamed(AppRoutes.propertyAddress);
-  }
-
-  void navigateToNextsScreens(BuildContext context) {
-    Navigator.of(context).pushNamed(AppRoutes.propertyRent, arguments: false);
   }
 }

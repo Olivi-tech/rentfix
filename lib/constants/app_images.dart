@@ -27,7 +27,7 @@ class AppImages {
   static const fullHouse = 'assets/images/splash.png';
   static const layerHouse = 'assets/images/full_layer_house.png';
   static const smallHouse = 'assets/images/small_house.png';
-
+  static const homeIcon = 'assets/svgs/houseicon.svg';
   static const oldMen = 'assets/images/old_man.png';
   static const cameraIcon = 'assets/svgs/camera.svg';
   static const galleryIcon = 'assets/svgs/gallery.svg';

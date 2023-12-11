@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyAddress extends StatefulWidget {
-  const PropertyAddress({super.key});
+  final bool isOpenFromSummary;
+  const PropertyAddress({super.key, required this.isOpenFromSummary});
 
   @override
   State<PropertyAddress> createState() => _PropertyAddressState();
@@ -31,7 +32,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
 
   @override
   Widget build(BuildContext context) {
-    final propertyProvider = Provider.of<Property>(context);
+    final propertyProvider = Provider.of<PropertyProvider>(context);
     final mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const CustomAppBar(
@@ -247,12 +248,17 @@ class _PropertyAddressState extends State<PropertyAddress> {
                 onPressed: () {
                   if (globalKey.currentState!.validate()) {
                     FocusScope.of(context).unfocus();
-                    Navigator.of(context).pushNamed(AppRoutes.propertySize);
                     propertyProvider.setAddress = addressController.text;
                     propertyProvider.setPostCode = postCodeController.text;
                     propertyProvider.setBlockNo = blockController.text;
                     propertyProvider.setFloor = floorController.text;
                     propertyProvider.unit = unitController.text;
+
+                    if (widget.isOpenFromSummary) {
+                      Navigator.pop(context);
+                    } else {
+                      Navigator.of(context).pushNamed(AppRoutes.propertySize);
+                    }
                   }
                 },
                 btnColor: AppColors.turquoise,

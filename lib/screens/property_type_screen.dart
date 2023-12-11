@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/providers.dart';
+import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
-class PropertyType extends StatelessWidget {
-  const PropertyType({Key? key}) : super(key: key);
+class PropertyType extends StatefulWidget {
+  final bool isOpenFromSummary;
+  const PropertyType({super.key, required this.isOpenFromSummary});
 
+  @override
+  State<PropertyType> createState() => _PropertyTypeState();
+}
+
+class _PropertyTypeState extends State<PropertyType> {
   @override
   Widget build(BuildContext context) {
     final borderProvider = Provider.of<SelectedBorderProvider>(context);
-    final propertyProvider = Provider.of<Property>(context);
+    final propertyProvider = Provider.of<PropertyProvider>(context);
 
     return Scaffold(
       appBar: const CustomAppBar(
@@ -35,6 +43,17 @@ class PropertyType extends StatelessWidget {
               onTap: () {
                 borderProvider.updateContainer1Color(context);
                 propertyProvider.setPropertyType = 'Apartment';
+                if (widget.isOpenFromSummary) {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const PropertyListingDetails(
+                            isOpenFromSummary: true,
+                          )));
+                } else {
+                  Navigator.of(context).pushNamed(AppRoutes.propertyAgreement);
+                }
               },
               borderColor: borderProvider.container1Color,
               child: const CustomText(
@@ -51,6 +70,17 @@ class PropertyType extends StatelessWidget {
               onTap: () {
                 borderProvider.updateContainer2Color(context);
                 propertyProvider.setPropertyType = 'Condo';
+                if (widget.isOpenFromSummary) {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const PropertyListingDetails(
+                            isOpenFromSummary: true,
+                          )));
+                } else {
+                  Navigator.of(context).pushNamed(AppRoutes.propertyAgreement);
+                }
               },
               borderColor: borderProvider.container2Color,
               child: const CustomText(
@@ -67,6 +97,17 @@ class PropertyType extends StatelessWidget {
               onTap: () {
                 borderProvider.updateContainer3Color(context);
                 propertyProvider.setPropertyType = 'Landed';
+                if (widget.isOpenFromSummary) {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const PropertyListingDetails(
+                            isOpenFromSummary: true,
+                          )));
+                } else {
+                  Navigator.of(context).pushNamed(AppRoutes.propertyAgreement);
+                }
               },
               borderColor: borderProvider.container3Color,
               child: const CustomText(

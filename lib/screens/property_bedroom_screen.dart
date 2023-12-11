@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyBedroom extends StatelessWidget {
-  const PropertyBedroom({super.key});
+  final bool isOpenFromSummary;
+  const PropertyBedroom({super.key, required this.isOpenFromSummary});
 
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
     final bedroomProvider = Provider.of<BedroomProvider>(context);
-    final propertyProvider = Provider.of<Property>(context);
+    final propertyProvider = Provider.of<PropertyProvider>(context);
 
     return Scaffold(
       appBar: const CustomAppBar(
@@ -108,8 +109,14 @@ class PropertyBedroom extends StatelessWidget {
           CustomButton(
             width: mq.width,
             onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.propertyBathrooms);
               propertyProvider.setBedroom = '${bedroomProvider.bedroomCount}';
+
+              if (isOpenFromSummary) {
+                Navigator.pop(context);
+              } else {
+                //  print('isOpenFromSummary: ${isOpenFromSummary}');
+                Navigator.of(context).pushNamed(AppRoutes.propertyBathrooms);
+              }
             },
             btnColor: AppColors.turquoise,
             borderColor: Colors.transparent,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/providers/border_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class CustomContainer extends StatelessWidget {

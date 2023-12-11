@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/db_servies/cloud_services.dart';
+import 'package:rent_fix/providers/providers.dart';
+import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
@@ -14,20 +18,24 @@ class OfferScreen extends StatefulWidget {
 class _OfferScreenState extends State<OfferScreen> {
   final PageController _pageController = PageController(initialPage: 0);
   ValueNotifier<int> pageNotifier = ValueNotifier(0);
+  DateTime selectedDate = DateTime.now();
+  final globalKey = GlobalKey<FormState>();
+  TextEditingController amountController = TextEditingController();
+  TextEditingController rentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(title: 'Make an Offer'),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            const CustomSize(
-              height: 20,
-            ),
-            Flexible(
-              flex: 1,
+      body: Column(
+        children: [
+          const CustomSize(
+            height: 20,
+          ),
+          Flexible(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 children: [
                   Expanded(child: _buildTab(index: 0)),
@@ -37,26 +45,26 @@ class _OfferScreenState extends State<OfferScreen> {
                 ],
               ),
             ),
-            const CustomSize(
-              height: 10,
+          ),
+          const CustomSize(
+            height: 10,
+          ),
+          Flexible(
+            flex: 9,
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                pageNotifier.value = index;
+              },
+              children: [
+                _firstScreen(),
+                _secondOffer(),
+                _thirdOffer(),
+                _fourthScreen(),
+              ],
             ),
-            Flexible(
-              flex: 9,
-              child: PageView(
-                controller: _pageController,
-                onPageChanged: (index) {
-                  pageNotifier.value = index;
-                },
-                children: [
-                  _firstScreen(),
-                  _secondOffer(),
-                  _thirdOffer(),
-                  _fourthScreen(),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -72,188 +80,271 @@ class _OfferScreenState extends State<OfferScreen> {
                 : pageIndex == index
                     ? AppColors.darkGreen
                     : AppColors.paleAqua,
-            // Set the foreground color to black
             borderRadius: BorderRadius.circular(50),
           )),
     );
   }
 
   Widget _firstScreen() {
-    return Column(
-      children: [
-        const CustomSize(
-          height: 10,
-        ),
-        const CustomText(
-          label: 'When does the tenant want to move in?',
-          color: AppColors.black,
-          size: FontSize.xMedium,
-          weight: FontWeight.w600,
-        ),
-        const CustomSize(
-          height: 20,
-        ),
-        Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppColors.turquoise)),
-            height: 250,
-            child: SfDateRangePicker(
-              showNavigationArrow: true,
-              monthViewSettings: const DateRangePickerMonthViewSettings(),
-              selectionColor: AppColors.turquoise,
-            )),
-        const CustomSize(
-          height: 20,
-        ),
-        CustomButton(
-          borderColor: Colors.transparent,
-          btnColor: AppColors.turquoise,
-          text: 'Next',
-          textColor: Colors.white,
-          onPressed: () {
-            _pageController.jumpToPage(1);
-          },
-          width: MediaQuery.of(context).size.width,
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomSize(
+            height: 10,
+          ),
+          const CustomText(
+            label: 'When does the tenant want to move in?',
+            color: AppColors.black,
+            size: FontSize.xMedium,
+            weight: FontWeight.w600,
+          ),
+          const CustomSize(
+            height: 20,
+          ),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: AppColors.turquoise)),
+              height: 250,
+              child: SfDateRangePicker(
+                showNavigationArrow: true,
+                monthViewSettings: const DateRangePickerMonthViewSettings(),
+                selectionColor: AppColors.turquoise,
+                onSelectionChanged: (DateRangePickerSelectionChangedArgs args) {
+                  selectedDate = args.value;
+                },
+              )),
+          const CustomSize(
+            height: 20,
+          ),
+          CustomButton(
+            borderColor: Colors.transparent,
+            btnColor: AppColors.turquoise,
+            text: 'Next',
+            textColor: Colors.white,
+            onPressed: () {
+              context.read<OfferModelProvider>().setAvaliableDate =
+                  AppUtils.formatDateWithoutTime(selectedDate);
+
+              _pageController.jumpToPage(1);
+            },
+            width: MediaQuery.of(context).size.width,
+          )
+        ],
+      ),
     );
   }
 
   Widget _secondOffer() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const CustomSize(
-          height: 10,
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Form(
+        key: globalKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CustomSize(
+              height: 10,
+            ),
+            const CustomText(
+              label: 'How long does the tenant want to\n rent for?',
+              color: AppColors.black,
+              size: FontSize.xMedium,
+              weight: FontWeight.w600,
+            ),
+            const CustomSize(
+              height: 20,
+            ),
+            const CustomText(
+              label: 'Rental Duration',
+              color: AppColors.darkGreen,
+              size: FontSize.xxMedium,
+              weight: FontWeight.w500,
+            ),
+            const CustomSize(
+              height: 5,
+            ),
+            CustomTextField(
+                isBorder: true,
+                borderColor: AppColors.pastelblue,
+                hintText: 'Enter the number of months',
+                fillColor: Colors.white,
+                controller: rentController,
+                keyboardType: TextInputType.number,
+                validator: (input) {
+                  if (input == null || input.isEmpty) {
+                    return 'Please enter Number of Months';
+                  }
+                  if (!isValidInput(input)) {
+                    return 'inValid';
+                  }
+                  return null;
+                }),
+            const CustomSize(
+              height: 20,
+            ),
+            CustomButton(
+              borderColor: Colors.transparent,
+              btnColor: AppColors.turquoise,
+              textColor: Colors.white,
+              text: 'Next',
+              width: MediaQuery.of(context).size.width,
+              onPressed: () {
+                context.read<OfferModelProvider>().setAgreement =
+                    rentController.text;
+                FocusScope.of(context).unfocus();
+                if (globalKey.currentState!.validate()) {
+                  _pageController.jumpToPage(2);
+                }
+              },
+            )
+          ],
         ),
-        const CustomText(
-          label: 'How long does the tenant want to\n rent for?',
-          color: AppColors.black,
-          size: FontSize.xMedium,
-          weight: FontWeight.w600,
-        ),
-        const CustomSize(
-          height: 20,
-        ),
-        const CustomText(
-          label: 'Rental Duration',
-          color: AppColors.darkGreen,
-          size: FontSize.xxMedium,
-          weight: FontWeight.w500,
-        ),
-        const CustomSize(
-          height: 5,
-        ),
-        const CustomTextField(
-            isBorder: true,
-            borderColor: AppColors.pastelblue,
-            hintText: 'Enter the number of months',
-            fillColor: Colors.white),
-        const CustomSize(
-          height: 20,
-        ),
-        CustomButton(
-          borderColor: Colors.transparent,
-          btnColor: AppColors.turquoise,
-          textColor: Colors.white,
-          text: 'Next',
-          width: MediaQuery.of(context).size.width,
-          onPressed: () {
-            _pageController.jumpToPage(2);
-          },
-        )
-      ],
+      ),
     );
   }
 
   Widget _thirdOffer() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const CustomSize(
-          height: 10,
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Form(
+        key: globalKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CustomSize(
+              height: 10,
+            ),
+            const CustomText(
+              label: 'How much does the tenant wish to\n pay per month?',
+              color: AppColors.black,
+              size: FontSize.xMedium,
+              weight: FontWeight.w600,
+            ),
+            const CustomSize(
+              height: 20,
+            ),
+            const CustomText(
+              label: 'Monthly Rent',
+              color: AppColors.darkGreen,
+              size: FontSize.xxMedium,
+              weight: FontWeight.w500,
+            ),
+            const CustomSize(
+              height: 5,
+            ),
+            CustomTextField(
+                isBorder: true,
+                controller: amountController,
+                borderColor: AppColors.pastelblue,
+                hintText: 'Enter Amount in S\$',
+                fillColor: Colors.white),
+            const CustomSize(
+              height: 20,
+            ),
+            CustomButton(
+              borderColor: Colors.transparent,
+              btnColor: AppColors.turquoise,
+              textColor: Colors.white,
+              text: 'Next',
+              width: MediaQuery.of(context).size.width,
+              onPressed: () {
+                context.read<OfferModelProvider>().setRent =
+                    amountController.text;
+                if (globalKey.currentState!.validate()) {
+                  FocusScope.of(context).unfocus();
+                  _pageController.jumpToPage(4);
+                }
+              },
+            )
+          ],
         ),
-        const CustomText(
-          label: 'How much does the tenant wish to\n pay per month?',
-          color: AppColors.black,
-          size: FontSize.xMedium,
-          weight: FontWeight.w600,
-        ),
-        const CustomSize(
-          height: 20,
-        ),
-        const CustomText(
-          label: 'Monthly Rent',
-          color: AppColors.darkGreen,
-          size: FontSize.xxMedium,
-          weight: FontWeight.w500,
-        ),
-        const CustomSize(
-          height: 5,
-        ),
-        const CustomTextField(
-            isBorder: true,
-            borderColor: AppColors.pastelblue,
-            hintText: 'Enter Amount in S\$',
-            fillColor: Colors.white),
-        const CustomSize(
-          height: 20,
-        ),
-        CustomButton(
-          borderColor: Colors.transparent,
-          btnColor: AppColors.turquoise,
-          textColor: Colors.white,
-          text: 'Next',
-          width: MediaQuery.of(context).size.width,
-          onPressed: () {
-            _pageController.jumpToPage(4);
-          },
-        )
-      ],
+      ),
     );
   }
 
   Widget _fourthScreen() {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const CustomSize(
-        height: 10,
-      ),
-      const CustomText(
-        label: 'Summary',
-        color: Colors.black,
-        size: 24,
-        weight: FontWeight.w600,
-      ),
-      const CustomSize(
-        height: 10,
-      ),
-      _summaryContainer(
-          'When does the tenant want to move in?\n', 'November 28, 2023'),
-      const CustomSize(
-        height: 10,
-      ),
-      _summaryContainer(
-          'How long does the tenant want to rent for?\n', '12 Months'),
-      const CustomSize(
-        height: 10,
-      ),
-      _summaryContainer(
-          'How much does the tenant wish to pay per month?\n', '2000.00'),
-      const CustomSize(
-        height: 20,
-      ),
-      CustomButton(
-        borderColor: Colors.transparent,
-        btnColor: AppColors.turquoise,
-        text: 'Submit',
-        width: MediaQuery.of(context).size.width,
-        textColor: AppColors.white,
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      )
-    ]);
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const CustomSize(
+          height: 10,
+        ),
+        const CustomText(
+          label: 'Summary',
+          color: Colors.black,
+          size: 24,
+          weight: FontWeight.w600,
+        ),
+        const CustomSize(
+          height: 10,
+        ),
+        GestureDetector(
+          onTap: () {
+            _pageController.jumpToPage(0);
+          },
+          child: Consumer<OfferModelProvider>(
+            builder: (context, offerModelProvider, child) {
+              return _summaryContainer(
+                'When does the tenant want to move in?\n',
+                offerModelProvider.getAvaliableDate,
+              );
+            },
+          ),
+        ),
+        const CustomSize(
+          height: 10,
+        ),
+        GestureDetector(
+          onTap: () {
+            _pageController.jumpToPage(1);
+          },
+          child: Consumer<OfferModelProvider>(
+            builder: (context, offerModelProvider, child) {
+              return _summaryContainer(
+                'How long does the tenant want to rent for?\n',
+                offerModelProvider.getAgreement,
+              );
+            },
+          ),
+        ),
+        const CustomSize(
+          height: 10,
+        ),
+        GestureDetector(
+          onTap: () {
+            _pageController.jumpToPage(2);
+          },
+          child: Consumer<OfferModelProvider>(
+            builder: (context, offerModelProvider, child) {
+              return _summaryContainer(
+                'How much does the tenant wish to pay per month?\n',
+                offerModelProvider.getRent,
+              );
+            },
+          ),
+        ),
+        const CustomSize(
+          height: 10,
+        ),
+        CustomButton(
+          borderColor: Colors.transparent,
+          btnColor: AppColors.turquoise,
+          text: 'Submit',
+          width: MediaQuery.of(context).size.width,
+          textColor: AppColors.white,
+          onPressed: () async {
+            await CloudServices.uploadOfferDataToFirebase(
+                context: context,
+                rentAggrement: context.read<OfferModelProvider>().getAgreement,
+                rent: int.parse(context.read<OfferModelProvider>().getRent),
+                date: context.read<OfferModelProvider>().getAvaliableDate);
+          },
+        )
+      ]),
+    );
   }
 
   Widget _summaryContainer(String firstTitle, String secondTitle) {

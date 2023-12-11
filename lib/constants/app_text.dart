@@ -48,3 +48,21 @@ class ActivityDataConstants {
     ),
   ];
 }
+
+class AppText {
+  static const String userDataCollection = 'user_data';
+  static const String propertyCollection = 'properties';
+  static const String offerCollection = 'offer';
+  static const String id = 'property_id';
+  static const String address = 'address';
+  static const String bedroom = 'bedroom';
+  static const String bathroom = 'bathroom';
+  static const String appartmentSize = 'appartment_size';
+  static const String propertyType = 'propert_type';
+  static const String rentAggrement = 'rent_aggrement';
+  static const String furnishing = 'furnishing';
+  static const String rent = 'rent';
+  static const String availableDate = 'available_date';
+  static const String description = 'description ';
+  static const String image = 'image';
+}

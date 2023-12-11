@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyApparmentSize extends StatefulWidget {
-  const PropertyApparmentSize({super.key});
+  final bool isOpenFromSummary;
+  const PropertyApparmentSize({super.key, required this.isOpenFromSummary});
 
   @override
   State<PropertyApparmentSize> createState() => PropertyApparmentSizeState();
@@ -23,7 +24,7 @@ class PropertyApparmentSizeState extends State<PropertyApparmentSize> {
 
   @override
   Widget build(BuildContext context) {
-    final propertyProvider = Provider.of<Property>(context);
+    final propertyProvider = Provider.of<PropertyProvider>(context);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -74,10 +75,14 @@ class PropertyApparmentSizeState extends State<PropertyApparmentSize> {
             CustomButton(
               width: MediaQuery.of(context).size.width,
               onPressed: () {
+                propertyProvider.setAppartmentSize = sizeController.text;
                 if (globalKey.currentState!.validate()) {
                   FocusScope.of(context).unfocus();
-                  Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
-                  propertyProvider.setAppartmentSize = sizeController.text;
+                  if (widget.isOpenFromSummary) {
+                    Navigator.pop(context);
+                  } else {
+                    Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
+                  }
                 }
               },
               btnColor: AppColors.turquoise,

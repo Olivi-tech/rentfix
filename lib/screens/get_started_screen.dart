@@ -15,10 +15,10 @@ class GetStartedScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Flexible(
-                flex: 6,
+            Flexible(
+              flex: 6,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyMonthlyRent extends StatefulWidget {
@@ -23,7 +23,7 @@ class _PropertyMonthlyRentState extends State<PropertyMonthlyRent> {
 
   @override
   Widget build(BuildContext context) {
-    final propertyProvider = Provider.of<Property>(context);
+    final propertyProvider = Provider.of<PropertyProvider>(context);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',

@@ -35,29 +35,53 @@ class Routers {
       case AppRoutes.settings:
         return const SettingsScreen();
       case AppRoutes.propertyType:
-        return const PropertyType();
+        return const PropertyType(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyAgreement:
-        return const PropertyRentalAgreement();
+        return const PropertyRentalAgreement(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyRent:
-        return const PropertyMonthlyRent(isOpenFromSummary: ,);
+        return const PropertyMonthlyRent(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyfurnished:
-        return const PropertyFurnished();
+        return const PropertyFurnished(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyAddress:
-        return const PropertyAddress();
+        return const PropertyAddress(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertySize:
-        return const PropertyApparmentSize();
+        return const PropertyApparmentSize(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyBedrooms:
-        return const PropertyBedroom();
+        return const PropertyBedroom(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyBathrooms:
-        return const PropertyBathroom();
+        return const PropertyBathroom(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyPhotos:
-        return const PropertyPhotos();
+        return const PropertyPhotos(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyDate:
-        return const PropertyDate();
+        return const PropertyDate(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyList:
-        return const PropertyListingDetails();
+        return const PropertyListingDetails(
+          isOpenFromSummary: false,
+        );
       case AppRoutes.propertyDescription:
-        return const PropertyDescription();
+        return const PropertyDescription(
+          isOpenFromSummary: false,
+        );
 
       default:
         AppRoutes.splash;

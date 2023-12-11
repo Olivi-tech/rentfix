@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class PropertyDate extends StatelessWidget {
-  const PropertyDate({super.key});
+  final bool isOpenFromSummary;
+  const PropertyDate({super.key, required this.isOpenFromSummary});
 
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
-    final propertyProvider = Provider.of<Property>(context);
+    final propertyProvider = Provider.of<PropertyProvider>(context);
     DateTime selectedDate = DateTime.now();
 
     return Scaffold(
@@ -59,7 +60,12 @@ class PropertyDate extends StatelessWidget {
                 String formattedDate =
                     AppUtils.formatDateWithoutTime(selectedDate);
                 propertyProvider.setAvaliableDate = formattedDate;
-                Navigator.of(context).pushNamed(AppRoutes.propertyDescription);
+                if (isOpenFromSummary) {
+                  Navigator.pop(context);
+                } else {
+                  Navigator.of(context)
+                      .pushNamed(AppRoutes.propertyDescription);
+                }
               },
               btnColor: AppColors.turquoise,
               borderColor: Colors.transparent,

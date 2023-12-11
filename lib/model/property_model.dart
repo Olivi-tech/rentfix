@@ -1,154 +1,69 @@
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../constants/constants.dart';
 
-class Property extends ChangeNotifier {
-  late String propertType;
-  late String agreement;
-  late String address;
-  late String postCode;
-  late String blockNo;
-  late String floor;
-  late String unit;
-  late String appartmentSize;
-  late String bedroom;
-  late String bathroom;
-  late String furnishing;
-  late String rent;
-  late String description;
-  late String avaliableDate;
-  late List<String> listPhotos;
+class PropertyData {
+  final String address;
+  final int bedrooms;
+  final int bathrooms;
+  final int appartmentSize;
+  final String propertyType;
+  final String rentAggrement;
+  final String furnishing;
+  final int rent;
+  final String date;
+  final String description;
+  final String id;
+  final List<String> image;
 
-  set setPropertyType(String value) {
-    propertType = value;
-    notifyListeners();
+  PropertyData({
+    required this.image,
+    required this.address,
+    required this.bedrooms,
+    required this.bathrooms,
+    required this.appartmentSize,
+    required this.propertyType,
+    required this.rentAggrement,
+    required this.furnishing,
+    required this.rent,
+    required this.date,
+    required this.description,
+    required this.id,
+  });
+
+  factory PropertyData.fromDocument(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+
+    DateTime date = (data[AppText.availableDate] as Timestamp).toDate();
+
+    return PropertyData(
+        address: data[AppText.address] ?? '',
+        bedrooms: data[AppText.bedroom] ?? '',
+        bathrooms: data[AppText.bathroom] ?? '',
+        appartmentSize: data[AppText.appartmentSize] ?? '',
+        propertyType: data[AppText.propertyType] ?? '',
+        rentAggrement: data[AppText.rentAggrement] ?? '',
+        furnishing: data[AppText.furnishing] ?? '',
+        rent: data[AppText.rent] ?? '',
+        date: date.toString(),
+        description: data[AppText.description] ?? '',
+        image: data[AppText.image] ?? '',
+        id: data[AppText.id]);
   }
 
-  String get getPropertyType {
-    return propertType;
-  }
-
-  set setAgreement(String value) {
-    agreement = value;
-    notifyListeners();
-  }
-
-  String get getAgreement {
-    return agreement;
-  }
-
-  set setAddress(String value) {
-    address = value;
-    notifyListeners();
-  }
-
-  String get getAddress {
-    return address;
-  }
-
-  set setPostCode(String value) {
-    postCode = value;
-    notifyListeners();
-  }
-
-  String get getPostCode {
-    return postCode;
-  }
-
-  set setBlockNo(String value) {
-    blockNo = value;
-    notifyListeners();
-  }
-
-  String get getBlockNo {
-    return blockNo;
-  }
-
-  set setFloor(String value) {
-    floor = value;
-    notifyListeners();
-  }
-
-  String get getFloor {
-    return floor;
-  }
-
-  set setUnit(String value) {
-    unit = value;
-    notifyListeners();
-  }
-
-  String get getUnit {
-    return unit;
-  }
-
-  set setAppartmentSize(String value) {
-    appartmentSize = value;
-    notifyListeners();
-  }
-
-  String get getAppartmentSize {
-    return appartmentSize;
-  }
-
-  set setBedroom(String value) {
-    bedroom = value;
-    notifyListeners();
-  }
-
-  String get getBedroom {
-    return bedroom;
-  }
-
-  set setBathroom(String value) {
-    bathroom = value;
-    notifyListeners();
-  }
-
-  String get getBathroom {
-    return bathroom;
-  }
-
-  set setFurnishing(String value) {
-    furnishing = value;
-    notifyListeners();
-  }
-
-  String get getFurnishing {
-    return furnishing;
-  }
-
-  set setRent(String value) {
-    rent = value;
-    notifyListeners();
-  }
-
-  String get getRent {
-    return rent;
-  }
-
-  set setDescription(String value) {
-    description = value;
-    notifyListeners();
-  }
-
-  String get getDescription {
-    return description;
-  }
-
-  set setAvaliableDate(String value) {
-    avaliableDate = value;
-    notifyListeners();
-  }
-
-  String get getAvaliableDate {
-    return avaliableDate;
-  }
-
-  set setListPhotos(List<String> value) {
-    listPhotos = value;
-    notifyListeners();
-  }
-
-  List<String> get getListPhotos {
-    return listPhotos;
+  Map<String, dynamic> toJson() {
+    return {
+      AppText.address: address,
+      AppText.bedroom: bedrooms,
+      AppText.bathroom: bathrooms,
+      AppText.appartmentSize: appartmentSize,
+      AppText.propertyType: propertyType,
+      AppText.rentAggrement: rentAggrement,
+      AppText.furnishing: furnishing,
+      AppText.rent: rent,
+      AppText.availableDate: date,
+      AppText.description: description,
+      AppText.image: image,
+      AppText.id: id,
+    };
   }
 }

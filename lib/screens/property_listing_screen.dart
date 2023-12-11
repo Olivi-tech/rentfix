@@ -1,23 +1,38 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/db_servies/db_servies.dart';
+import 'package:rent_fix/providers/property_model_provider.dart';
+import 'package:rent_fix/screens/property_add_photo.dart';
+import 'package:rent_fix/screens/property_address_screen.dart';
+import 'package:rent_fix/screens/property_bathroom_screen.dart';
+import 'package:rent_fix/screens/property_bedroom_screen.dart';
+import 'package:rent_fix/screens/property_date.dart';
+import 'package:rent_fix/screens/property_description_screen.dart';
+import 'package:rent_fix/screens/property_furnished_screen.dart';
+import 'package:rent_fix/screens/property_monthly_rent_screen.dart';
+import 'package:rent_fix/screens/property_rental_screen.dart';
+import 'package:rent_fix/screens/property_size_apparment_screen.dart';
+import 'package:rent_fix/screens/property_type_screen.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 import '../providers/image_picker_provider.dart';
 
 class PropertyListingDetails extends StatefulWidget {
-  const PropertyListingDetails({super.key});
+  final bool isOpenFromSummary;
+  const PropertyListingDetails({super.key, required this.isOpenFromSummary});
 
   @override
   State<PropertyListingDetails> createState() => _PropertyListingDetailsState();
 }
 
 class _PropertyListingDetailsState extends State<PropertyListingDetails> {
-  late Property imagePickerProvider;
+  late PropertyProvider imagePickerProvider;
   @override
   Widget build(BuildContext context) {
-    // final mq = MediaQuery.of(context).size;
+    final propertyProvider = Provider.of<PropertyProvider>(context);
+
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'List Your Property',
@@ -36,11 +51,18 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   onTap: () {
-                    Navigator.of(context).pushNamed(AppRoutes.propertyAddress);
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const PropertyAddress(
+                            isOpenFromSummary: true,
+                          )),
+                    );
                   },
                   headingText: 'Address',
                   detailText: property.getAddress,
@@ -50,11 +72,17 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   onTap: () {
-                    Navigator.of(context).pushNamed(AppRoutes.propertyBedrooms);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyBedroom(
+                              isOpenFromSummary: true,
+                            )));
                   },
                   headingText: 'Bedroom',
                   detailText: property.getBedroom,
@@ -64,14 +92,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'Bathroom',
                   detailText: property.getBathroom,
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(AppRoutes.propertyBathrooms);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyBathroom(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -79,13 +112,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'Size',
                   detailText: property.getAppartmentSize,
                   onTap: () {
-                    Navigator.of(context).pushNamed(AppRoutes.propertySize);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyApparmentSize(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -93,13 +132,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'Property type',
                   detailText: property.getPropertyType,
                   onTap: () {
-                    Navigator.of(context).pushNamed(AppRoutes.propertyType);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyType(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -107,14 +152,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'What are you renting',
                   detailText: property.getAgreement,
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(AppRoutes.propertyAgreement);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyRentalAgreement(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -122,14 +172,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'Furnishing',
                   detailText: property.getFurnishing,
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(AppRoutes.propertyfurnished);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyFurnished(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -137,13 +192,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'Amount',
                   detailText: property.getRent,
                   onTap: () {
-                    Navigator.of(context).pushNamed(AppRoutes.propertyRent);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyMonthlyRent(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -151,13 +212,19 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                   headingText: 'Available for rent',
                   detailText: property.getAvaliableDate,
                   onTap: () {
-                    Navigator.of(context).pushNamed(AppRoutes.propertyDate);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyDate(
+                              isOpenFromSummary: true,
+                            )));
                   },
                 );
               },
@@ -165,12 +232,17 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             const CustomSize(
               height: 10,
             ),
-            Consumer<Property>(
+            Consumer<PropertyProvider>(
               builder: (context, property, child) {
                 return SummaryContainer(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(AppRoutes.propertyDescription);
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              child: const PropertyDescription(
+                                isOpenFromSummary: true,
+                              )));
                     },
                     headingText: 'Property description',
                     detailText: property.description);
@@ -181,7 +253,13 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.propertyPhotos);
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        child: const PropertyPhotos(
+                          isOpenFromSummary: true,
+                        )));
               },
               child: ShapeContainer(
                 height: 122,
@@ -229,7 +307,8 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                                               padding: const EdgeInsets.only(
                                                   right: 5),
                                               child: _buildImagePreview(
-                                                  imagePick.paths[index]),
+                                                imagePick.paths[index],
+                                              ),
                                             );
                                           },
                                         ));
@@ -266,7 +345,22 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             ),
             CustomButton(
               width: MediaQuery.of(context).size.width,
-              onPressed: () {},
+              onPressed: () async {
+                await CloudServices.uploadPropertyDataToFirebase(
+                  context: context,
+                  address: propertyProvider.getAddress,
+                  bedrooms: int.parse(propertyProvider.getBedroom),
+                  bathrooms: int.parse(propertyProvider.getBathroom),
+                  appartmentSize: int.parse(propertyProvider.getAppartmentSize),
+                  propertyType: propertyProvider.getPropertyType,
+                  rentAggrement: propertyProvider.getAgreement,
+                  furnishing: propertyProvider.getFurnishing,
+                  rent: int.parse(propertyProvider.getRent),
+                  date: propertyProvider.getAvaliableDate,
+                  description: propertyProvider.getDescription,
+                  images: propertyProvider.getListPhotos,
+                );
+              },
               btnColor: AppColors.turquoise,
               borderColor: Colors.transparent,
               textColor: AppColors.white,
@@ -290,6 +384,8 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
           child: Image.file(
             File(imagePath),
             fit: BoxFit.cover,
+            height: 64,
+            width: 64,
           ),
         ),
       ],

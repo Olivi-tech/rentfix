@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/screens/screens.dart';
@@ -89,6 +90,24 @@ class _HomeState extends State<Home> {
                 ),
                 position: PopupMenuPosition.over,
                 itemBuilder: (_) => <PopupMenuItem<String>>[
+                  PopupMenuItem<String>(
+                      value: 'Add Property',
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.propertyType);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const CustomText(
+                            label: 'Add Property',
+                            size: FontSize.xxMedium,
+                            color: AppColors.darkGreen,
+                          ),
+                          SvgPicture.asset(
+                            AppImages.homeIcon,
+                          ),
+                        ],
+                      )),
                   PopupMenuItem<String>(
                       value: 'My Profile',
                       onTap: () {
