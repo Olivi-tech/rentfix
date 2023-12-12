@@ -35,3 +35,39 @@ class BathroomProvider extends ChangeNotifier {
     }
   }
 }
+
+class DrawingRoomProvider extends ChangeNotifier {
+  int _drawingroomCount = 1;
+
+  int get drawingroomCount => _drawingroomCount;
+
+  void incrementdrawingroom() {
+    _drawingroomCount++;
+    notifyListeners();
+  }
+
+  void decrementdrawingroom() {
+    if (_drawingroomCount > 1) {
+      _drawingroomCount--;
+      notifyListeners();
+    }
+  }
+}
+
+class TvlaunchProvider extends ChangeNotifier {
+  int _tvlaunchroomCount = 1;
+
+  int get tvlaunchRoomCount => _tvlaunchroomCount;
+
+  void incrementtvlaunchroom() {
+    _tvlaunchroomCount++;
+    notifyListeners();
+  }
+
+  void decrementtvlaunchroom() {
+    if (_tvlaunchroomCount > 1) {
+      _tvlaunchroomCount--;
+      notifyListeners();
+    }
+  }
+}

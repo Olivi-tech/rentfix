@@ -57,6 +57,11 @@ class AppText {
   static const String address = 'address';
   static const String bedroom = 'bedroom';
   static const String bathroom = 'bathroom';
+
+  static const String propertyListDate = 'property_list_date';
+  static const String name = 'name';
+  static const String drawingroom = 'drawing_room';
+  static const String tvroom = 'tv_room';
   static const String appartmentSize = 'appartment_size';
   static const String propertyType = 'propert_type';
   static const String rentAggrement = 'rent_aggrement';

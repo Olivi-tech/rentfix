@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/border_provider.dart';
-import 'package:rent_fix/screens/property_listing_screen.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyFurnished extends StatelessWidget {
@@ -36,13 +34,7 @@ class PropertyFurnished extends StatelessWidget {
                 borderProvider.updateContainer10Color(context);
                 propertyProvider.setFurnishing = 'Unfurnished';
                 if (isOpenFromSummary) {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.rightToLeft,
-                          child: const PropertyListingDetails(
-                            isOpenFromSummary: true,
-                          )));
+                  Navigator.pop(context);
                 } else {
                   Navigator.of(context)
                       .pushNamed(AppRoutes.propertyRent, arguments: false);
@@ -63,13 +55,7 @@ class PropertyFurnished extends StatelessWidget {
                 borderProvider.updateContainer10Color(context);
                 propertyProvider.setFurnishing = 'Partially Furnished';
                 if (isOpenFromSummary) {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.rightToLeft,
-                          child: const PropertyListingDetails(
-                            isOpenFromSummary: true,
-                          )));
+                  Navigator.pop(context);
                 } else {
                   Navigator.of(context)
                       .pushNamed(AppRoutes.propertyRent, arguments: false);
@@ -90,13 +76,7 @@ class PropertyFurnished extends StatelessWidget {
               borderProvider.updateContainer10Color(context);
               propertyProvider.setFurnishing = 'Fully Furnished';
               if (isOpenFromSummary) {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.rightToLeft,
-                        child: const PropertyListingDetails(
-                          isOpenFromSummary: true,
-                        )));
+                Navigator.pop(context);
               } else {
                 Navigator.of(context)
                     .pushNamed(AppRoutes.propertyRent, arguments: false);

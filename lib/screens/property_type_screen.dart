@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/providers.dart';
-import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyType extends StatefulWidget {
@@ -44,13 +42,7 @@ class _PropertyTypeState extends State<PropertyType> {
                 borderProvider.updateContainer1Color(context);
                 propertyProvider.setPropertyType = 'Apartment';
                 if (widget.isOpenFromSummary) {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.rightToLeft,
-                          child: const PropertyListingDetails(
-                            isOpenFromSummary: true,
-                          )));
+                  Navigator.pop(context);
                 } else {
                   Navigator.of(context).pushNamed(AppRoutes.propertyAgreement);
                 }
@@ -71,13 +63,7 @@ class _PropertyTypeState extends State<PropertyType> {
                 borderProvider.updateContainer2Color(context);
                 propertyProvider.setPropertyType = 'Condo';
                 if (widget.isOpenFromSummary) {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.rightToLeft,
-                          child: const PropertyListingDetails(
-                            isOpenFromSummary: true,
-                          )));
+                  Navigator.pop(context);
                 } else {
                   Navigator.of(context).pushNamed(AppRoutes.propertyAgreement);
                 }
@@ -98,13 +84,7 @@ class _PropertyTypeState extends State<PropertyType> {
                 borderProvider.updateContainer3Color(context);
                 propertyProvider.setPropertyType = 'Landed';
                 if (widget.isOpenFromSummary) {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.rightToLeft,
-                          child: const PropertyListingDetails(
-                            isOpenFromSummary: true,
-                          )));
+                  Navigator.pop(context);
                 } else {
                   Navigator.of(context).pushNamed(AppRoutes.propertyAgreement);
                 }

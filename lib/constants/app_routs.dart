@@ -4,6 +4,7 @@ class AppRoutes {
   static const createAccount = "/createAccount";
   static const otpVerify = "/otpVerify";
   static const home = "/home";
+  static const homeScreen = "/homeScren";
   static const discover = "/discover";
   static const profile = "/profile";
   static const settings = '/settings';

@@ -22,8 +22,12 @@ class Routers {
         return const OTPVerificationScreen();
       case AppRoutes.home:
         return const Home();
+      case AppRoutes.homeScreen:
+        return const HomeScreen();
       case AppRoutes.listDetails:
-        return const ListingDetails();
+        return const ListingDetails(
+          data: '',
+        );
       case AppRoutes.offer:
         return const OfferScreen();
       case AppRoutes.discover:
@@ -69,6 +73,7 @@ class Routers {
       case AppRoutes.propertyPhotos:
         return const PropertyPhotos(
           isOpenFromSummary: false,
+          preloadedImages: [],
         );
       case AppRoutes.propertyDate:
         return const PropertyDate(
@@ -77,6 +82,7 @@ class Routers {
       case AppRoutes.propertyList:
         return const PropertyListingDetails(
           isOpenFromSummary: false,
+          preloadedImages: [],
         );
       case AppRoutes.propertyDescription:
         return const PropertyDescription(

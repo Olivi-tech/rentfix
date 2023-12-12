@@ -47,6 +47,12 @@ class RentFixApp extends StatelessWidget {
         ChangeNotifierProvider<OfferModelProvider>(
           create: (context) => OfferModelProvider(),
         ),
+         ChangeNotifierProvider<DrawingRoomProvider>(
+          create: (context) => DrawingRoomProvider(),
+        ),
+          ChangeNotifierProvider<TvlaunchProvider>(
+          create: (context) => TvlaunchProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

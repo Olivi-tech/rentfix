@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
@@ -17,11 +18,14 @@ import 'package:rent_fix/screens/property_rental_screen.dart';
 import 'package:rent_fix/screens/property_size_apparment_screen.dart';
 import 'package:rent_fix/screens/property_type_screen.dart';
 import 'package:rent_fix/widgets/widgets.dart';
-import '../providers/image_picker_provider.dart';
 
 class PropertyListingDetails extends StatefulWidget {
   final bool isOpenFromSummary;
-  const PropertyListingDetails({super.key, required this.isOpenFromSummary});
+  final List<String> preloadedImages;
+  const PropertyListingDetails(
+      {super.key,
+      required this.isOpenFromSummary,
+      required this.preloadedImages});
 
   @override
   State<PropertyListingDetails> createState() => _PropertyListingDetailsState();
@@ -64,6 +68,27 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                           )),
                     );
                   },
+                  headingText: 'Name',
+                  detailText: property.getName,
+                );
+              },
+            ),
+            const CustomSize(
+              height: 10,
+            ),
+            Consumer<PropertyProvider>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const PropertyAddress(
+                            isOpenFromSummary: true,
+                          )),
+                    );
+                  },
                   headingText: 'Address',
                   detailText: property.getAddress,
                 );
@@ -86,6 +111,46 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                   },
                   headingText: 'Bedroom',
                   detailText: property.getBedroom,
+                );
+              },
+            ),
+            const CustomSize(
+              height: 10,
+            ),
+            Consumer<PropertyProvider>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyBedroom(
+                              isOpenFromSummary: true,
+                            )));
+                  },
+                  headingText: 'Drawingroom',
+                  detailText: property.getdrawingroom,
+                );
+              },
+            ),
+            const CustomSize(
+              height: 10,
+            ),
+            Consumer<PropertyProvider>(
+              builder: (context, property, child) {
+                return SummaryContainer(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: const PropertyBathroom(
+                              isOpenFromSummary: true,
+                            )));
+                  },
+                  headingText: 'Tvlauvh Room',
+                  detailText: property.gettvroom,
                 );
               },
             ),
@@ -257,8 +322,9 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                     context,
                     PageTransition(
                         type: PageTransitionType.rightToLeft,
-                        child: const PropertyPhotos(
+                        child: PropertyPhotos(
                           isOpenFromSummary: true,
+                          preloadedImages: propertyProvider.getListPhotos,
                         )));
               },
               child: ShapeContainer(
@@ -291,9 +357,9 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                               const CustomSize(
                                 height: 3,
                               ),
-                              Consumer<ImagePickerProvider>(
-                                builder: (context, imagePick, child) {
-                                  if (imagePick.paths.isEmpty) {
+                              Consumer<PropertyProvider>(
+                                builder: (context, property, child) {
+                                  if (property.getListPhotos.isEmpty) {
                                     return Container();
                                   } else {
                                     return SizedBox(
@@ -301,13 +367,14 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                                         height: 64,
                                         child: ListView.builder(
                                           scrollDirection: Axis.horizontal,
-                                          itemCount: imagePick.paths.length,
+                                          itemCount:
+                                              property.getListPhotos.length,
                                           itemBuilder: (context, index) {
                                             return Padding(
                                               padding: const EdgeInsets.only(
                                                   right: 5),
                                               child: _buildImagePreview(
-                                                imagePick.paths[index],
+                                                property.getListPhotos[index],
                                               ),
                                             );
                                           },
@@ -329,7 +396,14 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Image.asset(AppImages.pen),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(6),
+                                  child: SvgPicture.asset(
+                                    AppImages.editIcon,
+                                    width: 14,
+                                    height: 14,
+                                  ),
+                                ),
                               ),
                             ],
                           )
@@ -348,9 +422,12 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
               onPressed: () async {
                 await CloudServices.uploadPropertyDataToFirebase(
                   context: context,
+                  name: propertyProvider.getName,
                   address: propertyProvider.getAddress,
                   bedrooms: int.parse(propertyProvider.getBedroom),
                   bathrooms: int.parse(propertyProvider.getBathroom),
+                  drawingrooms: int.parse(propertyProvider.getdrawingroom),
+                  tvrooms: int.parse(propertyProvider.gettvroom),
                   appartmentSize: int.parse(propertyProvider.getAppartmentSize),
                   propertyType: propertyProvider.getPropertyType,
                   rentAggrement: propertyProvider.getAgreement,

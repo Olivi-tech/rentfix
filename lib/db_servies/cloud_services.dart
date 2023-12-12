@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rent_fix/model/offer_model.dart';
 import 'package:rent_fix/model/property_model.dart';
+import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/custom_snackbar.dart';
 import '../constants/constants.dart';
 import 'db_servies.dart';
@@ -14,7 +15,7 @@ import 'db_servies.dart';
 class CloudServices {
   static final FirebaseFirestore _fireStore = FirebaseFirestore.instance;
 
-  static CollectionReference getItemCollection() {
+  static CollectionReference getPropertyCollection() {
     var collection = _fireStore.collection(AppText.propertyCollection);
 
     return collection;
@@ -23,7 +24,7 @@ class CloudServices {
   static Future<DocumentSnapshot> fetchUserData() async {
     String? uid = FirebaseAuth.instance.currentUser?.uid;
     DocumentSnapshot propertySnapshot =
-        await _fireStore.collection(AppText.propertyCollection).doc(uid).get();
+        await _fireStore.collection(AppText.userDataCollection).doc(uid).get();
     return propertySnapshot;
   }
 
@@ -31,8 +32,11 @@ class CloudServices {
     required BuildContext context,
     required List<String> images,
     required String address,
+    required String name,
     required int bedrooms,
     required int bathrooms,
+    required int drawingrooms,
+    required int tvrooms,
     required int appartmentSize,
     required String propertyType,
     required String rentAggrement,
@@ -58,11 +62,17 @@ class CloudServices {
       final propertyId = DateTime.now().millisecondsSinceEpoch.toString() +
           Random().nextInt(999).toString();
 
+      final String propertylistDate =
+          AppUtils.formatDateWithoutTime(DateTime.now());
+
       var propertyModel = PropertyData(
         id: propertyId,
         address: address,
         bedrooms: bedrooms,
         bathrooms: bathrooms,
+        name: name,
+        drawingrooms: drawingrooms,
+        tvrooms: tvrooms,
         appartmentSize: appartmentSize,
         propertyType: propertyType,
         rentAggrement: rentAggrement,
@@ -71,6 +81,7 @@ class CloudServices {
         date: date,
         description: description,
         image: imageUrls,
+        propertyListDate: propertylistDate,
       );
 
       await _fireStore
@@ -84,8 +95,8 @@ class CloudServices {
       );
 
       hideCircularIndicator(context);
-
       Navigator.of(context).pop();
+      //  Navigator.of(context) .popUntil((route) => route.settings.name == AppRoutes.home);
     } catch (error) {
       hideCircularIndicator(context);
 
@@ -138,6 +149,8 @@ class CloudServices {
       );
       hideCircularIndicator(context);
       Navigator.of(context).pop();
+
+      ///  Navigator.of(context) .popUntil((route) => route.settings.name == AppRoutes.homeScreen);
     } catch (error) {
       if (error is HttpException ||
           error is SocketException ||

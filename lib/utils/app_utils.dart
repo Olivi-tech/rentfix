@@ -31,7 +31,7 @@ class AppUtils {
   }
 
   static String formatDateWithoutTime(DateTime dateTime) {
-    final formatter = DateFormat('yyyy-MM-dd');
+    final formatter = DateFormat('dd/MM/yyyy');
     return formatter.format(dateTime);
   }
 }

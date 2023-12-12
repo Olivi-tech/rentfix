@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/property_model_provider.dart';
@@ -19,6 +20,8 @@ class _PropertyAddressState extends State<PropertyAddress> {
   TextEditingController floorController = TextEditingController();
   TextEditingController postCodeController = TextEditingController();
 
+  TextEditingController nameController = TextEditingController();
+
   final globalKey = GlobalKey<FormState>();
   @override
   void dispose() {
@@ -27,6 +30,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
     blockController.dispose();
     floorController.dispose();
     postCodeController.dispose();
+    nameController.dispose();
     super.dispose();
   }
 
@@ -60,6 +64,33 @@ class _PropertyAddressState extends State<PropertyAddress> {
                 size: FontSize.small,
                 weight: FontWeight.w400,
               ),
+              const CustomSize(
+                height: 10,
+              ),
+              const CustomText(
+                label: 'Name',
+                color: AppColors.darkGreen,
+                size: FontSize.xxMedium,
+                weight: FontWeight.w500,
+              ),
+              const CustomSize(
+                height: 10,
+              ),
+              CustomTextField(
+                  borderRadius: 15,
+                  hintText: 'Enter the name of property',
+                  borderColor: AppColors.pastelblue,
+                  controller: nameController,
+                  fillColor: AppColors.white,
+                  validator: (input) {
+                    if (input == null || input.isEmpty) {
+                      return 'Please enter name';
+                    }
+                    if (!isValidAddress(input)) {
+                      return 'inValid';
+                    }
+                    return null;
+                  }),
               const CustomSize(
                 height: 10,
               ),
@@ -118,6 +149,9 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                     borderColor: AppColors.pastelblue,
                                     controller: postCodeController,
                                     fillColor: AppColors.white,
+                                    textInputFormatter: [
+                                      FilteringTextInputFormatter.digitsOnly,
+                                    ],
                                     keyboardType: TextInputType.number,
                                     validator: (input) {
                                       if (input == null || input.isEmpty) {
@@ -159,9 +193,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                       if (input == null || input.isEmpty) {
                                         return 'Please enter block number';
                                       }
-                                      if (!isValidInput(input)) {
-                                        return 'inValid';
-                                      }
+
                                       return null;
                                     }),
                               ),
@@ -192,6 +224,9 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                   controller: floorController,
                                   fillColor: AppColors.white,
                                   keyboardType: TextInputType.number,
+                                  textInputFormatter: [
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                   validator: (input) {
                                     if (input == null || input.isEmpty) {
                                       return 'Please enter floor';
@@ -225,14 +260,14 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                   borderColor: AppColors.pastelblue,
                                   controller: unitController,
                                   fillColor: AppColors.white,
-                                  keyboardType: TextInputType.number,
+                                  textInputFormatter: [
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                   validator: (input) {
                                     if (input == null || input.isEmpty) {
                                       return 'Please enter unit';
                                     }
-                                    if (!isValidInput(input)) {
-                                      return 'inValid';
-                                    }
+
                                     return null;
                                   }),
                             ),
@@ -252,7 +287,8 @@ class _PropertyAddressState extends State<PropertyAddress> {
                     propertyProvider.setPostCode = postCodeController.text;
                     propertyProvider.setBlockNo = blockController.text;
                     propertyProvider.setFloor = floorController.text;
-                    propertyProvider.unit = unitController.text;
+                    propertyProvider.setUnit = unitController.text;
+                    propertyProvider.setName = nameController.text;
 
                     if (widget.isOpenFromSummary) {
                       Navigator.pop(context);

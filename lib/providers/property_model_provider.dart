@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class PropertyProvider extends ChangeNotifier {
   late String propertType;
   late String agreement;
+  late String name;
   late String address;
   late String postCode;
   late String blockNo;
@@ -11,6 +12,9 @@ class PropertyProvider extends ChangeNotifier {
   late String appartmentSize;
   late String bedroom;
   late String bathroom;
+
+  late String drawingroom;
+  late String tvroom;
   late String furnishing;
   late String rent;
   late String description;
@@ -42,6 +46,15 @@ class PropertyProvider extends ChangeNotifier {
 
   String get getAddress {
     return address;
+  }
+
+  set setName(String value) {
+    name = value;
+    notifyListeners();
+  }
+
+  String get getName {
+    return name;
   }
 
   set setPostCode(String value) {
@@ -105,6 +118,24 @@ class PropertyProvider extends ChangeNotifier {
 
   String get getBathroom {
     return bathroom;
+  }
+
+  set setdrawingroom(String value) {
+    drawingroom = value;
+    notifyListeners();
+  }
+
+  String get getdrawingroom {
+    return drawingroom;
+  }
+
+  set settvroom(String value) {
+    tvroom = value;
+    notifyListeners();
+  }
+
+  String get gettvroom {
+    return tvroom;
   }
 
   set setFurnishing(String value) {

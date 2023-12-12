@@ -2,16 +2,22 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/providers/image_picker_provider.dart';
 import 'package:rent_fix/providers/property_model_provider.dart';
+import 'package:rent_fix/screens/property_listing_screen.dart';
 import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyPhotos extends StatefulWidget {
   final bool isOpenFromSummary;
-  const PropertyPhotos({super.key, required this.isOpenFromSummary});
+  final List<String> preloadedImages;
+  const PropertyPhotos(
+      {super.key,
+      required this.isOpenFromSummary,
+      required this.preloadedImages});
 
   @override
   State<PropertyPhotos> createState() => _PropertyPhotosState();
@@ -66,7 +72,25 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
             ),
             Consumer<ImagePickerProvider>(
               builder: (context, imagePick, child) {
-                if (imagePick.paths.isEmpty) {
+                if (widget.preloadedImages.isNotEmpty) {
+                  return SizedBox(
+                    height: 250,
+                    width: mq.width,
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 8.0,
+                        mainAxisSpacing: 8.0,
+                      ),
+                      itemCount: widget.preloadedImages.length,
+                      itemBuilder: (context, index) {
+                        return _buildImagePreview(
+                            widget.preloadedImages[index]);
+                      },
+                    ),
+                  );
+                } else if (imagePick.paths.isEmpty) {
                   return Container();
                 } else {
                   return SizedBox(
@@ -97,6 +121,7 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
                 List<String> images = await AppUtils.getImagesFromGallery();
                 if (images.isEmpty) return;
                 imagePickerProvider.addPaths(images);
+                widget.preloadedImages.addAll(images);
               },
               btnColor: AppColors.turquoise,
               borderColor: Colors.transparent,
@@ -128,6 +153,7 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
                 List<String> images = await AppUtils.getImagesFromCamera();
                 if (images.isEmpty) return;
                 imagePickerProvider.addPaths(images);
+                widget.preloadedImages.addAll(images);
               },
               btnColor: AppColors.white,
               borderColor: AppColors.black,
@@ -156,17 +182,28 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
             CustomButton(
               width: MediaQuery.of(context).size.width,
               onPressed: () {
-                if (imagePickerProvider.paths.length < 5) {
+                int totalImageCount = imagePickerProvider.paths.length +
+                    widget.preloadedImages.length;
+
+                if (totalImageCount < 5) {
                   CustomSnackBar.show(
                     context: context,
                     text: 'You must upload at least 5 photos.',
                     backgroundColor: Colors.red,
                   );
                 } else {
-                  propertyProvider.setListPhotos = imagePickerProvider.paths;
+                  propertyProvider.setListPhotos =
+                      imagePickerProvider.paths + widget.preloadedImages;
 
                   if (widget.isOpenFromSummary) {
-                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: PropertyListingDetails(
+                              isOpenFromSummary: false,
+                              preloadedImages: propertyProvider.getListPhotos,
+                            )));
                   } else {
                     Navigator.of(context).pushNamed(AppRoutes.propertyDate);
                   }
@@ -206,6 +243,7 @@ class _PropertyPhotosState extends State<PropertyPhotos> {
         GestureDetector(
           onTap: () {
             imagePickerProvider.removeImage(imagePath);
+            widget.preloadedImages.remove(imagePath);
           },
           child: Container(
             margin: const EdgeInsets.all(8),

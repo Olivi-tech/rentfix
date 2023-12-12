@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
@@ -172,6 +173,9 @@ class _OfferScreenState extends State<OfferScreen> {
                 hintText: 'Enter the number of months',
                 fillColor: Colors.white,
                 controller: rentController,
+                textInputFormatter: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
                 keyboardType: TextInputType.number,
                 validator: (input) {
                   if (input == null || input.isEmpty) {
@@ -240,7 +244,20 @@ class _OfferScreenState extends State<OfferScreen> {
                 controller: amountController,
                 borderColor: AppColors.pastelblue,
                 hintText: 'Enter Amount in S\$',
-                fillColor: Colors.white),
+                textInputFormatter: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+                keyboardType: TextInputType.number,
+                fillColor: Colors.white,
+                validator: (input) {
+                  if (input == null || input.isEmpty) {
+                    return 'Please enter amount';
+                  }
+                  if (!isValidInput(input)) {
+                    return 'inValid';
+                  }
+                  return null;
+                }),
             const CustomSize(
               height: 20,
             ),

@@ -4,10 +4,14 @@ import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class ListingDetails extends StatelessWidget {
-  const ListingDetails({super.key});
+  final data;
+  const ListingDetails({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+
+    var index = 0;
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'Listing Details',
@@ -24,19 +28,26 @@ class ListingDetails extends StatelessWidget {
               Stack(
                 alignment: Alignment.bottomRight,
                 children: [
-                  Expanded(
-                      child: SizedBox(
-                          height: 220,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                AppImages.sofaSet,
-                                fit: BoxFit.fill,
-                              ),
+                  SizedBox(
+                    height: 220,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount:
+                            (data[AppText.image] as List<dynamic>).length,
+                        itemBuilder: (context, index) {
+                          return SizedBox(
+                            width: width,
+                            child: Image.network(
+                              (data[AppText.image] as List<dynamic>)[index],
+                              fit: BoxFit.fitWidth,
                             ),
-                          ))),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 15),
@@ -49,11 +60,12 @@ class ListingDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CustomText(
-                            label: '1 of 12',
+                            label:
+                                '${index + 1} of ${(data[AppText.image] as List<dynamic>).length}',
                             color: AppColors.darkGreen,
                             size: FontSize.xsmall,
                             weight: FontWeight.w400,
@@ -61,7 +73,7 @@ class ListingDetails extends StatelessWidget {
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               const CustomSize(
@@ -70,7 +82,6 @@ class ListingDetails extends StatelessWidget {
               Row(
                 children: [
                   ShapeContainer(
-                    width: 70,
                     height: 27,
                     decoration: ShapeDecoration(
                       color: AppColors.paleAqua,
@@ -78,24 +89,22 @@ class ListingDetails extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CustomText(
-                          label: 'Condo',
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: CustomText(
+                          label: data[AppText.propertyType],
                           color: AppColors.darkGreen,
                           size: FontSize.small,
                           weight: FontWeight.w500,
                         ),
-                      ],
+                      ),
                     ),
                   ),
                   const CustomSize(
                     height: 10,
                   ),
                   ShapeContainer(
-                    width: 70,
                     height: 27,
                     decoration: ShapeDecoration(
                       color: AppColors.paleAqua,
@@ -103,17 +112,16 @@ class ListingDetails extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CustomText(
-                          label: 'Room',
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: CustomText(
+                          label: data[AppText.rentAggrement],
                           color: AppColors.darkGreen,
                           size: FontSize.small,
                           weight: FontWeight.w500,
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ],
@@ -121,8 +129,8 @@ class ListingDetails extends StatelessWidget {
               const CustomSize(
                 height: 10,
               ),
-              const CustomText(
-                label: 'Jonas House Stock Park Road',
+              CustomText(
+                label: data[AppText.name],
                 color: AppColors.black,
                 size: 23,
                 weight: FontWeight.w600,
@@ -133,36 +141,21 @@ class ListingDetails extends StatelessWidget {
               const CustomSize(
                 height: 5,
               ),
-              const Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: '\$350',
-                      style: TextStyle(
-                        color: Color(0xFF35D5DA),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    TextSpan(
-                      text: ' ',
-                      style: TextStyle(
-                        color: Color(0xFFB8CBCB),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        height: 0,
-                      ),
-                    ),
-                    TextSpan(
-                      text: '/month',
-                      style: TextStyle(
-                        color: Color(0xFF35D5DA),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
+              Row(
+                children: [
+                  CustomText(
+                    label: '\$${data[AppText.rent].toString()}',
+                    color: const Color(0xFF35D5DA),
+                    size: 24,
+                    weight: FontWeight.w700,
+                  ),
+                  const CustomText(
+                    label: ' /month',
+                    color: Color(0xFF35D5DA),
+                    size: 12,
+                    weight: FontWeight.w500,
+                  ),
+                ],
               ),
               const CustomSize(
                 height: 5,
@@ -177,8 +170,8 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 10,
                   ),
-                  const CustomText(
-                    label: '3',
+                  CustomText(
+                    label: data[AppText.bedroom].toString(),
                     color: AppColors.darkGreen,
                     size: FontSize.small,
                     weight: FontWeight.w500,
@@ -194,8 +187,8 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 8,
                   ),
-                  const CustomText(
-                    label: '1',
+                  CustomText(
+                    label: data[AppText.drawingroom].toString(),
                     color: AppColors.darkGreen,
                     size: FontSize.small,
                     weight: FontWeight.w500,
@@ -211,8 +204,8 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 8,
                   ),
-                  const CustomText(
-                    label: '2',
+                  CustomText(
+                    label: data[AppText.bathroom].toString(),
                     color: AppColors.darkGreen,
                     size: FontSize.small,
                     weight: FontWeight.w500,
@@ -228,8 +221,8 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 8,
                   ),
-                  const CustomText(
-                    label: '1',
+                  CustomText(
+                    label: data[AppText.tvroom].toString(),
                     color: AppColors.darkGreen,
                     size: FontSize.small,
                     weight: FontWeight.w500,
@@ -245,8 +238,8 @@ class ListingDetails extends StatelessWidget {
                   const CustomSize(
                     width: 8,
                   ),
-                  const CustomText(
-                    label: '3120 sqft',
+                  CustomText(
+                    label: data[AppText.appartmentSize].toString(),
                     color: AppColors.darkGreen,
                     size: FontSize.small,
                     weight: FontWeight.w500,
@@ -262,18 +255,18 @@ class ListingDetails extends StatelessWidget {
                 borderColor: Colors.transparent,
                 btnColor: AppColors.paleAqua,
                 onPressed: () {},
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.calendar_month_outlined,
                       color: AppColors.darkGreen,
                     ),
-                    CustomSize(
+                    const CustomSize(
                       width: 10,
                     ),
                     CustomText(
-                      label: 'Available by: 28/11/2023',
+                      label: 'Available by: ${data[AppText.availableDate]}',
                       color: AppColors.darkGreen,
                       size: FontSize.xxMedium,
                       weight: FontWeight.w500,
@@ -304,11 +297,17 @@ class ListingDetails extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _columnWidget('Area', '3120 sqft'),
+                      _columnWidget(
+                        'Area',
+                        data[AppText.appartmentSize].toString(),
+                      ),
                       const CustomSize(
                         height: 15,
                       ),
-                      _columnWidget('PropertyType', 'condo'),
+                      _columnWidget(
+                        'PropertyType',
+                        data[AppText.propertyType],
+                      ),
                     ],
                   ),
                   const Spacer(),
@@ -317,11 +316,12 @@ class ListingDetails extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _columnWidget('Condition', 'Fully Furnished'),
+                        _columnWidget('Condition', data[AppText.furnishing]),
                         const CustomSize(
                           height: 15,
                         ),
-                        _columnWidget('RentalType', 'Room'),
+                        _columnWidget(
+                            'RentalType', data[AppText.rentAggrement]),
                       ],
                     ),
                   ),
@@ -330,7 +330,7 @@ class ListingDetails extends StatelessWidget {
               const CustomSize(
                 height: 15,
               ),
-              _columnWidget('Listed Date', 'Ready to move'),
+              _columnWidget('Listed Date', data[AppText.propertyListDate]),
               const CustomSize(
                 height: 10,
               ),
@@ -349,27 +349,12 @@ class ListingDetails extends StatelessWidget {
               const CustomSize(
                 height: 5,
               ),
-              RichText(
-                text: const TextSpan(
-                  style: TextStyle(color: Colors.black, fontSize: 36),
-                  children: <TextSpan>[
-                    TextSpan(
-                        text:
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo do consequat cupidatat non proident, sunt....',
-                        style: TextStyle(
-                          color: Color(0xFF8FA0B3),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        )),
-                    TextSpan(
-                        text: 'Read more',
-                        style: TextStyle(
-                          color: Color(0xFF4B75F9),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        )),
-                  ],
-                ),
+              CustomText(
+                label: data[AppText.description],
+                color: AppColors.lightGrey,
+                size: 14,
+                overflow: TextOverflow.ellipsis,
+                weight: FontWeight.w400,
               ),
               const SizedBox(
                 height: 10,
