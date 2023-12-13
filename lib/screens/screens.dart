@@ -1,7 +1,8 @@
 export 'splash_screen.dart';
+export 'create_account_screen.dart';
 export 'get_started_screen.dart';
-export 'otp_verification_screen.dart';
-export 'create_account.dart';
+export 'login_otp_verification_screen.dart';
+export 'login_account.dart';
 export 'filter_bottom_screen.dart';
 export 'activities_screen.dart';
 export 'chat_screen.dart';

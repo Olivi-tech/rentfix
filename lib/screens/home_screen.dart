@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                               TextSpan(
                                 text: 'Jacob Jones',
                                 style: TextStyle(
-                                  color: Color(0xFF242528),
+                                  color: AppColors.black,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
                                 ),

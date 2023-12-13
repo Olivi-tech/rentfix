@@ -81,8 +81,7 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: PopupMenuButton(
                 icon: const Icon(Icons.menu),
-                offset: const Offset(50, 0),
-                color: AppColors.white,
+                surfaceTintColor: AppColors.white,
                 shape: TooltipShape(),
                 constraints: const BoxConstraints(
                   minWidth: 4.0 * 46.0,

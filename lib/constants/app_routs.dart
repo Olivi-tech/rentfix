@@ -1,10 +1,15 @@
 class AppRoutes {
   static const splash = "/splash";
   static const getStarted = "/getStarted";
-  static const createAccount = "/createAccount";
+  static const loginAccount = "/createAccount";
+
+  static const createAccountPic = "/createAccounPic";
+
+  static const createAccountOtp = "/createAccounOtp";
   static const otpVerify = "/otpVerify";
   static const home = "/home";
   static const homeScreen = "/homeScren";
+  static const signInScreen = "/signInScren";
   static const discover = "/discover";
   static const profile = "/profile";
   static const settings = '/settings';

@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 class AppUtils {
   static Future<List<String>> getImagesFromGallery() async {
-    final pickedFiles = await ImagePicker().pickMultiImage(imageQuality: 80);
+    final pickedFiles = await ImagePicker().pickMultiImage(imageQuality: 100);
 
     if (pickedFiles.isNotEmpty) {
       List<String> imagePaths = pickedFiles.map((pickedFile) {
@@ -20,7 +20,7 @@ class AppUtils {
 
   static Future<List<String>> getImagesFromCamera() async {
     final pickedFiles = await ImagePicker()
-        .pickImage(source: ImageSource.camera, imageQuality: 80);
+        .pickImage(source: ImageSource.camera, imageQuality: 100);
 
     if (pickedFiles != null) {
       File image = File(pickedFiles.path);

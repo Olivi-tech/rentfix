@@ -50,24 +50,24 @@ class ActivityDataConstants {
 }
 
 class AppText {
-  static const String userDataCollection = 'user_data';
-  static const String propertyCollection = 'properties';
-  static const String offerCollection = 'offer';
-  static const String id = 'property_id';
-  static const String address = 'address';
-  static const String bedroom = 'bedroom';
-  static const String bathroom = 'bathroom';
+  static const userDataCollection = 'user_data';
+  static const propertyCollection = 'properties';
+  static const offerCollection = 'offer';
+  static const id = 'property_id';
+  static const address = 'address';
+  static const bedroom = 'bedroom';
+  static const bathroom = 'bathroom';
 
-  static const String propertyListDate = 'property_list_date';
-  static const String name = 'name';
-  static const String drawingroom = 'drawing_room';
-  static const String tvroom = 'tv_room';
-  static const String appartmentSize = 'appartment_size';
-  static const String propertyType = 'propert_type';
-  static const String rentAggrement = 'rent_aggrement';
-  static const String furnishing = 'furnishing';
-  static const String rent = 'rent';
-  static const String availableDate = 'available_date';
-  static const String description = 'description ';
-  static const String image = 'image';
+  static const propertyListDate = 'property_list_date';
+  static const name = 'name';
+  static const drawingroom = 'drawing_room';
+  static const tvroom = 'tv_room';
+  static const appartmentSize = 'appartment_size';
+  static const propertyType = 'propert_type';
+  static const rentAggrement = 'rent_aggrement';
+  static const furnishing = 'furnishing';
+  static const rent = 'rent';
+  static const availableDate = 'available_date';
+  static const description = 'description ';
+  static const image = 'image';
 }

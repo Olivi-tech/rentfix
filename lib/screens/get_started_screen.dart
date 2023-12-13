@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -26,10 +27,14 @@ class GetStartedScreen extends StatelessWidget {
                     const CustomSize(
                       height: 20,
                     ),
-                    Image.asset(
+                    SvgPicture.asset(
                       AppImages.splashLogo,
                       height: 100,
                     ),
+                    // Image.asset(
+                    //   AppImages.splashLogo,
+                    //   height: 100,
+                    // ),
                     const CustomSize(
                       height: 10,
                     ),
@@ -46,8 +51,7 @@ class GetStartedScreen extends StatelessWidget {
                     CustomButton(
                       width: mq.width * 0.45,
                       onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed(AppRoutes.createAccount);
+                        Navigator.of(context).pushNamed(AppRoutes.loginAccount);
                       },
                       textColor: AppColors.turquoise,
                       borderColor: Colors.transparent,

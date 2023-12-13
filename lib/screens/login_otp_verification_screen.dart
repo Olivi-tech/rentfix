@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinput/pinput.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/custom_button.dart';
@@ -21,7 +22,7 @@ class OTPVerificationScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Image.asset(
+              SvgPicture.asset(
                 AppImages.splashLogo,
                 height: 100,
               ),
@@ -37,7 +38,7 @@ class OTPVerificationScreen extends StatelessWidget {
               const CustomText(
                 label:
                     'We sent a text message to the phone number starting with\n+658860*****. Please enter the 6 digit code you received',
-                color: Color(0xFF242528),
+                color: AppColors.black,
                 size: 11,
                 weight: FontWeight.w400,
               ),

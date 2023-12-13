@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/screens/create_account_addpic_screen.dart';
+import 'package:rent_fix/screens/create_account_otp_screen.dart';
 import 'package:rent_fix/screens/property_add_photo.dart';
 import 'package:rent_fix/screens/property_address_screen.dart';
 import 'package:rent_fix/screens/property_bathroom_screen.dart';
@@ -16,14 +18,22 @@ class Routers {
         return const SplashScreen();
       case AppRoutes.getStarted:
         return const GetStartedScreen();
-      case AppRoutes.createAccount:
+      case AppRoutes.loginAccount:
+        return const LoginAccount();
+      case AppRoutes.signInScreen:
         return const CreateAccountScreen();
+      case AppRoutes.createAccountPic:
+        return const CreateAccountAddPic();
+
+      case AppRoutes.createAccountOtp:
+        return const CreateAccountOTPVerify();
       case AppRoutes.otpVerify:
         return const OTPVerificationScreen();
       case AppRoutes.home:
         return const Home();
       case AppRoutes.homeScreen:
         return const HomeScreen();
+
       case AppRoutes.listDetails:
         return const ListingDetails(
           data: '',

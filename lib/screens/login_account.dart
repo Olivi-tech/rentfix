@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
-class CreateAccountScreen extends StatelessWidget {
-  const CreateAccountScreen({super.key});
+class LoginAccount extends StatelessWidget {
+  const LoginAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class CreateAccountScreen extends StatelessWidget {
                       const CustomSize(
                         height: 20,
                       ),
-                      Image.asset(
+                      SvgPicture.asset(
                         AppImages.splashLogo,
                         height: 100,
                       ),
@@ -32,7 +33,7 @@ class CreateAccountScreen extends StatelessWidget {
                         height: 10,
                       ),
                       const CustomText(
-                        label: 'Create an\nAccount or Sign in',
+                        label: 'Login\nAccount',
                         color: AppColors.white,
                         size: FontSize.xxLarge,
                         weight: FontWeight.w900,
@@ -67,6 +68,35 @@ class CreateAccountScreen extends StatelessWidget {
                         borderColor: Colors.transparent,
                         textColor: Colors.white,
                         text: 'Submit',
+                      ),
+                      const CustomSize(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(AppRoutes.signInScreen);
+                        },
+                        child: const Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CustomText(
+                              label: 'Dont have an account?',
+                              color: AppColors.black,
+                              size: 14,
+                              textAlign: TextAlign.center,
+                              weight: FontWeight.w400,
+                            ),
+                            CustomText(
+                              label: ' Sign Up',
+                              color: AppColors.white,
+                              size: 14,
+                              textAlign: TextAlign.center,
+                              weight: FontWeight.w800,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
