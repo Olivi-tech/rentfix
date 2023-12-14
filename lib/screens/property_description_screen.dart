@@ -59,7 +59,7 @@ class _PropertyDescriptionState extends State<PropertyDescription> {
                   borderRadius: 15,
                   maxLines: 10,
                   hintText: 'Enter description here',
-                  borderColor: AppColors.pastelblue,
+                  borderColor: AppColors.pastelBlue,
                   controller: descriptionController,
                   fillColor: AppColors.white,
                   validator: (input) {

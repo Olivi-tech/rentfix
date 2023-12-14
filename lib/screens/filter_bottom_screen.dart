@@ -78,7 +78,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   hintColor: AppColors.darkGreen,
                   readOnly: true,
                   hintText: 'Newest First',
-                  borderColor: AppColors.pastelblue,
+                  borderColor: AppColors.pastelBlue,
                   controller: sortbyController,
                   suffixIcon: DropDownsWidget(
                     itemList: const [
@@ -99,7 +99,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   hintColor: AppColors.darkGreen,
                   readOnly: true,
                   hintText: '17/12/23',
-                  borderColor: AppColors.pastelblue,
+                  borderColor: AppColors.pastelBlue,
                   controller: dateController,
                   suffixIcon: DropDownsWidget(
                     itemList: const ['1', '2', '3'],
@@ -126,7 +126,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               min: 0,
               max: 1500,
               divisions: 15,
-              activeColor: AppColors.turquoiseBlue,
+              activeColor: AppColors.turquoise,
               labels: RangeLabels(
                 _currentRangeValues.start.round().toString(),
                 _currentRangeValues.end.round().toString(),
@@ -323,7 +323,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               min: 0,
               max: 4000,
               divisions: 4,
-              activeColor: AppColors.turquoiseBlue,
+              activeColor: AppColors.turquoise,
               labels: RangeLabels(
                 _currentRangesValues.start.round().toString(),
                 _currentRangesValues.end.round().toString(),

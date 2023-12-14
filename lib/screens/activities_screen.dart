@@ -33,7 +33,7 @@ class ActivitiesScreen extends StatelessWidget {
                       color: AppColors.paleBlue,
                       shape: RoundedRectangleBorder(
                         side: const BorderSide(
-                            width: 1, color: AppColors.turquoiseBlue),
+                            width: 1, color: AppColors.turquoise),
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
@@ -42,7 +42,7 @@ class ActivitiesScreen extends StatelessWidget {
                         padding: EdgeInsets.only(left: 5, right: 5),
                         child: CustomText(
                           label: 'Mark all as read',
-                          color: AppColors.darkTeal,
+                          color: AppColors.darkGreen,
                           size: 10,
                           weight: FontWeight.w500,
                         ),

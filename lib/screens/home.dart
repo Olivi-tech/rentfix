@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                   AppImages.home,
                   color: indexValue.selectedIndex == 0
                       ? AppColors.darkGreen
-                      : AppColors.pastelblue,
+                      : AppColors.pastelBlue,
                 ),
               ),
               label: "Home",
@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
                   AppImages.search,
                   color: indexValue.selectedIndex == 1
                       ? AppColors.darkGreen
-                      : AppColors.pastelblue,
+                      : AppColors.pastelBlue,
                 ),
               ),
               label: "Discover",
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                   AppImages.chat,
                   color: indexValue.selectedIndex == 3
                       ? AppColors.darkGreen
-                      : AppColors.pastelblue,
+                      : AppColors.pastelBlue,
                 ),
               ),
               label: "Chat",
@@ -168,7 +168,7 @@ class _HomeState extends State<Home> {
           ],
           currentIndex: indexValue.selectedIndex,
           selectedItemColor: AppColors.darkGreen,
-          unselectedItemColor: AppColors.pastelblue,
+          unselectedItemColor: AppColors.pastelBlue,
           onTap: _onItemTapped,
         ),
       ),

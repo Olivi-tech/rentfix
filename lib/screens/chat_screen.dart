@@ -77,7 +77,7 @@ class ChatScreenState extends State<ChatScreen> {
                     width: mq.width * 0.69,
                     hintText: 'Type a message',
                     fillColor: AppColors.white,
-                    borderColor: AppColors.pastelblue,
+                    borderColor: AppColors.pastelBlue,
                     borderRadius: 12,
                     suffixIcon: Padding(
                       padding: const EdgeInsets.all(12),
@@ -93,7 +93,7 @@ class ChatScreenState extends State<ChatScreen> {
                     width: mq.width * 0.11,
                     height: mq.height * 0.05,
                     shapeDecoration: BoxDecoration(
-                      color: AppColors.turquoiseBlue,
+                      color: AppColors.turquoise,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(

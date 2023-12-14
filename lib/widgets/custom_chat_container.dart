@@ -18,7 +18,7 @@ class ChatUserContainer extends StatelessWidget {
       padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
       child: CustomContainer(
         decoration: const BoxDecoration(
-          color: AppColors.darkTeal,
+          color: AppColors.darkGreen,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(15),
             topRight: Radius.circular(15),

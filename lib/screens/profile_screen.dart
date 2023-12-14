@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: AppColors.turquoiseBlue,
+                      color: AppColors.turquoise,
                       width: 1,
                     ),
                   ),
@@ -321,7 +321,7 @@ class ProfileScreen extends StatelessWidget {
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: AppColors.turquoiseBlue,
+                  color: AppColors.turquoise,
                   width: 1,
                 ),
               ),
@@ -360,7 +360,7 @@ class CustomInfoContainer extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: AppColors.turquoiseBlue,
+          color: AppColors.turquoise,
           width: 1,
         ),
       ),

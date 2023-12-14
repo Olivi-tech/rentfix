@@ -11,7 +11,7 @@ class CreateAccountAddPic extends StatelessWidget {
     final mq = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.turquoiseBlue,
+        backgroundColor: AppColors.turquoise,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
@@ -95,7 +95,7 @@ class CreateAccountAddPic extends StatelessWidget {
                         child: Icon(
                           Icons.person,
                           size: 50,
-                          color: AppColors.turquoiseBlue,
+                          color: AppColors.turquoise,
                         ),
                       ),
                     ),

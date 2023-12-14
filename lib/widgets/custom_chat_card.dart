@@ -36,7 +36,7 @@ class CustomCardWidget extends StatelessWidget {
             ),
             shadows: const [
               BoxShadow(
-                color: AppColors.lightWhite,
+                color: AppColors.lightBlack,
                 blurRadius: 5,
                 offset: Offset(2, 2),
               )

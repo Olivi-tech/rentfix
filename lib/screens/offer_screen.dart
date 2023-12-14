@@ -169,7 +169,7 @@ class _OfferScreenState extends State<OfferScreen> {
             ),
             CustomTextField(
                 isBorder: true,
-                borderColor: AppColors.pastelblue,
+                borderColor: AppColors.pastelBlue,
                 hintText: 'Enter the number of months',
                 fillColor: Colors.white,
                 controller: rentController,
@@ -242,7 +242,7 @@ class _OfferScreenState extends State<OfferScreen> {
             CustomTextField(
                 isBorder: true,
                 controller: amountController,
-                borderColor: AppColors.pastelblue,
+                borderColor: AppColors.pastelBlue,
                 hintText: 'Enter Amount in S\$',
                 textInputFormatter: [
                   FilteringTextInputFormatter.digitsOnly,

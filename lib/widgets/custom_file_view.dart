@@ -40,7 +40,7 @@ class CustomFileWidget extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: ShapeDecoration(
-                  color: AppColors.turquoiseBlue,
+                  color: AppColors.turquoise,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),

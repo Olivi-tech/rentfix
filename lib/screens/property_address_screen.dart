@@ -79,7 +79,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
               CustomTextField(
                   borderRadius: 15,
                   hintText: 'Enter the name of property',
-                  borderColor: AppColors.pastelblue,
+                  borderColor: AppColors.pastelBlue,
                   controller: nameController,
                   fillColor: AppColors.white,
                   validator: (input) {
@@ -106,7 +106,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
               CustomTextField(
                   borderRadius: 15,
                   hintText: 'Enter the address here',
-                  borderColor: AppColors.pastelblue,
+                  borderColor: AppColors.pastelBlue,
                   controller: addressController,
                   fillColor: AppColors.white,
                   validator: (input) {
@@ -146,7 +146,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                 child: CustomTextField(
                                     borderRadius: 15,
                                     hintText: 'Enter postcode',
-                                    borderColor: AppColors.pastelblue,
+                                    borderColor: AppColors.pastelBlue,
                                     controller: postCodeController,
                                     fillColor: AppColors.white,
                                     textInputFormatter: [
@@ -185,7 +185,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                 child: CustomTextField(
                                     borderRadius: 15,
                                     hintText: 'Enter block number',
-                                    borderColor: AppColors.pastelblue,
+                                    borderColor: AppColors.pastelBlue,
                                     controller: blockController,
                                     fillColor: AppColors.white,
                                     keyboardType: TextInputType.number,
@@ -220,7 +220,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
                               child: CustomTextField(
                                   borderRadius: 15,
                                   hintText: 'Enter Floor',
-                                  borderColor: AppColors.pastelblue,
+                                  borderColor: AppColors.pastelBlue,
                                   controller: floorController,
                                   fillColor: AppColors.white,
                                   keyboardType: TextInputType.number,
@@ -257,7 +257,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
                               child: CustomTextField(
                                   borderRadius: 15,
                                   hintText: 'Enter Unit',
-                                  borderColor: AppColors.pastelblue,
+                                  borderColor: AppColors.pastelBlue,
                                   controller: unitController,
                                   fillColor: AppColors.white,
                                   textInputFormatter: [

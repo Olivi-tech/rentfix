@@ -10,7 +10,7 @@ class LoginAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.turquoiseBlue,
+        backgroundColor: AppColors.turquoise,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

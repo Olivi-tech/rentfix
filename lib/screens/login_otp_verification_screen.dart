@@ -13,7 +13,7 @@ class OTPVerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.turquoiseBlue,
+        backgroundColor: AppColors.turquoise,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(

@@ -57,7 +57,7 @@ class PropertyApparmentSizeState extends State<PropertyApparmentSize> {
             CustomTextField(
                 borderRadius: 15,
                 hintText: 'Enter size in sqft',
-                borderColor: AppColors.pastelblue,
+                borderColor: AppColors.pastelBlue,
                 controller: sizeController,
                 fillColor: AppColors.white,
                 keyboardType: TextInputType.number,

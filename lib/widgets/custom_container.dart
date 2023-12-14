@@ -132,7 +132,7 @@ class ContainerViewState extends State<ContainerView> {
   void _handleTap() {
     setState(() {
       if (containerColor == AppColors.paleAqua) {
-        containerColor = AppColors.turquoiseBlue;
+        containerColor = AppColors.turquoise;
         textColor = Colors.white;
       } else {
         containerColor = AppColors.paleAqua;
@@ -191,7 +191,7 @@ class CheckboxContainer extends StatelessWidget {
           decoration: ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
-              side: const BorderSide(width: 1, color: AppColors.pastelblue),
+              side: const BorderSide(width: 1, color: AppColors.pastelBlue),
               borderRadius: BorderRadius.circular(8),
             ),
           ),

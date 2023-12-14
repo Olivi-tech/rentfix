@@ -11,7 +11,7 @@ class GetStartedScreen extends StatelessWidget {
     final mq = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.turquoiseBlue,
+        backgroundColor: AppColors.turquoise,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

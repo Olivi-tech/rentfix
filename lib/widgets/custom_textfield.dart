@@ -52,7 +52,7 @@ class CustomTextField extends StatelessWidget {
     return SizedBox(
       width: width,
       child: TextFormField(
-        cursorColor: AppColors.turquoiseBlue,
+        cursorColor: AppColors.turquoise,
         inputFormatters: textInputFormatter,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: validator,

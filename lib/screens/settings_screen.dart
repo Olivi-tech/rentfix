@@ -29,7 +29,7 @@ class SettingsScreen extends StatelessWidget {
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: AppColors.turquoiseBlue,
+                    color: AppColors.turquoise,
                     width: 1,
                   ),
                 ),
@@ -55,14 +55,14 @@ class SettingsScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 5),
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
-                    color: AppColors.darkTeal,
+                    color: AppColors.darkGreen,
                     size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
                   weight: FontWeight.w500,
                   size: FontSize.xxMedium,
-                  color: AppColors.darkTeal,
+                  color: AppColors.darkGreen,
                   label: 'Privacy Policy',
                 ),
                 onTap: () async {},
@@ -78,14 +78,14 @@ class SettingsScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 5),
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
-                    color: AppColors.darkTeal,
+                    color: AppColors.darkGreen,
                     size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
                   weight: FontWeight.w500,
                   size: FontSize.xxMedium,
-                  color: AppColors.darkTeal,
+                  color: AppColors.darkGreen,
                   label: 'Terms & Condition',
                 ),
                 onTap: () async {},
@@ -101,14 +101,14 @@ class SettingsScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 5),
                   child: Icon(
                     Icons.keyboard_arrow_right_outlined,
-                    color: AppColors.darkTeal,
+                    color: AppColors.darkGreen,
                     size: FontSize.medium,
                   ),
                 ),
                 title: const CustomText(
                   weight: FontWeight.w500,
                   size: FontSize.xxMedium,
-                  color: AppColors.darkTeal,
+                  color: AppColors.darkGreen,
                   label: 'Acknowledgment',
                 ),
                 onTap: () async {},
@@ -172,7 +172,7 @@ class SettingsScreen extends StatelessWidget {
               color: AppColors.white,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: AppColors.turquoiseBlue,
+                color: AppColors.turquoise,
                 width: 1,
               ),
             ),

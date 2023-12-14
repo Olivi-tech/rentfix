@@ -57,7 +57,7 @@ class _PropertyMonthlyRentState extends State<PropertyMonthlyRent> {
             CustomTextField(
                 borderRadius: 15,
                 hintText: 'Enter amount in S\$',
-                borderColor: AppColors.pastelblue,
+                borderColor: AppColors.pastelBlue,
                 controller: rentController,
                 fillColor: AppColors.white,
                 textInputFormatter: [
