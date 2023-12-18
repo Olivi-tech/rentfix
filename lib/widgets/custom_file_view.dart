@@ -46,7 +46,7 @@ class CustomFileWidget extends StatelessWidget {
                   ),
                 ),
                 child: SvgPicture.asset(
-                  AppImages.doc,
+                  AppImages.documentIcon,
                 ),
               ),
               const CustomSize(

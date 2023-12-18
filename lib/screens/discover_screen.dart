@@ -116,7 +116,7 @@ class DiscoverScreen extends StatelessWidget {
                     const CustomSize(
                       width: 10,
                     ),
-                    Image.asset(AppImages.cute)
+                    SvgPicture.asset(AppImages.cute)
                   ],
                 ),
                 const CustomSize(
@@ -169,7 +169,12 @@ class DiscoverScreen extends StatelessWidget {
                                     width: 1, color: AppColors.teal),
                               ),
                             ),
-                            child: Image.asset(AppImages.eatingList)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(12),
+                              child: SvgPicture.asset(
+                                AppImages.filterIcon,
+                              ),
+                            )),
                       ),
                     )
                   ],

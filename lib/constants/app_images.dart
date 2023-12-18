@@ -4,15 +4,15 @@ class AppImages {
   static const characterImage = 'assets/images/Character.png';
 
   static const roomImage = 'assets/images/image.png';
-  static const search = 'assets/images/search.png';
-  static const eatingList = 'assets/images/eating_list.png';
+  static const search = 'assets/svgs/search.svg';
+  static const filterIcon = 'assets/svgs/filter.svg';
   static const getHouse = 'assets/images/start_house.png';
-  static const cute = 'assets/images/cute.png';
+  static const cute = 'assets/svgs/wow.svg';
   static const map = 'assets/images/map.png';
-  static const chat = 'assets/images/chat.png';
-  static const home = 'assets/images/home.png';
+  static const chat = 'assets/svgs/chat.svg';
+  static const home = 'assets/svgs/home.svg';
 
-  static const doc = 'assets/svgs/doc.svg';
+  static const documentIcon = 'assets/svgs/doc.svg';
   static const youngMen = 'assets/images/hd_men_pick.png';
   static const line = 'assets/images/line.png';
   static const worldMap = 'assets/images/world_map.png';

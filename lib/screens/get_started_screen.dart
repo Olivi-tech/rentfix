@@ -31,10 +31,6 @@ class GetStartedScreen extends StatelessWidget {
                       AppImages.splashLogo,
                       height: 100,
                     ),
-                    // Image.asset(
-                    //   AppImages.splashLogo,
-                    //   height: 100,
-                    // ),
                     const CustomSize(
                       height: 10,
                     ),
@@ -111,16 +107,16 @@ class GetStartedScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const CustomSize(
-              height: 10,
+            CustomSize(
+              height: mq.height * 0.13,
             ),
             Flexible(
-              flex: 4,
+              flex: 5,
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Image.asset(
                   AppImages.layerHouse,
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.cover,
                 ),
               ),
             )

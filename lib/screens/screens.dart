@@ -17,7 +17,7 @@ export 'property_monthly_rent_screen.dart';
 export 'property_description_screen.dart';
 export 'property_listing_screen.dart';
 export 'property_bedroom_screen.dart';
-export 'property_date.dart';
+export 'property_date_screen.dart';
 export 'property_add_photo.dart';
 export 'property_bathroom_screen.dart';
 export 'property_address_screen.dart';

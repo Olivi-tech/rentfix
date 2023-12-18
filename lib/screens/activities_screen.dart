@@ -7,6 +7,7 @@ class ActivitiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'Activities',
@@ -77,7 +78,7 @@ class ActivitiesScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height,
+              height: screenHeight,
               child: ListView.builder(
                 itemCount: ActivityDataConstants.activityReadDataList.length,
                 itemBuilder: (context, index) {

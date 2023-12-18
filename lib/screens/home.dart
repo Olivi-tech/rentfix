@@ -37,11 +37,14 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 10.0, top: 12),
-                child: Image.asset(
+                child: SvgPicture.asset(
                   AppImages.home,
-                  color: indexValue.selectedIndex == 0
-                      ? AppColors.darkGreen
-                      : AppColors.pastelBlue,
+                  colorFilter: ColorFilter.mode(
+                    indexValue.selectedIndex == 0
+                        ? AppColors.darkGreen
+                        : AppColors.pastelBlue,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
               label: "Home",
@@ -49,11 +52,14 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 10.0, top: 12),
-                child: Image.asset(
+                child: SvgPicture.asset(
                   AppImages.search,
-                  color: indexValue.selectedIndex == 1
-                      ? AppColors.darkGreen
-                      : AppColors.pastelBlue,
+                  colorFilter: ColorFilter.mode(
+                    indexValue.selectedIndex == 0
+                        ? AppColors.darkGreen
+                        : AppColors.pastelBlue,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
               label: "Discover",
@@ -68,11 +74,14 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 10.0, top: 12),
-                child: Image.asset(
+                child: SvgPicture.asset(
                   AppImages.chat,
-                  color: indexValue.selectedIndex == 3
-                      ? AppColors.darkGreen
-                      : AppColors.pastelBlue,
+                  colorFilter: ColorFilter.mode(
+                    indexValue.selectedIndex == 0
+                        ? AppColors.darkGreen
+                        : AppColors.pastelBlue,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
               label: "Chat",
