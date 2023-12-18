@@ -2,8 +2,60 @@ import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
-class ActivitiesScreen extends StatelessWidget {
+class ActivitiesScreen extends StatefulWidget {
   const ActivitiesScreen({super.key});
+
+  @override
+  State<ActivitiesScreen> createState() => _ActivitiesScreenState();
+}
+
+class _ActivitiesScreenState extends State<ActivitiesScreen> {
+  List<ActivityData> activityDataList = [
+    ActivityData(
+      status: AppColors.yellow,
+      time: 'Today at 9:34 PM',
+      title: 'John Doe has declined the offer',
+    ),
+    ActivityData(
+      status: AppColors.yellow,
+      time: 'Today at 4:23 PM',
+      title: 'Pam Basely has sent you an offer for Buangkok Cres',
+    ),
+  ];
+
+  List<ActivityData> activityReadDataList = [
+    ActivityData(
+      status: AppColors.green,
+      time: 'Today at 9:34 PM',
+      title: 'John Doe has declined the offer',
+    ),
+    ActivityData(
+      status: AppColors.green,
+      time: 'Today at 9:34 PM',
+      title: 'A new property added',
+    ),
+    ActivityData(
+      status: AppColors.green,
+      time: 'Today at 9:34 PM',
+      title: 'Buangkok Cres has been unlisted from marketplace',
+    ),
+    ActivityData(
+      status: AppColors.green,
+      time: 'Today at 9:34 PM',
+      title: 'John Doe has declined the offer',
+    ),
+    ActivityData(
+      status: AppColors.green,
+      time: 'Today at 4:23 PM',
+      title: 'Pam Basely has sent you an offer for Buangkok Cres',
+    ),
+    ActivityData(
+      status: AppColors.green,
+      time: 'Today at 4:23 PM',
+      title: 'Pam Basely has sent you an offer for Buangkok Cres',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -56,10 +108,9 @@ class ActivitiesScreen extends StatelessWidget {
             SizedBox(
               height: screenWidth * 0.5,
               child: ListView.builder(
-                itemCount: ActivityDataConstants.activityDataList.length,
+                itemCount: activityDataList.length,
                 itemBuilder: (context, index) {
-                  ActivityData data =
-                      ActivityDataConstants.activityDataList[index];
+                  ActivityData data = activityDataList[index];
 
                   return ActivityContainer(
                     status: data.status,
@@ -80,10 +131,9 @@ class ActivitiesScreen extends StatelessWidget {
             SizedBox(
               height: screenHeight,
               child: ListView.builder(
-                itemCount: ActivityDataConstants.activityReadDataList.length,
+                itemCount: activityReadDataList.length,
                 itemBuilder: (context, index) {
-                  ActivityData data =
-                      ActivityDataConstants.activityReadDataList[index];
+                  ActivityData data = activityReadDataList[index];
 
                   return ActivityContainer(
                     status: data.status,
