@@ -5,6 +5,7 @@ import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class ListingDetails extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final data;
   const ListingDetails({super.key, required this.data});
 

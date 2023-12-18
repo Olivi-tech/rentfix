@@ -5,18 +5,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/db_servies/db_servies.dart';
-import 'package:rent_fix/providers/property_model_provider.dart';
-import 'package:rent_fix/screens/property_add_photo.dart';
-import 'package:rent_fix/screens/property_address_screen.dart';
-import 'package:rent_fix/screens/property_bathroom_screen.dart';
-import 'package:rent_fix/screens/property_bedroom_screen.dart';
-import 'package:rent_fix/screens/property_date.dart';
-import 'package:rent_fix/screens/property_description_screen.dart';
-import 'package:rent_fix/screens/property_furnished_screen.dart';
-import 'package:rent_fix/screens/property_monthly_rent_screen.dart';
-import 'package:rent_fix/screens/property_rental_screen.dart';
-import 'package:rent_fix/screens/property_size_apparment_screen.dart';
-import 'package:rent_fix/screens/property_type_screen.dart';
+import 'package:rent_fix/providers/providers.dart';
+import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyListingDetails extends StatefulWidget {

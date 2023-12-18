@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 

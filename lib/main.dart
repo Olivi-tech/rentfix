@@ -1,4 +1,3 @@
-//import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/app_colors.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/firebase_options.dart';
-import 'package:rent_fix/providers/property_model_provider.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -47,10 +45,10 @@ class RentFixApp extends StatelessWidget {
         ChangeNotifierProvider<OfferModelProvider>(
           create: (context) => OfferModelProvider(),
         ),
-         ChangeNotifierProvider<DrawingRoomProvider>(
+        ChangeNotifierProvider<DrawingRoomProvider>(
           create: (context) => DrawingRoomProvider(),
         ),
-          ChangeNotifierProvider<TvlaunchProvider>(
+        ChangeNotifierProvider<TvlaunchProvider>(
           create: (context) => TvlaunchProvider(),
         ),
       ],

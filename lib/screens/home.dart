@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
+import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
-
-import '../providers/bottom_navigation_provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

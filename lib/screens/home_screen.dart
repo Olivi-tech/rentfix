@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/db_servies/cloud_services.dart';
-import 'package:rent_fix/screens/listing_detail_screen.dart';
+import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {

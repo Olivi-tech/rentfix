@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/screens/create_account_addpic_screen.dart';
 import 'package:rent_fix/screens/create_account_otp_screen.dart';
-import 'package:rent_fix/screens/property_add_photo.dart';
-import 'package:rent_fix/screens/property_address_screen.dart';
-import 'package:rent_fix/screens/property_bathroom_screen.dart';
 import 'package:rent_fix/screens/screens.dart';
 
 class Routers {

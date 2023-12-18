@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinput/pinput.dart';
 import 'package:rent_fix/constants/constants.dart';
-import 'package:rent_fix/widgets/custom_button.dart';
-import 'package:rent_fix/widgets/custom_size.dart';
-import 'package:rent_fix/widgets/custom_text.dart';
+import 'package:rent_fix/widgets/widgets.dart';
 
 class OTPVerificationScreen extends StatelessWidget {
   const OTPVerificationScreen({super.key});

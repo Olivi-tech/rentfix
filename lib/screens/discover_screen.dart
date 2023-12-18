@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/db_servies/db_servies.dart';
-import 'package:rent_fix/screens/filter_bottom_screen.dart';
 import 'package:rent_fix/screens/screens.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
@@ -358,7 +357,7 @@ class DiscoverScreen extends StatelessWidget {
                                                     ),
                                                     CustomText(
                                                       label:
-                                                          '\Available by: ${data[index][AppText.availableDate]}',
+                                                          'Available by: ${data[index][AppText.availableDate]}',
                                                       color: AppColors.black,
                                                       size: FontSize.small,
                                                       weight: FontWeight.w300,
