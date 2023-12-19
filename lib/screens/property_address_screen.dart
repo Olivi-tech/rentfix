@@ -259,6 +259,7 @@ class _PropertyAddressState extends State<PropertyAddress> {
                                   hintText: 'Enter Unit',
                                   borderColor: AppColors.pastelBlue,
                                   controller: unitController,
+                                  keyboardType: TextInputType.number,
                                   fillColor: AppColors.white,
                                   textInputFormatter: [
                                     FilteringTextInputFormatter.digitsOnly,

@@ -18,7 +18,6 @@ class AppImages {
   static const worldMap = 'assets/images/world_map.png';
   static const area = 'assets/images/area.png';
   static const houseIcon = 'assets/images/house_icon.png';
-  static const splashHouse = 'assets/images/splash_house.png';
   static const sofaSet = 'assets/images/sofa_set.png';
   static const splashLayer = 'assets/images/splash_layer.png';
   static const fullHouse = 'assets/images/splash.png';

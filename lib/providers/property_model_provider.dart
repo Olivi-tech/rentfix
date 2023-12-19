@@ -12,7 +12,6 @@ class PropertyProvider extends ChangeNotifier {
   late String appartmentSize;
   late String bedroom;
   late String bathroom;
-
   late String drawingroom;
   late String tvroom;
   late String furnishing;

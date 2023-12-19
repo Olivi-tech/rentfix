@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class OfferModelProvider extends ChangeNotifier {
-  late String agreement;
-  late String rent;
-  late String avaliableDate;
+  String agreement = '';
+  String rent = '';
+  String avaliableDate = '';
 
   set setAgreement(String value) {
     agreement = value;

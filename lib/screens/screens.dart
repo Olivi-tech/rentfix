@@ -25,4 +25,4 @@ export 'listing_detail_screen.dart';
 export 'discover_screen.dart';
 export 'home_screen.dart';
 export 'offer_screen.dart';
-export 'home.dart';
+export 'navigation_screen.dart';

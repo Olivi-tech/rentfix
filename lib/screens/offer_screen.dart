@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/db_servies/cloud_services.dart';
+import 'package:rent_fix/models/models.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/widgets.dart';
@@ -353,11 +354,15 @@ class _OfferScreenState extends State<OfferScreen> {
           width: MediaQuery.of(context).size.width,
           textColor: AppColors.white,
           onPressed: () async {
-            await CloudServices.uploadOfferDataToFirebase(
-                context: context,
+            OfferModel offerdata = OfferModel(
                 rentAggrement: context.read<OfferModelProvider>().getAgreement,
                 rent: int.parse(context.read<OfferModelProvider>().getRent),
                 date: context.read<OfferModelProvider>().getAvaliableDate);
+            AppUtils.showCircularIndicator(context);
+            await CloudServices.uploadOfferDataToFirebase(
+              context: context,
+              offerModel: offerdata,
+            );
           },
         )
       ]),

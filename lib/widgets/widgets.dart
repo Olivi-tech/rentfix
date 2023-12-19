@@ -7,7 +7,7 @@ export 'custom_list_tile.dart';
 export 'custom_divider.dart';
 export 'custom_textfield.dart';
 export 'custom_shape_container.dart';
-export '../screens/home.dart';
+export '../screens/navigation_screen.dart';
 export 'custom_property_container.dart';
 export 'custom_dropdown.dart';
 export '../routes.dart';

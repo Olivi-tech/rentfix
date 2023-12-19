@@ -5,8 +5,10 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_fix/constants/constants.dart';
 import 'package:rent_fix/db_servies/db_servies.dart';
+import 'package:rent_fix/models/models.dart';
 import 'package:rent_fix/providers/providers.dart';
 import 'package:rent_fix/screens/screens.dart';
+import 'package:rent_fix/utils/app_utils.dart';
 import 'package:rent_fix/widgets/widgets.dart';
 
 class PropertyListingDetails extends StatefulWidget {
@@ -23,6 +25,7 @@ class PropertyListingDetails extends StatefulWidget {
 
 class _PropertyListingDetailsState extends State<PropertyListingDetails> {
   late PropertyProvider imagePickerProvider;
+
   @override
   Widget build(BuildContext context) {
     final propertyProvider = Provider.of<PropertyProvider>(context);
@@ -410,22 +413,28 @@ class _PropertyListingDetailsState extends State<PropertyListingDetails> {
             CustomButton(
               width: MediaQuery.of(context).size.width,
               onPressed: () async {
+                AppUtils.showCircularIndicator(context);
+                PropertyModel propertydata = PropertyModel(
+                    name: propertyProvider.getName,
+                    address: propertyProvider.getAddress,
+                    bedrooms: int.parse(propertyProvider.getBedroom),
+                    bathrooms: int.parse(propertyProvider.getBathroom),
+                    drawingrooms: int.parse(propertyProvider.getdrawingroom),
+                    tvrooms: int.parse(propertyProvider.gettvroom),
+                    appartmentSize:
+                        int.parse(propertyProvider.getAppartmentSize),
+                    propertyType: propertyProvider.getPropertyType,
+                    rentAggrement: propertyProvider.getAgreement,
+                    furnishing: propertyProvider.getFurnishing,
+                    rent: int.parse(propertyProvider.getRent),
+                    date: propertyProvider.getAvaliableDate,
+                    description: propertyProvider.getDescription,
+                    images: propertyProvider.getListPhotos,
+                    id: '',
+                    propertyListDate: '');
                 await CloudServices.uploadPropertyDataToFirebase(
                   context: context,
-                  name: propertyProvider.getName,
-                  address: propertyProvider.getAddress,
-                  bedrooms: int.parse(propertyProvider.getBedroom),
-                  bathrooms: int.parse(propertyProvider.getBathroom),
-                  drawingrooms: int.parse(propertyProvider.getdrawingroom),
-                  tvrooms: int.parse(propertyProvider.gettvroom),
-                  appartmentSize: int.parse(propertyProvider.getAppartmentSize),
-                  propertyType: propertyProvider.getPropertyType,
-                  rentAggrement: propertyProvider.getAgreement,
-                  furnishing: propertyProvider.getFurnishing,
-                  rent: int.parse(propertyProvider.getRent),
-                  date: propertyProvider.getAvaliableDate,
-                  description: propertyProvider.getDescription,
-                  images: propertyProvider.getListPhotos,
+                  propertyModel: propertydata,
                 );
               },
               btnColor: AppColors.turquoise,

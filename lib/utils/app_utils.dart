@@ -1,6 +1,9 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:rent_fix/constants/constants.dart';
 
 class AppUtils {
   static Future<List<String>> getImagesFromGallery() async {
@@ -33,5 +36,21 @@ class AppUtils {
   static String formatDateWithoutTime(DateTime dateTime) {
     final formatter = DateFormat('dd/MM/yyyy');
     return formatter.format(dateTime);
+  }
+
+
+   static void showCircularIndicator(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const Center(
+          child: CupertinoActivityIndicator(
+        color: AppColors.turquoise,
+      )),
+    );
+  }
+
+  static void hideCircularIndicator(BuildContext context) {
+    Navigator.of(context).pop();
   }
 }

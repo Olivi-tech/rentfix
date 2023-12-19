@@ -1,25 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constants/constants.dart';
 
-class OfferData {
-  final String rentAggrement;
-  final int rent;
-  final String date;
+class OfferModel {
+  String rentAggrement;
+  int rent;
+  String date;
 
-  OfferData({
+  OfferModel({
     required this.rentAggrement,
     required this.rent,
     required this.date,
   });
 
-  factory OfferData.fromDocument(DocumentSnapshot doc) {
+  factory OfferModel.fromDocument(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>;
 
-    DateTime date = (data[AppText.availableDate] as Timestamp).toDate();
+    DateTime date = (data['available_date'] as Timestamp).toDate();
 
-    return OfferData(
-      rentAggrement: data[AppText.rentAggrement] ?? '',
-      rent: data[AppText.rent] ?? '',
+    return OfferModel(
+      rentAggrement: data['rent_aggrement'] ?? '',
+      rent: data['monthly_rent'] ?? '',
       date: date.toString(),
     );
   }
@@ -27,8 +27,8 @@ class OfferData {
   Map<String, dynamic> toJson() {
     return {
       AppText.rentAggrement: rentAggrement,
-      AppText.rent: rent,
-      AppText.availableDate: date,
+      'monthly_rent': rent,
+      'available_date': date,
     };
   }
 }

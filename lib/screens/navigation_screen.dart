@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
                 child: SvgPicture.asset(
                   AppImages.search,
                   colorFilter: ColorFilter.mode(
-                    indexValue.selectedIndex == 0
+                    indexValue.selectedIndex == 1
                         ? AppColors.darkGreen
                         : AppColors.pastelBlue,
                     BlendMode.srcIn,
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                 child: SvgPicture.asset(
                   AppImages.chat,
                   colorFilter: ColorFilter.mode(
-                    indexValue.selectedIndex == 0
+                    indexValue.selectedIndex == 3
                         ? AppColors.darkGreen
                         : AppColors.pastelBlue,
                     BlendMode.srcIn,
